@@ -17,16 +17,22 @@ let dadoSeleccionado = "";
 
 const contenedor = document.getElementById('contenedor'); //contenedor de los dados
 
-let dadosMano = 10;
+let dadosMano = 10; //cantidad de dados en la mano
 
-let dadosJugados = 0;
+let dadosJugados = 0; //cantidad de dados jugados
 
 let desplazamientoManoJugada = -430; //en px, son 215 por es lo que ocupa una pieza en horizontal
+
+let caraNecesaria = 4; //cara necesaria para poner el dado correcto (pongo 1 por defecto para hacer tests)
 
 
 const sonidoSeleccion = document.getElementById('sonidoSeleccion');
 
 const sonidoCreacion = document.getElementById('sonidoCreacionDados');
+
+const sonidoErrorDado = document.getElementById('sonidoErrorDado');
+
+sonidoErrorDado.volume = 0.2;
 
 sonidoCreacion.volume = 0.2;
 sonidoCreacion.play();
@@ -61,40 +67,95 @@ const imagenes = document.querySelectorAll(".dado");
 imagenes.forEach(function(imagen) {
     imagen.addEventListener("click", function() {
 
-        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-        sonidoSeleccion.play();
-
         // Obtener todas las clases del elemento
         const clases = this.className.split(" ");
         
         // Obtener la última clase
         const ultimaClase = clases[clases.length - 1];
 
-        dadoSeleccionado = ultimaClase;
+        dadoSeleccionado = parseInt(ultimaClase);
 
-        const manoJugada = document.getElementById('manoJugada');
+        //--------------------
 
-        const resultadoJugada = document.createElement('img');
-
-        resultadoJugada.src = `sprites/dados_h/hdado11.png`;
-
-        resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
-
-        manoJugada.appendChild(resultadoJugada);
-
-        console.log("El dado seleccionado es: " + dadoSeleccionado)
-
-        this.remove();
+        let cifra2 = dadoSeleccionado % 10;
         
-        contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
-        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-        manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
-        dadosMano--;
-        dadosJugados++;
-        desplazamientoManoJugada = desplazamientoManoJugada - 430
-        
+        let cifra1  = Math.floor(dadoSeleccionado/10);
 
-        
+
+        //--------------------
+
+        if (cifra1==caraNecesaria) { //la primera cara es la que vale
+
+            caraNecesaria = cifra2
+
+            const manoJugada = document.getElementById('manoJugada');
+
+            const resultadoJugada = document.createElement('img');
+
+            resultadoJugada.src = `sprites/dados/dado${dadoSeleccionado}.png`;
+
+            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+            manoJugada.appendChild(resultadoJugada);
+
+            console.log("El dado seleccionado es: " + dadoSeleccionado)
+
+            this.remove();
+            
+            contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
+            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+            manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+            dadosMano--;
+            dadosJugados++;
+            desplazamientoManoJugada = desplazamientoManoJugada - 430
+
+            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+            sonidoSeleccion.play();
+
+        } else if (cifra2==caraNecesaria) { //la segunda cara es la que vale
+
+            caraNecesaria = cifra1
+
+            const manoJugada = document.getElementById('manoJugada');
+
+            const resultadoJugada = document.createElement('img');
+
+            resultadoJugada.src = `sprites/dados/dado${dadoSeleccionado}.png`;
+
+            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+            resultadoJugada.style.transform = "rotate(90deg)";
+
+            manoJugada.appendChild(resultadoJugada);
+
+            console.log("El dado seleccionado es: " + dadoSeleccionado)
+
+            this.remove();
+            
+            contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
+            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+            manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+            dadosMano--;
+            dadosJugados++;
+            desplazamientoManoJugada = desplazamientoManoJugada - 430
+
+            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+            sonidoSeleccion.play();
+
+        } else {
+
+            this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
+
+            this.classList.add('vibrar');
+
+            sonidoErrorDado.play();
+            setTimeout(() => {
+                this.style.filter = "none"
+                this.classList.remove('vibrar');
+            }, 500);
+            
+            console.log("Esa ficha no vale!")
+        }
+
     });
 });
 
