@@ -12,8 +12,6 @@ A "simple" domino game.
 <div 
   cd killdomino/
 </div>
-<span style="color:red">Este texto es rojo</span>
-
 <p></p>
 <h3>Then execute "npm init":</h3>
 <div>
