@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #29465e;
+}
+
+#contenedor {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    padding: 10px;
+    /*background-color: black;*/
+    width: 1000px;
+    height: 100px;
+}
+
+.dado {
+    /*
+    width: 33px;
+    height: 83px;
+    */
+    width: 33px;
+    height: 82px;
+    background-color: transparent;
+    cursor: grab;
+    position: relative;
+
+    
+    /*
+    scale: 180%
+    */
+    scale: 260%;
+    top: -40px;
+    image-rendering: pixelated;
+    transition: transform 0.1s;
+    -webkit-user-drag: none; /* Chrome, Safari, Opera */
+    -moz-user-drag: none;    /* Firefox */
+    -ms-user-drag: none;     /* Internet Explorer */
+    -webkit-user-select: none; /* Desactivar selección en WebKit */
+    -moz-user-select: none;    /* Desactivar selección en Firefox */
+    -ms-user-select: none;     /* Desactivar selección en Internet Explorer */
+    user-select: none;         /* Desactivar selección en navegadores modernos */
+}
+
+.dado:hover {
+    animation: flotar 0.6s ease-in-out infinite;
+    /*border: 2px solid cyan;*/
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0); /* Posición original */
+    }
+    50% {
+        transform: translateY(-10px); /* Elevarse 10 píxeles */
+    }
+}    
+
+
+#manoJugada{
+    top:500px;
+    position: absolute;
+    display: grid;
+    margin-left: -500px;
+    grid-auto-flow: dense; /* Avanza hacia la izquierda conforme se agregan más elementos */
+    width: 300px;
+    transition: margin-left 0.5s ease;
+}
+
+.dadoJugado {
+
+    width: 33px;
+    height: 82px;
+    scale: 260%;
+    margin-left: -20px;
+    transform: rotate(-90deg);
+    image-rendering: pixelated;
+    -webkit-user-drag: none; /* Chrome, Safari, Opera */
+    -moz-user-drag: none;    /* Firefox */
+    -ms-user-drag: none;     /* Internet Explorer */
+    -webkit-user-select: none; /* Desactivar selección en WebKit */
+    -moz-user-select: none;    /* Desactivar selección en Firefox */
+    -ms-user-select: none;     /* Desactivar selección en Internet Explorer */
+    user-select: none;         /* Desactivar selección en navegadores modernos */
+
+}
