@@ -1,6 +1,6 @@
+![domino](https://github.com/user-attachments/assets/1ee6ee70-516b-458a-bd6a-35a74caaafdf)
 # killdomino
-A "simple" domino game.![domino](https://github.com/user-attachments/assets/1ee6ee70-516b-458a-bd6a-35a74caaafdf)
-
+A "simple" domino game.
 
 <h1>How to run the project?</h1>
 <p>
