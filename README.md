@@ -6,24 +6,24 @@ A "simple" domino game.
   To run the project you need to install <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://www.electronjs.org/">ElectronJS</a>.
 </p>
 <p></p>
-<p>First go to the folder with "cd" command.</p>
+<h2>First go to the folder with "cd" command.</h2>
 <p></p>
 <div>
   cd killdomino/
 </div>
 <p></p>
-<p>Then execute "npm init"</p>
+<h2>Then execute "npm init":</h2>
 <div>
   npm init
 </div>
 <p></p>
-<p>Then install electron on the project folder</p>
+<h2>Then install electron on the project folder:</h2>
 <p></p>
 <div>
   npm install --save-dev electron
 </div>
 <p></p>
-<p>Then run the project using:</p>
+<h2>Then run the project using:</h2>
 <p></p>
 <div>
   npm run start
