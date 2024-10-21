@@ -1,13 +1,6 @@
 # killdomino
 A "simple" domino game.
 
-<style>
-  .code{
-    background-color: purple;
-    color:yellow;
-  }
-</style>
-
 <h1>How to run the project?</h1>
 <p>
   To run the project you need to install <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://www.electronjs.org/">ElectronJS</a>.
@@ -15,7 +8,7 @@ A "simple" domino game.
 <p></p>
 <p>First go to the folder with "cd" command.</p>
 <p></p>
-<div class="code" style="background-color: purple;color:yellow;">
+<div style="color:yellow;">
   cd killdomino/
 </div>
 <p></p>
