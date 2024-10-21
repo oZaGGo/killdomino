@@ -8,24 +8,24 @@ A "simple" domino game.
 <p></p>
 <p>First go to the folder with "cd" command.</p>
 <p></p>
-<div style="color:yellow;">
+<div>
   cd killdomino/
 </div>
 <p></p>
 <p>Then execute "npm init"</p>
-<div class="code">
+<div>
   npm init
 </div>
 <p></p>
 <p>Then install electron on the project folder</p>
 <p></p>
-<div class="code">
+<div>
   npm install --save-dev electron
 </div>
 <p></p>
 <p>Then run the project using:</p>
 <p></p>
-<div class="code">
+<div>
   npm run start
 </div>
 
