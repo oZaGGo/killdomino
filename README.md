@@ -15,7 +15,7 @@ A "simple" domino game.
 <p></p>
 <p>First go to the folder with "cd" command.</p>
 <p></p>
-<div class="code">
+<div class="code" style="background-color: purple;color:yellow;">
   cd killdomino/
 </div>
 <p></p>
