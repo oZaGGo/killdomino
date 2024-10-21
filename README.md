@@ -9,9 +9,11 @@ A "simple" domino game.
 <p></p>
 <h3>First go to the folder with "cd" command.</h3>
 <p></p>
-<div style="color:red">
+<div 
   cd killdomino/
 </div>
+<span style="color:red">Este texto es rojo</span>
+
 <p></p>
 <h3>Then execute "npm init":</h3>
 <div>
