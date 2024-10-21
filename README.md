@@ -9,7 +9,7 @@ A "simple" domino game.
 <p></p>
 <h3>First go to the folder with "cd" command.</h3>
 <p></p>
-<div 
+<div> 
   cd killdomino/
 </div>
 <p></p>
