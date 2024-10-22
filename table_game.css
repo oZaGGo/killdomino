@@ -84,11 +84,10 @@ body {
 
 .dadoJugado {
 
-    width: 33px;
-    height: 82px;
+    width: 79px;
+    height: 36px;
     scale: 260%;
     margin-left: -20px;
-    transform: rotate(-90deg);
     image-rendering: pixelated;
     -webkit-user-drag: none; /* Chrome, Safari, Opera */
     -moz-user-drag: none;    /* Firefox */

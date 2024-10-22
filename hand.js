@@ -32,9 +32,24 @@ const sonidoCreacion = document.getElementById('sonidoCreacionDados');
 
 const sonidoErrorDado = document.getElementById('sonidoErrorDado');
 
+const atmos = document.getElementById('atmos');
+
+const bmusic = document.getElementById('bmusic');
+
 sonidoErrorDado.volume = 0.2;
 
 sonidoCreacion.volume = 0.2;
+
+atmos.volume = 0.05;
+
+atmos.loop = true;
+
+bmusic.loop = true;
+
+bmusic.volume = 0.1;
+
+atmos.play();
+bmusic.play();
 sonidoCreacion.play();
 
 //Renderizar la mano
@@ -58,6 +73,53 @@ dadosSeleccionados.forEach((dado,index) => {
     }
     
 });
+
+//Crear sistema de turnos contra la IA
+
+let turno = 0; //0 es turno de la IA y 1 es turno del jugador
+
+let primerTurno = true; //Para simbolizar un supuesto "primer turno"
+
+setTimeout(() => {
+    if (primerTurno==true) {
+    
+
+        // Mezclamos los dados
+        for (let i = dados.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [dados[i], dados[j]] = [dados[j], dados[i]];
+        }
+      
+        // La IA selecciona el primer dado
+        let dadoSeleccionadoIA = dados.slice(0, 1);
+    
+        console.log("La IA ha seleccionado: " + dadoSeleccionadoIA)
+        const manoJugadaIA = document.getElementById('manoJugada');
+    
+        const resultadoJugadaIA = document.createElement('img');
+    
+        resultadoJugadaIA.src = `sprites/dados_h/hdado${dadoSeleccionadoIA}.png`;
+    
+        resultadoJugadaIA.className = `dadoJugado ${dadoSeleccionadoIA}`;
+    
+        manoJugadaIA.appendChild(resultadoJugadaIA);
+    
+        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+        dadosJugados++;
+        desplazamientoManoJugada = desplazamientoManoJugada - 430
+    
+        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+        sonidoSeleccion.play();
+    
+        let cifra2IA = dadoSeleccionadoIA % 10;
+    
+        caraNecesaria = cifra2IA
+    
+    }    
+}, 1000);
+
+
 
 
 // Seleccionar todas las imágenes con la clase "dado"
@@ -92,7 +154,7 @@ imagenes.forEach(function(imagen) {
 
             const resultadoJugada = document.createElement('img');
 
-            resultadoJugada.src = `sprites/dados/dado${dadoSeleccionado}.png`;
+            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
@@ -120,10 +182,10 @@ imagenes.forEach(function(imagen) {
 
             const resultadoJugada = document.createElement('img');
 
-            resultadoJugada.src = `sprites/dados/dado${dadoSeleccionado}.png`;
+            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
-            resultadoJugada.style.transform = "rotate(90deg)";
+            resultadoJugada.style.transform = "scaleX(-1)";
 
             manoJugada.appendChild(resultadoJugada);
 
