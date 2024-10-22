@@ -28,6 +28,7 @@ let caraNecesaria = 4; //cara necesaria para poner el dado correcto (pongo 1 por
 let dadoInvisible = 8; //dados invisible al que se quiere revelar
 
 
+
 const sonidoSeleccion = document.getElementById('sonidoSeleccion');
 
 const sonidoCreacion = document.getElementById('sonidoCreacionDados');
@@ -84,10 +85,12 @@ let turno = 0; //0 es turno de la IA y 1 es turno del jugador
 
 let primerTurno = true; //Para simbolizar un supuesto "primer turno"
 
+let fichasIA = 7; //Numero imaginario de fichas que tiene la ia
+
+//Primer dado de la partida
 setTimeout(() => {
     if (primerTurno==true) {
     
-
         // Mezclamos los dados
         for (let i = dados.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
@@ -119,16 +122,226 @@ setTimeout(() => {
         let cifra2IA = dadoSeleccionadoIA % 10;
     
         caraNecesaria = cifra2IA
+
+        turno=1;
     
     }    
 }, 1000);
 
+//Logica para el boton de pasar turno
+
+const passB = document.getElementById("passB");
+
+passB.addEventListener("click", function(){
+
+    if (turno==1){ //si le toca al jugador
+
+        console.log("He presionado el boton de turno")
+
+        turno=0;
+
+        turnoIA()
+
+    }
+
+})
+
+//funcion para que espere por cada iteracion del bucle
+function esperar(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+//funcion asincrona para pdoer usar los awaits
+async function turnoIA(){
+
+    let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
+
+    if (probabilidadFicha<=50){
+        fichasIAJugar = 1;
+    } else if (probabilidadFicha>50&&probabilidadFicha<=70) {
+        fichasIAJugar = 2;
+
+    }else if (probabilidadFicha>70&&probabilidadFicha<=80) {
+        fichasIAJugar = 3;
+
+    }else if (probabilidadFicha>80&&probabilidadFicha<=90) {
+        fichasIAJugar = 4;
+
+    }else if (probabilidadFicha>90&&probabilidadFicha<=100) {
+        fichasIAJugar = 5;
+
+    }
+
+    console.log("LA IA VA A JUGAR " + fichasIAJugar + " veces")
+
+    for (i=1;i<=fichasIAJugar;i++){
+
+        let segundaCaraFichaIA = 0;
+        let fichaIAResultante = 0;
+
+        const manoJugadaIA = document.getElementById('manoJugada');
+    
+        const resultadoJugadaIA = document.createElement('img');
+
+        console.log("La cara necesaria antes de la IA: " + caraNecesaria)
+
+        await esperar(800);
+
+        switch(caraNecesaria){
+            case 1:
+                    segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                    fichaIAResultante = 10 + segundaCaraFichaIA
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+
+                break;
+            case 2:
+                    segundaCaraFichaIA = Math.floor(Math.random() * 5) + 2
+                    fichaIAResultante = 20 + segundaCaraFichaIA
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                
+                break;
+            case 3:
+                    segundaCaraFichaIA = Math.floor(Math.random() * 4) + 3
+                    fichaIAResultante = 30 + segundaCaraFichaIA
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                break;
+            case 4:
+                    segundaCaraFichaIA = Math.floor(Math.random() * 3) + 4
+                    fichaIAResultante = 40 + segundaCaraFichaIA
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                break;
+            case 5:
+                    segundaCaraFichaIA = 6
+                    fichaIAResultante = 50 + segundaCaraFichaIA
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                break;
+            case 6:
+                    segundaCaraFichaIA = 6
+                    fichaIAResultante = 60 + segundaCaraFichaIA
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                break;
+            default:
+                break;                        
+        }
+    }
+
+    fichasIA = fichasIA - fichasIAJugar;
 
 
+    turno = 1;
+}
 
-// Seleccionar todas las imágenes con la clase "dado"
-const imagenes = document.querySelectorAll(".dado");
 
+//Logica del boton para pedir fichas
 const giveMeButton = document.getElementById("giveMeButton");
 
 const contadorFichas = document.getElementById("contadorFichas");
@@ -155,6 +368,11 @@ giveMeButton.addEventListener("click", function(){
     }
 
 })
+
+
+
+// Seleccionar todas las imágenes con la clase "dado"
+const imagenes = document.querySelectorAll(".dado");
 
 // Recorrer cada imagen y agregarle el evento de click
 imagenes.forEach(function(imagen) {
