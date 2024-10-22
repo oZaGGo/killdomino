@@ -128,6 +128,8 @@ setTimeout(() => {
     }    
 }, 1000);
 
+
+
 //Logica para el boton de pasar turno
 
 const passB = document.getElementById("passB");
@@ -153,7 +155,7 @@ function esperar(ms) {
 
 //funcion asincrona para pdoer usar los awaits
 async function turnoIA(){
-
+    
     let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
 
     if (probabilidadFicha<=50){
@@ -171,6 +173,7 @@ async function turnoIA(){
         fichasIAJugar = 5;
 
     }
+    
 
     console.log("LA IA VA A JUGAR " + fichasIAJugar + " veces")
 
@@ -214,8 +217,60 @@ async function turnoIA(){
 
                 break;
             case 2:
-                    segundaCaraFichaIA = Math.floor(Math.random() * 5) + 2
-                    fichaIAResultante = 20 + segundaCaraFichaIA
+                    segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                    if(segundaCaraFichaIA<2){
+                        fichaIAResultante = 12;
+
+                        console.log("La IA ha jugado: " + fichaIAResultante)
+
+                        resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    
+                        resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+
+                        resultadoJugadaIA.style.transform = "scaleX(-1)";
+                    
+                        manoJugadaIA.appendChild(resultadoJugadaIA);
+                    
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+                           
+                        dadosJugados++;
+                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    
+                        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                        sonidoSeleccion.play();
+                    
+                        caraNecesaria = segundaCaraFichaIA
+                        console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    } else {
+
+                        fichaIAResultante = 20 + segundaCaraFichaIA
+
+                        console.log("La IA ha jugado: " + fichaIAResultante)
+
+                        resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    
+                        resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    
+                        manoJugadaIA.appendChild(resultadoJugadaIA);
+                    
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                        dadosJugados++;
+                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    
+                        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                        sonidoSeleccion.play();
+                    
+                        caraNecesaria = segundaCaraFichaIA
+                        console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+
+                    }
+                break;
+            case 3:
+                segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                if(segundaCaraFichaIA<3){
+                    fichaIAResultante = (segundaCaraFichaIA*10) + 3;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
 
@@ -223,10 +278,13 @@ async function turnoIA(){
                 
                     resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
                 
+                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                 
                     manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+                       
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
                 
@@ -235,10 +293,8 @@ async function turnoIA(){
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-                
-                break;
-            case 3:
-                    segundaCaraFichaIA = Math.floor(Math.random() * 4) + 3
+                } else {
+
                     fichaIAResultante = 30 + segundaCaraFichaIA
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -250,7 +306,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                 
                     manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
                 
@@ -259,9 +315,37 @@ async function turnoIA(){
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+
+                }
                 break;
             case 4:
-                    segundaCaraFichaIA = Math.floor(Math.random() * 3) + 4
+                segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                if(segundaCaraFichaIA<4){
+                    fichaIAResultante = (segundaCaraFichaIA*10) + 4;
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+
+                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+                       
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                } else {
+
                     fichaIAResultante = 40 + segundaCaraFichaIA
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -273,7 +357,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                 
                     manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
                 
@@ -282,9 +366,37 @@ async function turnoIA(){
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+
+                }
                 break;
             case 5:
-                    segundaCaraFichaIA = 6
+                segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                if(segundaCaraFichaIA<5){
+                    fichaIAResultante = (segundaCaraFichaIA*10) + 5;
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+
+                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+                        
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                } else {
+
                     fichaIAResultante = 50 + segundaCaraFichaIA
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -296,7 +408,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                 
                     manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
                 
@@ -305,9 +417,37 @@ async function turnoIA(){
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+
+                }
                 break;
             case 6:
-                    segundaCaraFichaIA = 6
+                segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                if(segundaCaraFichaIA<6){
+                    fichaIAResultante = (segundaCaraFichaIA*10) + 6;
+
+                    console.log("La IA ha jugado: " + fichaIAResultante)
+
+                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                
+                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+
+                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+                
+                    manoJugadaIA.appendChild(resultadoJugadaIA);
+                
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+                        
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                } else {
+
                     fichaIAResultante = 60 + segundaCaraFichaIA
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -319,7 +459,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                 
                     manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
                 
@@ -328,6 +468,8 @@ async function turnoIA(){
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+
+                }
                 break;
             default:
                 break;                        
@@ -469,4 +611,3 @@ imagenes.forEach(function(imagen) {
 
     });
 });
-
