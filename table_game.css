@@ -85,7 +85,7 @@ body {
 .dadoJugado {
 
     width: 79px;
-    height: 36px;
+    height: 38px;
     scale: 260%;
     margin-left: -20px;
     image-rendering: pixelated;
@@ -98,3 +98,11 @@ body {
     user-select: none;         /* Desactivar selección en navegadores modernos */
 
 }
+
+
+.giveMeB {
+    width: 50px;
+    height: 50px;
+    padding: 70px;
+}
+

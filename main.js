@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow,Menu } = require('electron')
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -9,6 +9,8 @@ const createWindow = () => {
   })
 
   win.loadFile('index.html')
+  // Quitar la barra de menú
+  //Menu.setApplicationMenu(null);    para cando teña que compilar a app que se quiten os menus de navegador
 }
 
 app.whenReady().then(() => {

@@ -25,6 +25,8 @@ let desplazamientoManoJugada = -430; //en px, son 215 por es lo que ocupa una pi
 
 let caraNecesaria = 4; //cara necesaria para poner el dado correcto (pongo 1 por defecto para hacer tests)
 
+let dadoInvisible = 8; //dados invisible al que se quiere revelar
+
 
 const sonidoSeleccion = document.getElementById('sonidoSeleccion');
 
@@ -46,7 +48,7 @@ atmos.loop = true;
 
 bmusic.loop = true;
 
-bmusic.volume = 0.1;
+bmusic.volume = 0.07;
 
 atmos.play();
 bmusic.play();
@@ -59,16 +61,18 @@ dadosSeleccionados.forEach((dado,index) => {
         const img = document.createElement('img');
         img.src = `sprites/dados/dado${dado}.png`;
         img.alt = dado;
-        img.className = `dado dado${(index % 10) + 1} ${dado}`;  // Asignar clases
+        img.className = `dado ${dado}`;  // Asignar clases
+        img.id = `dado${(index % 10) + 1}`;
         img.draggable = false;
         contenedor.appendChild(img);
     }else{
         const img = document.createElement('img');
-        img.src = "sprites/domino.png";
+        img.src = `sprites/dados/dado${dado}.png`;
         img.alt = dado;
-        img.className = `dado dado${(index % 10) + 1} ${dado}`;  // Asignar clases
+        img.className = `dado ${dado}`;  // Asignar clases
+        img.id = `dado${(index % 10) + 1}`;
         img.draggable = false;
-        img.style = "display: none;";
+        img.style.display = "none";
         contenedor.appendChild(img);
     }
     
@@ -124,6 +128,33 @@ setTimeout(() => {
 
 // Seleccionar todas las imágenes con la clase "dado"
 const imagenes = document.querySelectorAll(".dado");
+
+const giveMeButton = document.getElementById("giveMeButton");
+
+const contadorFichas = document.getElementById("contadorFichas");
+
+let fichasContadas = 3;
+
+giveMeButton.addEventListener("click", function(){
+    
+
+    if (dadoInvisible<=10){
+
+        let dadoInv = document.getElementById(`dado${dadoInvisible}`)
+
+        dadoInv.style = "display:block !important"
+
+        dadoInvisible++;
+
+        fichasContadas--
+
+        contadorFichas.innerText = `${fichasContadas}/3`
+
+    } else {
+        console.log("No puedes pillar mas fichas!")
+    }
+
+})
 
 // Recorrer cada imagen y agregarle el evento de click
 imagenes.forEach(function(imagen) {
