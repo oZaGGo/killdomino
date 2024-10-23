@@ -179,7 +179,7 @@ function piecesLogic() {
                             
                             console.log("Esa ficha no vale!")
                         }
-                        break;
+                        break;    
                     default:
                         console.log("Algo ha salido mal al comparar las fichas especiales!")
                         break;    
