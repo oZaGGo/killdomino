@@ -2,6 +2,8 @@
 # killdomino 🔪🎲
 A "simple" domino game.
 
+<a href="https://www.youtube.com/@killdominogame">Youtube channel</a>
+
 <h1>How to run the project?💻</h1>
 <p>
   To run the project you need to install <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://www.electronjs.org/">ElectronJS</a>.
