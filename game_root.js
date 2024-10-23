@@ -20,7 +20,6 @@ bmusic.play();
 
 //Renderizar la mano randomizada y el primer dado de la partida
 
-let dados = [11,12,13,14,15,16,22,23,24,25,26,33,34,35,36,44,45,46,55,56,66] //todos los dados disponibles
 
 // Mezclar la lista usando el algoritmo de Fisher-Yates
 for (let i = dados.length - 1; i > 0; i--) {
@@ -38,21 +37,42 @@ dadosSeleccionados.forEach((dado,index) => {
 
     if (index<7) {
         const img = document.createElement('img');
-        img.src = `sprites/dados/dado${dado}.png`;
-        img.alt = dado;
-        img.className = `dado ${dado}`;  // Asignar clases
-        img.id = `dado${(index % 10) + 1}`;
-        img.draggable = false;
-        contenedor.appendChild(img);
+
+        if (dado.length<3){
+            img.src = `sprites/dados/dado${dado}.png`;
+            img.alt = dado;
+            img.className = `dado ${dado}`;  // Asignar clases
+            img.id = `dado${(index % 10) + 1}`;
+            img.draggable = false;
+            contenedor.appendChild(img);
+        }else{
+            img.src = `sprites/dados/dado${dado}.gif`;
+            img.alt = dado;
+            img.className = `dado ${dado}`;  // Asignar clases
+            img.id = `dado${(index % 10) + 1}`;
+            img.draggable = false;
+            contenedor.appendChild(img);
+        }
+        
     }else{
         const img = document.createElement('img');
-        img.src = `sprites/dados/dado${dado}.png`;
-        img.alt = dado;
-        img.className = `dado ${dado}`;  // Asignar clases
-        img.id = `dado${(index % 10) + 1}`;
-        img.draggable = false;
-        img.style.display = "none";
-        contenedor.appendChild(img);
+        if (dado.length<3){
+            img.src = `sprites/dados/dado${dado}.png`;
+            img.alt = dado;
+            img.className = `dado ${dado}`;  // Asignar clases
+            img.id = `dado${(index % 10) + 1}`;
+            img.draggable = false;
+            img.style.display = "none";
+            contenedor.appendChild(img);
+        }else{
+            img.src = `sprites/dados/dado${dado}.gif`;
+            img.alt = dado;
+            img.className = `dado ${dado}`;  // Asignar clases
+            img.id = `dado${(index % 10) + 1}`;
+            img.draggable = false;
+            img.style.display = "none";
+            contenedor.appendChild(img);
+        }
     }
     
 });
@@ -65,17 +85,19 @@ sonidoCreacion.play(); //Reproduce un sonido despues de crear los dados en la ma
 
 const sonidoSeleccion = document.getElementById('sonidoSeleccion');
 
+let dadosN = [11,12,13,14,15,16,22,23,24,25,26,33,34,35,36,44,45,46,55,56,66] //Dados normales
+
 setTimeout(() => {
     if (primerTurno==true) {
     
         // Mezclamos los dados
-        for (let i = dados.length - 1; i > 0; i--) {
+        for (let i = dadosN.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
-            [dados[i], dados[j]] = [dados[j], dados[i]];
+            [dadosN[i], dadosN[j]] = [dadosN[j], dadosN[i]];
         }
       
         // La IA selecciona el primer dado
-        let dadoSeleccionadoIA = dados.slice(0, 1);
+        let dadoSeleccionadoIA = dadosN.slice(0, 1);
     
         console.log("La IA ha seleccionado: " + dadoSeleccionadoIA)
         const manoJugadaIA = document.getElementById('manoJugada');

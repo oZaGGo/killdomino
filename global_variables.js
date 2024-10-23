@@ -1,3 +1,11 @@
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+let dados = ["11", "12", "13", "14", "15", "16", "22", "23", "24", "25", "26", "33", "34", "35", "36", "44", "45", "46", "55", "56", "66"
+,"12t","23t","34t","56t","16t"] //todos los dados disponibles
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 let dadoSeleccionado = "";
 
 let dadosMano = 10; //cantidad de dados en la mano
@@ -6,10 +14,11 @@ let dadosJugados = 0; //cantidad de dados jugados
 
 let desplazamientoManoJugada = -430; //en px, son 215 por es lo que ocupa una pieza en horizontal
 
-let caraNecesaria = 4; //cara necesaria para poner el dado correcto (pongo 1 por defecto para hacer tests)
+let caraNecesaria = ""; //cara necesaria para poner el dado correcto (pongo 1 por defecto para hacer tests)
 
 let dadoInvisible = 8; //dados invisible al que se quiere revelar
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Crear sistema de turnos contra la IA
 

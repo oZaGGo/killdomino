@@ -1,8 +1,6 @@
 // Logica de la IA para responder a la juagda del jugador
 
 
-
-
 //funcion para que espere por cada iteracion del bucle
 function esperar(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
