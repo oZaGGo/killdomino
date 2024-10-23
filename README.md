@@ -29,6 +29,7 @@ A "simple" domino game.
 <div>
   npm run start
 </div>
+
 ![image](https://github.com/user-attachments/assets/20c03225-1ca1-47dd-8182-18239c709691)
 
 
