@@ -113,3 +113,13 @@ body {
     padding: 70px;
 
 }
+
+
+.contadorCombo{
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    width: 500px;
+    margin-bottom: 650px;
+    margin-left: -400px;
+}

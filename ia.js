@@ -55,6 +55,11 @@ async function turnoIA(){
 
         switch(caraNecesaria){
             case 1:
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+
                     segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                     fichaIAResultante = 10 + segundaCaraFichaIA
 
@@ -82,6 +87,11 @@ async function turnoIA(){
             case 2:
                     segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                     if(segundaCaraFichaIA<2){
+                        //Combo aplicado
+                        let combo = document.getElementById("combo");
+                        comboNumber++;
+                        combo.textContent = `Combo X${comboNumber}`
+
                         fichaIAResultante = 12;
 
                         console.log("La IA ha jugado: " + fichaIAResultante)
@@ -106,6 +116,10 @@ async function turnoIA(){
                         caraNecesaria = segundaCaraFichaIA
                         console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                     } else {
+                        //Combo aplicado
+                        let combo = document.getElementById("combo");
+                        comboNumber++;
+                        combo.textContent = `Combo X${comboNumber}`
 
                         fichaIAResultante = 20 + segundaCaraFichaIA
 
@@ -133,6 +147,11 @@ async function turnoIA(){
             case 3:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<3){
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 3;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -157,6 +176,11 @@ async function turnoIA(){
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                 } else {
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
 
                     fichaIAResultante = 30 + segundaCaraFichaIA
 
@@ -184,6 +208,11 @@ async function turnoIA(){
             case 4:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<4){
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 4;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -208,6 +237,11 @@ async function turnoIA(){
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                 } else {
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
 
                     fichaIAResultante = 40 + segundaCaraFichaIA
 
@@ -235,6 +269,12 @@ async function turnoIA(){
             case 5:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<5){
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 5;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -259,6 +299,11 @@ async function turnoIA(){
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                 } else {
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
 
                     fichaIAResultante = 50 + segundaCaraFichaIA
 
@@ -286,6 +331,12 @@ async function turnoIA(){
             case 6:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<6){
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 6;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -310,6 +361,11 @@ async function turnoIA(){
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                 } else {
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
 
                     fichaIAResultante = 60 + segundaCaraFichaIA
 

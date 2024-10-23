@@ -5,9 +5,6 @@ This script contains the events and the code to the UI in the hand.
 
 */
 
-
-
-
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Logica para el boton de pasar turno
@@ -21,6 +18,8 @@ passB.addEventListener("click", function(){
         console.log("He presionado el boton de turno")
 
         turno=0;
+
+        comboNumber=0;
 
         turnoIA()
 
