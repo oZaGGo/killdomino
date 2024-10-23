@@ -110,7 +110,7 @@ function piecesLogic() {
                             
                         if (cifra1==caraNecesaria) { //la primera cara es la que vale
 
-                            caraNecesaria = cifra1
+                            caraNecesaria = parseInt(cifra1)
 
                             const manoJugada = document.getElementById('manoJugada');
 
@@ -138,7 +138,7 @@ function piecesLogic() {
 
                         } else if (cifra2==caraNecesaria) { //la segunda cara es la que vale
 
-                            caraNecesaria = cifra2
+                            caraNecesaria = parseInt(cifra2)
 
                             const manoJugada = document.getElementById('manoJugada');
 
