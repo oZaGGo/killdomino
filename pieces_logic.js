@@ -1,3 +1,33 @@
+/*
+
+This script contains the logic of the pieces played. You can add your own pieces here and make the mod u want :)
+
+FOR MODERS!
+
+If u want to do a mod to this game is so easy. U have to put the sprite of ur piece in the "sprites" folder and put a name for the sprite with this format:
+
+1) For vertical sprite: dado{number of the top face + number of the bottom face + a character to indentify ur piece in the .js file}.png or gif(for animation).
+2) For horizontal sprite: the same but with an H as a first char, like "hdado12t.gif" for example.
+
+After implementing the sprites u have to go to the switch on this code and insert the case of ur piece and make the code.
+
+Ah! And one last thing... U have to put the name of ur pieces on the "global_variables.js" in the array "dados"
+
+Some notes:
+
+"cifra1" is the first number of the piece, "cifra2" is the second and "cifra3" is the type of the piece.
+
+"caraNecesaria" is the face that u require to continue the input sequence.
+
+
+The code is pretty simple but thats my help for u.
+
+Thx for keeping the game alive! 
+
+
+
+*/
+
 function piecesLogic() {
 
     // Seleccionar todas las imágenes con la clase "dado"

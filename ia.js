@@ -1,3 +1,13 @@
+/*
+
+This script contains the code to the response of the IA to the player choice.
+
+
+*/
+
+
+
+
 // Logica de la IA para responder a la juagda del jugador
 
 
