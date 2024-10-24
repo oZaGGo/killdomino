@@ -60,6 +60,9 @@ async function turnoIA(){
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
 
+                    //Vida sustraida del jugador
+                    playerHP--
+
                     segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                     fichaIAResultante = 10 + segundaCaraFichaIA
 
@@ -92,6 +95,9 @@ async function turnoIA(){
                         comboNumber++;
                         combo.textContent = `Combo X${comboNumber}`
 
+                        //Vida sustraida del jugador
+                        playerHP--
+
                         fichaIAResultante = 12;
 
                         console.log("La IA ha jugado: " + fichaIAResultante)
@@ -120,6 +126,9 @@ async function turnoIA(){
                         let combo = document.getElementById("combo");
                         comboNumber++;
                         combo.textContent = `Combo X${comboNumber}`
+
+                        //Vida sustraida del jugador
+                        playerHP--
 
                         fichaIAResultante = 20 + segundaCaraFichaIA
 
@@ -152,6 +161,9 @@ async function turnoIA(){
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
 
+                    //Vida sustraida del jugador
+                    playerHP--
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 3;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -181,6 +193,9 @@ async function turnoIA(){
                     let combo = document.getElementById("combo");
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
+
+                    //Vida sustraida del jugador
+                    playerHP--
 
                     fichaIAResultante = 30 + segundaCaraFichaIA
 
@@ -213,6 +228,9 @@ async function turnoIA(){
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
 
+                    //Vida sustraida del jugador
+                    playerHP--
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 4;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -242,6 +260,9 @@ async function turnoIA(){
                     let combo = document.getElementById("combo");
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
+
+                    //Vida sustraida del jugador
+                    playerHP--
 
                     fichaIAResultante = 40 + segundaCaraFichaIA
 
@@ -275,6 +296,9 @@ async function turnoIA(){
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
 
+                    //Vida sustraida del jugador
+                    playerHP--
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 5;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -304,6 +328,9 @@ async function turnoIA(){
                     let combo = document.getElementById("combo");
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
+
+                    //Vida sustraida del jugador
+                    playerHP--
 
                     fichaIAResultante = 50 + segundaCaraFichaIA
 
@@ -337,6 +364,9 @@ async function turnoIA(){
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
 
+                    //Vida sustraida del jugador
+                    playerHP--
+
                     fichaIAResultante = (segundaCaraFichaIA*10) + 6;
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -367,6 +397,9 @@ async function turnoIA(){
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
 
+                    //Vida sustraida del jugador
+                    playerHP--
+
                     fichaIAResultante = 60 + segundaCaraFichaIA
 
                     console.log("La IA ha jugado: " + fichaIAResultante)
@@ -395,8 +428,16 @@ async function turnoIA(){
         }
     }
 
-    fichasIA = fichasIA - fichasIAJugar;
+    //Despues del turno de la IA se aplican los daños
+
+    await esperar(1500);
+    let vidaJugador = document.getElementById("vidaJugador");
+
+    vidaJugador.textContent = `HP: ${playerHP}`;
+
+    combo.textContent="";
+
+    turno = 1; //Se devuelve el turno al jugador
 
 
-    turno = 1;
 }

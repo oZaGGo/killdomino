@@ -40,3 +40,5 @@ let fichasIA = 7; //Numero imaginario de fichas que tiene la ia
 //Sistema de combos del juego
 
 let comboNumber = 0;
+
+let playerHP = 20;
