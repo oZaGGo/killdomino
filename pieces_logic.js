@@ -28,7 +28,7 @@ Thx for keeping the game alive!
 
 */
 
-function piecesLogic() {
+async function piecesLogic() {
 
     // Seleccionar todas las imágenes con la clase "dado"
     const imagenes = document.querySelectorAll(".dado");
@@ -209,7 +209,78 @@ function piecesLogic() {
                             
                             console.log("Esa ficha no vale!")
                         }
-                        break;    
+                        break;
+                    case "f":
+
+                        //La ficha de fuego se puede usar con cualquier cara
+
+                        caraNecesaria = parseInt(cifra2)
+
+                        const manoJugada = document.getElementById('manoJugada');
+
+                        const resultadoJugada = document.createElement('img');
+
+                        resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+
+                        resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+                        manoJugada.appendChild(resultadoJugada);
+
+                        console.log("El dado seleccionado es: " + dadoSeleccionado)
+
+                        this.remove();
+                        
+                        contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
+                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+                        dadosMano--;
+                        dadosJugados++;
+                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+
+                        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                        sonidoSeleccion.play();
+
+                        burn()
+
+                        //Logica para quemar una ficha aleatoria de la mano
+
+                        async function burn() { // Uso una funcion asincrona para poder esperar para el efecto
+                            
+                            await esperar(2000)
+
+                            let fireBurn = document.getElementById("fireBurn")
+                            fireBurn.volume=0.4
+                            fireBurn.play()
+                            await esperar(100)
+
+                            //Quitar la propia pieza seleccionada
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            if (index !== -1) {
+                                dadosVisibles.splice(index, 1);
+                            }
+
+                            // Mezclar la lista usando el algoritmo de Fisher-Yates
+                            for (let i = dadosVisibles.length - 1; i > 0; i--) {
+                                let j = Math.floor(Math.random() * (i + 1));
+                                // Intercambiar elementos
+                                [dadosVisibles[i], dadosVisibles[j]] = [dadosVisibles[j], dadosVisibles[i]];
+                            }
+
+                            let dadoAQuemar = dadosVisibles.slice(0,1)
+
+                            //Quitar el dado quemado de la lista de dados visibles
+                            index = dadosVisibles.indexOf(`${dadoAQuemar}`);
+                            if (index !== -1) {
+                                dadosVisibles.splice(index, 1);
+                            }
+
+                            let dadoQuemado = document.getElementsByClassName(`${dadoAQuemar}`)
+
+                            dadoQuemado[0].remove()
+                            
+                        }
+
+                        break;        
                     default:
                         console.log("Algo ha salido mal al comparar las fichas especiales!")
                         break;    

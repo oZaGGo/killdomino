@@ -60,6 +60,8 @@ dadosSeleccionados.forEach((dado,index) => {
             img.draggable = false;
             contenedor.appendChild(img);
         }
+
+        dadosVisibles.push(dado)
         
     }else{
         const img = document.createElement('img');
@@ -141,11 +143,35 @@ setTimeout(() => {
 //Sonido hover mouse dado domino
 const dadosS = document.querySelectorAll('.dado'); // Seleccionar todas las imágenes con clase 'dado'
 const sonidoHoverDado = document.getElementById('sonidoHoverDado');
+const fireHover = document.getElementById("fireHover");
 dadosS.forEach(dado => {
     dado.addEventListener('mouseenter', () => {
         sonidoHoverDado.currentTime = 0; // Reiniciar el sonido al inicio
         sonidoHoverDado.play(); // Reproducir el sonido
+
+        // Obtener todas las clases del elemento
+        let clasesDadoEspecial = dado.className.split(" ");
+                    
+        // Obtener la última clase para saber que dado estamos seleccionando
+        let ultimaClaseDadoEspecial = clasesDadoEspecial[clasesDadoEspecial.length - 1];
+
+        let dadoEspecialSeleccionado = ultimaClaseDadoEspecial;
+
+        let cifra3 = dadoEspecialSeleccionado[2];
+
+        switch(cifra3){
+            case "f":
+                fireHover.volume = 0.6
+                fireHover.loop = true
+                fireHover.currentTime = 0
+                fireHover.play()
+                break;
+        }
     });
+
+    dado.addEventListener('mouseleave', ()=>{
+        fireHover.pause()
+    })
 });
 
 
