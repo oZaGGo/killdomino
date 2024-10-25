@@ -291,8 +291,9 @@ async function piecesLogic() {
 
                         dadosRestantes--
 
-                    
-                        burn()
+                        if(dadosRestantes>1){
+                            burn()
+                        }
 
 
                         //Logica para quemar una ficha aleatoria de la mano

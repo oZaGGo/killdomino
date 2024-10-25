@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'PixelFont';
+    src: url('fonts/pixeldroidConsoleRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -5,6 +12,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     background-color: #29465e;
+    font-family: 'PixelFont';
 }
 
 #contenedor {
