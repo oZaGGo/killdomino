@@ -59,7 +59,7 @@ async function turnoIA(){
         const resultadoJugadaIA = document.createElement('img');
 
         console.log("La cara necesaria antes de la IA: " + caraNecesaria)
-        /*
+        
         if(fichasIAJugar==1){
             await esperar(600);
         }else if(fichasIAJugar==2){
@@ -71,8 +71,7 @@ async function turnoIA(){
         }else if(fichasIAJugar==5){
             await esperar(100);
         }
-        */
-       fichasIAJugar=5
+        
         
 
         switch(caraNecesaria){
