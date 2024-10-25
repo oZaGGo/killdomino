@@ -291,7 +291,7 @@ async function piecesLogic() {
 
                         dadosRestantes--
 
-                        if(dadosRestantes>1){
+                        if(dadosRestantes>=1){
                             burn()
                         }
 
@@ -314,6 +314,8 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
+                            console.log(dadosVisibles)
+
                             // Mezclar la lista usando el algoritmo de Fisher-Yates
                             for (let i = dadosVisibles.length - 1; i > 0; i--) {
                                 let j = Math.floor(Math.random() * (i + 1));
@@ -329,7 +331,6 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
-                            console.log(dadosVisibles)
                             let dadoQuemado = document.getElementsByClassName(`${dadoAQuemar}`)
 
                             dadoQuemado[0].remove()
@@ -337,6 +338,7 @@ async function piecesLogic() {
                             turno=1
 
                             dadosRestantes--
+                            win();
                             
                         }
 
