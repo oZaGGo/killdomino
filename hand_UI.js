@@ -52,6 +52,8 @@ giveMeButton.addEventListener("click", function(){
 
         contadorFichas.innerText = `${fichasContadas}/3`
 
+        dadosRestantes++
+
     } else {
         console.log("No puedes pillar mas fichas!")
     }

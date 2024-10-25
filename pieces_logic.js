@@ -51,7 +51,7 @@ async function piecesLogic() {
 
             dadoSeleccionado = ultimaClase;
 
-            if (dadoSeleccionado.length<3){
+            if (dadoSeleccionado.length<3 && turno==1){
 
 
                 let cifra1 = dadoSeleccionado[0];
@@ -74,6 +74,16 @@ async function piecesLogic() {
                     console.log("El dado seleccionado es: " + dadoSeleccionado)
 
                     this.remove();
+
+                    console.log(dadosVisibles)
+
+                    //Quitar la propia pieza seleccionada
+                    let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                    if (index !== -1) {
+                        dadosVisibles.splice(index, 1);
+                    }
+
+                    console.log(dadosVisibles)
                     
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                     manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -84,6 +94,9 @@ async function piecesLogic() {
 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    dadosRestantes--
+
+                    
 
                 } else if (cifra2==caraNecesaria) { //la segunda cara es la que vale
 
@@ -103,7 +116,17 @@ async function piecesLogic() {
                     console.log("El dado seleccionado es: " + dadoSeleccionado)
 
                     this.remove();
+
+                    console.log(dadosVisibles)
+
+                    //Quitar la propia pieza seleccionada
+                    let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                    if (index !== -1) {
+                        dadosVisibles.splice(index, 1);
+                    }
                     
+                    console.log(dadosVisibles)
+
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                     manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
                     manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -113,6 +136,8 @@ async function piecesLogic() {
 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    dadosRestantes--
+                    
 
                 } else {
 
@@ -130,7 +155,7 @@ async function piecesLogic() {
                 }
 
 
-            } else{
+            } else if(turno==1){
                 let cifra1 = dadoSeleccionado[0];
                 let cifra2 = dadoSeleccionado[1];
                 let cifra3 = dadoSeleccionado[2];
@@ -155,6 +180,16 @@ async function piecesLogic() {
                             console.log("El dado seleccionado es: " + dadoSeleccionado)
 
                             this.remove();
+
+                            console.log(dadosVisibles)
+
+                            //Quitar la propia pieza seleccionada
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            if (index !== -1) {
+                                dadosVisibles.splice(index, 1);
+                            }
+
+                            console.log(dadosVisibles)
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -165,6 +200,8 @@ async function piecesLogic() {
 
                             sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                             sonidoSeleccion.play();
+                            dadosRestantes--
+                           
 
                         } else if (cifra2==caraNecesaria) { //la segunda cara es la que vale
 
@@ -184,6 +221,16 @@ async function piecesLogic() {
                             console.log("El dado seleccionado es: " + dadoSeleccionado)
 
                             this.remove();
+
+                            console.log(dadosVisibles)
+
+                            //Quitar la propia pieza seleccionada
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            if (index !== -1) {
+                                dadosVisibles.splice(index, 1);
+                            }
+
+                            console.log(dadosVisibles)
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -194,6 +241,7 @@ async function piecesLogic() {
 
                             sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                             sonidoSeleccion.play();
+                            dadosRestantes--
 
                         } else {
 
@@ -213,6 +261,7 @@ async function piecesLogic() {
                     case "f":
 
                         //La ficha de fuego se puede usar con cualquier cara
+                        turno=0
 
                         caraNecesaria = parseInt(cifra2)
 
@@ -240,12 +289,17 @@ async function piecesLogic() {
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
 
+                        dadosRestantes--
+
+                    
                         burn()
+
 
                         //Logica para quemar una ficha aleatoria de la mano
 
                         async function burn() { // Uso una funcion asincrona para poder esperar para el efecto
                             
+                            console.log(dadosVisibles)
                             await esperar(2000)
 
                             let fireBurn = document.getElementById("fireBurn")
@@ -274,9 +328,14 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
+                            console.log(dadosVisibles)
                             let dadoQuemado = document.getElementsByClassName(`${dadoAQuemar}`)
 
                             dadoQuemado[0].remove()
+                            
+                            turno=1
+
+                            dadosRestantes--
                             
                         }
 
@@ -286,6 +345,8 @@ async function piecesLogic() {
                         break;    
                 }
             }
+            console.log(dadosRestantes)
+            win();
 
         });
     });

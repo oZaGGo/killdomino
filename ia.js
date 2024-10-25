@@ -18,6 +18,8 @@ function esperar(ms) {
 
 //funcion asincrona para pdoer usar los awaits
 async function turnoIA(){
+
+    turno=0
     
     let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
 
@@ -439,5 +441,8 @@ async function turnoIA(){
 
     turno = 1; //Se devuelve el turno al jugador
 
+    console.log("Turno: " + turno)
+
+    win();
 
 }
