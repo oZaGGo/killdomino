@@ -19,10 +19,15 @@ function esperar(ms) {
 //funcion asincrona para pdoer usar los awaits
 async function turnoIA(){
 
+    const comboSound = document.getElementById("comboSound")
+    comboSound.volume=0.7
+
+    let combo = document.getElementById("combo");
+
     turno=0
     
     let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
-
+    
     if (probabilidadFicha<=50){
         fichasIAJugar = 1;
     } else if (probabilidadFicha>50&&probabilidadFicha<=70) {
@@ -42,6 +47,8 @@ async function turnoIA(){
 
     console.log("LA IA VA A JUGAR " + fichasIAJugar + " veces")
 
+    let color = 0;
+
     for (i=1;i<=fichasIAJugar;i++){
 
         let segundaCaraFichaIA = 0;
@@ -52,19 +59,24 @@ async function turnoIA(){
         const resultadoJugadaIA = document.createElement('img');
 
         console.log("La cara necesaria antes de la IA: " + caraNecesaria)
-
-        await esperar(800);
+        /*
+        if(fichasIAJugar==1){
+            await esperar(600);
+        }else if(fichasIAJugar==2){
+            await esperar(500);
+        }else if(fichasIAJugar==3){
+            await esperar(400);
+        }else if(fichasIAJugar==4){
+            await esperar(300);
+        }else if(fichasIAJugar==5){
+            await esperar(100);
+        }
+        */
+       fichasIAJugar=5
+        
 
         switch(caraNecesaria){
             case 1:
-                    //Combo aplicado
-                    let combo = document.getElementById("combo");
-                    comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
-
-                    //Vida sustraida del jugador
-                    playerHP--
-
                     segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                     fichaIAResultante = 10 + segundaCaraFichaIA
 
@@ -83,6 +95,23 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
+
+                    //Vida sustraida del jugador
+                    playerHP--
+
                 
                     caraNecesaria = segundaCaraFichaIA
 
@@ -92,13 +121,6 @@ async function turnoIA(){
             case 2:
                     segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                     if(segundaCaraFichaIA<2){
-                        //Combo aplicado
-                        let combo = document.getElementById("combo");
-                        comboNumber++;
-                        combo.textContent = `Combo X${comboNumber}`
-
-                        //Vida sustraida del jugador
-                        playerHP--
 
                         fichaIAResultante = 12;
 
@@ -120,17 +142,26 @@ async function turnoIA(){
                     
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
-                    
-                        caraNecesaria = segundaCaraFichaIA
-                        console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-                    } else {
+
                         //Combo aplicado
                         let combo = document.getElementById("combo");
                         comboNumber++;
                         combo.textContent = `Combo X${comboNumber}`
+                        comboSound.play()
+
+                        combo.classList.add(`combo${color}`)
+                        combo.classList.add("comboAnimation")
+                        await esperar(600)
+                        combo.classList.remove("comboAnimation")
+                        combo.classList.remove(`combo${color}`)
+                        color++
 
                         //Vida sustraida del jugador
                         playerHP--
+                    
+                        caraNecesaria = segundaCaraFichaIA
+                        console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    } else {
 
                         fichaIAResultante = 20 + segundaCaraFichaIA
 
@@ -149,6 +180,22 @@ async function turnoIA(){
                     
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
+
+                        //Combo aplicado
+                        let combo = document.getElementById("combo");
+                        comboNumber++;
+                        combo.textContent = `Combo X${comboNumber}`
+                        comboSound.play()
+
+                        combo.classList.add(`combo${color}`)
+                        combo.classList.add("comboAnimation")
+                        await esperar(600)
+                        combo.classList.remove("comboAnimation")
+                        combo.classList.remove(`combo${color}`)
+                        color++
+
+                        //Vida sustraida del jugador
+                        playerHP--
                     
                         caraNecesaria = segundaCaraFichaIA
                         console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -158,13 +205,6 @@ async function turnoIA(){
             case 3:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<3){
-                    //Combo aplicado
-                    let combo = document.getElementById("combo");
-                    comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
-
-                    //Vida sustraida del jugador
-                    playerHP--
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 3;
 
@@ -186,18 +226,26 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                
-                    caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-                } else {
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
 
                     //Vida sustraida del jugador
                     playerHP--
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                } else {
 
                     fichaIAResultante = 30 + segundaCaraFichaIA
 
@@ -216,6 +264,22 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
+
+                    //Vida sustraida del jugador
+                    playerHP--
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -225,13 +289,6 @@ async function turnoIA(){
             case 4:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<4){
-                    //Combo aplicado
-                    let combo = document.getElementById("combo");
-                    comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
-
-                    //Vida sustraida del jugador
-                    playerHP--
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 4;
 
@@ -253,18 +310,26 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                
-                    caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-                } else {
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
 
                     //Vida sustraida del jugador
                     playerHP--
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                } else {
 
                     fichaIAResultante = 40 + segundaCaraFichaIA
 
@@ -283,6 +348,22 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
+
+                    //Vida sustraida del jugador
+                    playerHP--
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -292,14 +373,6 @@ async function turnoIA(){
             case 5:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<5){
-
-                    //Combo aplicado
-                    let combo = document.getElementById("combo");
-                    comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
-
-                    //Vida sustraida del jugador
-                    playerHP--
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 5;
 
@@ -321,18 +394,26 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                
-                    caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-                } else {
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
 
                     //Vida sustraida del jugador
                     playerHP--
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                } else {
 
                     fichaIAResultante = 50 + segundaCaraFichaIA
 
@@ -351,6 +432,22 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
+
+                    //Vida sustraida del jugador
+                    playerHP--
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -360,14 +457,6 @@ async function turnoIA(){
             case 6:
                 segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                 if(segundaCaraFichaIA<6){
-
-                    //Combo aplicado
-                    let combo = document.getElementById("combo");
-                    comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
-
-                    //Vida sustraida del jugador
-                    playerHP--
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 6;
 
@@ -389,18 +478,27 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                
-                    caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-                } else {
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
                     combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
+                    
 
                     //Vida sustraida del jugador
                     playerHP--
+                
+                    caraNecesaria = segundaCaraFichaIA
+                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                } else {
 
                     fichaIAResultante = 60 + segundaCaraFichaIA
 
@@ -419,6 +517,22 @@ async function turnoIA(){
                 
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+
+                    //Combo aplicado
+                    let combo = document.getElementById("combo");
+                    comboNumber++;
+                    combo.textContent = `Combo X${comboNumber}`
+                    comboSound.play()
+
+                    combo.classList.add(`combo${color}`)
+                    combo.classList.add("comboAnimation")
+                    await esperar(600)
+                    combo.classList.remove("comboAnimation")
+                    combo.classList.remove(`combo${color}`)
+                    color++
+ 
+                    //Vida sustraida del jugador
+                    playerHP--
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -431,11 +545,15 @@ async function turnoIA(){
     }
 
     //Despues del turno de la IA se aplican los daños
-
-    await esperar(1500);
+    color = 0;
+    combo.textContent="";
+    await esperar(500);
     let vidaJugador = document.getElementById("vidaJugador");
 
-    vidaJugador.textContent = `HP: ${playerHP}`;
+    let loseHP = document.getElementById("loseHP")
+    loseHP.play()
+
+    vidaJugador.textContent = `HP:${playerHP}`;
 
     combo.textContent="";
 
