@@ -130,6 +130,7 @@ body {
     width: 500px;
     margin-bottom: 650px;
     margin-left: -400px;
+    text-shadow: 4px 4px 0 #000000;
 }
 
 .comboAnimation{
@@ -175,9 +176,36 @@ body {
     100% { transform: translate(0, 0); }
 }
 
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+}
+
+.fadeOut {
+    animation: fadeOut 2s forwards;
+}
+
 .vidaJugador{
     font-size: 4rem;
     color: white;
     margin-right: 120px;
     padding: 20px;
+    text-shadow: 4px 4px 0 #000000;
+}
+
+.hpLoss{
+    color: #a1234d;
+    font-size: 4rem;
+    margin-bottom: 60px;
+    margin-left: -1500px;
+    position:absolute;
+
+}
+
+.vibrarHpLoss{
+    animation: vibrar 0.1s infinite !important;
 }

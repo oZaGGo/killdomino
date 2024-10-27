@@ -145,7 +145,7 @@ const dadosS = document.querySelectorAll('.dado'); // Seleccionar todas las imá
 const sonidoHoverDado = document.getElementById('sonidoHoverDado');
 const fireHover = document.getElementById("fireHover");
 dadosS.forEach(dado => {
-    dado.addEventListener('mouseenter', () => {
+    dado.addEventListener('mouseenter', async () => {
         sonidoHoverDado.currentTime = 0; // Reiniciar el sonido al inicio
         sonidoHoverDado.play(); // Reproducir el sonido
 
@@ -166,6 +166,8 @@ dadosS.forEach(dado => {
                 fireHover.currentTime = 0;
                 fireHover.play();
                 dado.dataset.fireHoverPlaying = "true"; // Mark that fireHover is playing
+                await esperar(5000);
+                fireHover.pause();
                 break;
         }
     });

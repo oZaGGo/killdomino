@@ -24,6 +24,9 @@ async function turnoIA(){
 
     let combo = document.getElementById("combo");
 
+    let hpLoss = document.getElementById("hpLoss");
+
+    let damageCombo = 0;
     turno=0
     
     let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
@@ -110,7 +113,8 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
-
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                 
                     caraNecesaria = segundaCaraFichaIA
 
@@ -157,6 +161,8 @@ async function turnoIA(){
 
                         //Vida sustraida del jugador
                         playerHP--
+                        damageCombo++
+                        hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                     
                         caraNecesaria = segundaCaraFichaIA
                         console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -195,6 +201,8 @@ async function turnoIA(){
 
                         //Vida sustraida del jugador
                         playerHP--
+                        damageCombo++
+                        hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                     
                         caraNecesaria = segundaCaraFichaIA
                         console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -241,6 +249,8 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -279,6 +289,8 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -325,7 +337,9 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
-                
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                 } else {
@@ -363,6 +377,8 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                 
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
@@ -409,7 +425,9 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
-                
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                 } else {
@@ -447,7 +465,9 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
-                
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
 
@@ -494,7 +514,9 @@ async function turnoIA(){
 
                     //Vida sustraida del jugador
                     playerHP--
-                
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
                 } else {
@@ -532,7 +554,9 @@ async function turnoIA(){
  
                     //Vida sustraida del jugador
                     playerHP--
-                
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+
                     caraNecesaria = segundaCaraFichaIA
                     console.log("La cara necesaria despues de la IA: " + caraNecesaria)
 
@@ -549,12 +573,19 @@ async function turnoIA(){
     await esperar(500);
     let vidaJugador = document.getElementById("vidaJugador");
 
+    //Vida sustraida del jugador que se muestra arriba del HP
+    hpLoss.classList.add("fadeOut")
+    await esperar(1000);
+    hpLoss.classList.remove("fadeOut")
+    hpLoss.textContent = "";
+
+    //Vida sustraida del jugador
     let loseHP = document.getElementById("loseHP")
     loseHP.play()
-
     vidaJugador.textContent = `HP:${playerHP}`;
-
-    combo.textContent="";
+    vidaJugador.classList.add("vibrarHpLoss")
+    await esperar(200);
+    vidaJugador.classList.remove("vibrarHpLoss")
 
     turno = 1; //Se devuelve el turno al jugador
 

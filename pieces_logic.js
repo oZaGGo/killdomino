@@ -304,6 +304,7 @@ async function piecesLogic() {
                             await esperar(2000)
 
                             let fireBurn = document.getElementById("fireBurn")
+                            fireBurn.currentTime=0
                             fireBurn.volume=0.4
                             fireBurn.play()
                             await esperar(100)
