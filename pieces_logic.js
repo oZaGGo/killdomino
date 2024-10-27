@@ -260,6 +260,8 @@ async function piecesLogic() {
                         break;
                     case "f":
 
+                        fireHover.pause();
+
                         //La ficha de fuego se puede usar con cualquier cara
                         turno=0
 

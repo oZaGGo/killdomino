@@ -165,17 +165,13 @@ dadosS.forEach(dado => {
                 fireHover.loop = true;
                 fireHover.currentTime = 0;
                 fireHover.play();
-                dado.dataset.fireHoverPlaying = "true"; // Mark that fireHover is playing
-                await esperar(5000);
-                fireHover.pause();
                 break;
         }
     });
 
     dado.addEventListener('mouseleave', () => {
-        if (dado.dataset.fireHoverPlaying === "true") {
-            fireHover.pause();
-            dado.dataset.fireHoverPlaying = "false"; // Reset the marker
-        }
+        
+        fireHover.pause();
+
     });
 });

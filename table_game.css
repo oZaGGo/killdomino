@@ -5,6 +5,28 @@
     font-style: normal;
 }
 
+/* Contenedor que mantiene el aspecto */
+.aspect-ratio-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Color de las bandas negras */
+    overflow: hidden;
+}
+  
+.aspect-ratio-content {
+    width: 100%;
+    height: auto;
+    max-width: 100vw;
+    max-height: 100vh;
+    aspect-ratio: 16 / 9;
+    background-color: #fff; /* Color de fondo del contenido */
+}
+  
+
 body {
     margin: 0;
     height: 100vh;
@@ -13,6 +35,8 @@ body {
     align-items: flex-end;
     background-color: #29465e;
     font-family: 'PixelFont';
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
 }
 
 #contenedor {
