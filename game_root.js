@@ -18,7 +18,7 @@ atmos.loop = true;
 
 bmusic.loop = true;
 
-bmusic.volume = 0.07;
+bmusic.volume = 0.03;
 
 atmos.play();
 bmusic.play();
@@ -161,18 +161,19 @@ dadosS.forEach(dado => {
 
         switch(cifra3){
             case "f":
-                fireHover.volume = 0.6
-                fireHover.loop = true
-                fireHover.currentTime = 0
-                fireHover.play()
+                fireHover.volume = 0.6;
+                fireHover.loop = true;
+                fireHover.currentTime = 0;
+                fireHover.play();
+                dado.dataset.fireHoverPlaying = "true"; // Mark that fireHover is playing
                 break;
         }
     });
 
-    dado.addEventListener('mouseleave', ()=>{
-        fireHover.pause()
-    })
+    dado.addEventListener('mouseleave', () => {
+        if (dado.dataset.fireHoverPlaying === "true") {
+            fireHover.pause();
+            dado.dataset.fireHoverPlaying = "false"; // Reset the marker
+        }
+    });
 });
-
-
-
