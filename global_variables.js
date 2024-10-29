@@ -46,7 +46,7 @@ let fichasIA = 7; //Numero imaginario de fichas que tiene la ia
 
 let comboNumber = 0;
 
-let playerHP = 20;
+let playerHP = 15;
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 

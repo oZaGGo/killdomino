@@ -21,9 +21,14 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow()
 
-  //Comprobacio nde la escena de juego de ganar
+  //Comprobacion de la escena de juego de ganar
   ipcMain.on('win', () => {
     mainWindow.loadFile('win.html');
+  });
+
+  //Comprobacion de la escena de juego de perder
+  ipcMain.on('lose', () => {
+    mainWindow.loadFile('lose.html');
   });
 })
 

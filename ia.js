@@ -582,6 +582,10 @@ async function turnoIA(){
     //Vida sustraida del jugador
     let loseHP = document.getElementById("loseHP")
     loseHP.play()
+    //Para evitar numeros negativos de vida
+    if(playerHP<0){
+        playerHP=0;
+    }
     vidaJugador.textContent = `HP:${playerHP}`;
     vidaJugador.classList.add("vibrarHpLoss")
     await esperar(200);
@@ -591,6 +595,6 @@ async function turnoIA(){
 
     console.log("Turno: " + turno)
 
-    win();
-
+    win()
+    lose()
 }
