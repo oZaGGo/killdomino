@@ -43,7 +43,15 @@ giveMeButton.addEventListener("click", function(){
     if (dadoInvisible<=10){
 
         let dadoInv = document.getElementById(`dado${dadoInvisible}`)
+        // Obtener todas las clases del elemento
+        const clases = dadoInv.className.split(" ");
+                    
+        // Obtener la última clase para saber que dado estamos seleccionando
+        const ultimaClase = clases[clases.length - 1];
 
+        dadosVisibles.push(ultimaClase)
+
+        console.log(dadosVisibles)
         dadoInv.style = "display:block !important"
 
         dadoInvisible++;

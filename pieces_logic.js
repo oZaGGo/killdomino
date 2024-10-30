@@ -42,7 +42,7 @@ async function piecesLogic() {
     // Recorrer cada imagen y agregarle el evento de click
     imagenes.forEach(function(imagen) {
         imagen.addEventListener("click", function() {
-            
+            console.log(dadosVisibles)
             // Obtener todas las clases del elemento
             const clases = this.className.split(" ");
                     
@@ -367,6 +367,12 @@ async function piecesLogic() {
 
                             this.remove();
 
+                            //Quitar la propia pieza seleccionada
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            if (index !== -1) {
+                                dadosVisibles.splice(index, 1);
+                            }
+
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -413,6 +419,12 @@ async function piecesLogic() {
                             console.log("El dado seleccionado es: " + dadoSeleccionado)
 
                             this.remove();
+
+                            //Quitar la propia pieza seleccionada
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            if (index !== -1) {
+                                dadosVisibles.splice(index, 1);
+                            }
 
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
