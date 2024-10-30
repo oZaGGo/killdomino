@@ -144,6 +144,7 @@ setTimeout(() => {
 const dadosS = document.querySelectorAll('.dado'); // Seleccionar todas las imágenes con clase 'dado'
 const sonidoHoverDado = document.getElementById('sonidoHoverDado');
 const fireHover = document.getElementById("fireHover");
+const magneticHover = document.getElementById("magneticHover");
 dadosS.forEach(dado => {
     dado.addEventListener('mouseenter', async () => {
         sonidoHoverDado.currentTime = 0; // Reiniciar el sonido al inicio
@@ -158,6 +159,7 @@ dadosS.forEach(dado => {
         let dadoEspecialSeleccionado = ultimaClaseDadoEspecial;
 
         let cifra3 = dadoEspecialSeleccionado[2];
+        
 
         switch(cifra3){
             case "f":
@@ -166,12 +168,25 @@ dadosS.forEach(dado => {
                 fireHover.currentTime = 0;
                 fireHover.play();
                 break;
+            case "n": 
+                magneticHover.volume = 0.4;
+                magneticHover.loop = false;
+                magneticHover.currentTime = 0;
+                magneticHover.play();
+                break;
+            case "p": 
+                magneticHover.volume = 0.3;
+                magneticHover.loop = false;
+                magneticHover.currentTime = 0;
+                magneticHover.play();
+                break;        
         }
     });
 
     dado.addEventListener('mouseleave', () => {
         
         fireHover.pause();
+        magneticHover.pause();
 
     });
 });

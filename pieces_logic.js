@@ -345,7 +345,101 @@ async function piecesLogic() {
                             
                         }
 
-                        break;        
+                        break;
+                    case "n":
+                        magneticHover.pause();
+
+                        //Solo se puede usar con impares
+                        
+                        if (parseInt(caraNecesaria)%2!=0) {
+                            caraNecesaria = parseInt(cifra2)
+                            const manoJugada = document.getElementById('manoJugada');
+
+                            const resultadoJugada = document.createElement('img');
+
+                            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+
+                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+                            manoJugada.appendChild(resultadoJugada);
+
+                            console.log("El dado seleccionado es: " + dadoSeleccionado)
+
+                            this.remove();
+
+                            contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
+                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                            manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+                            dadosMano--;
+                            dadosJugados++;
+                            desplazamientoManoJugada = desplazamientoManoJugada - 430
+
+                            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                            sonidoSeleccion.play();
+
+                            dadosRestantes--
+                        }else {
+
+                            this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
+
+                            this.classList.add('vibrar');
+
+                            sonidoErrorDado.play();
+                            setTimeout(() => {
+                                this.style.filter = "none"
+                                this.classList.remove('vibrar');
+                            }, 500);
+                            
+                            console.log("Esa ficha no vale!")
+                        }
+                        break;
+                    case "p":
+                        magneticHover.pause();
+
+                        //Solo se puede usar con pares
+                        
+                        if (parseInt(caraNecesaria)%2==0) {
+                            caraNecesaria = parseInt(cifra2)
+                            const manoJugada = document.getElementById('manoJugada');
+
+                            const resultadoJugada = document.createElement('img');
+
+                            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+
+                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+                            manoJugada.appendChild(resultadoJugada);
+
+                            console.log("El dado seleccionado es: " + dadoSeleccionado)
+
+                            this.remove();
+
+                            contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
+                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                            manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+                            dadosMano--;
+                            dadosJugados++;
+                            desplazamientoManoJugada = desplazamientoManoJugada - 430
+
+                            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                            sonidoSeleccion.play();
+
+                            dadosRestantes--
+                        }else {
+
+                            this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
+
+                            this.classList.add('vibrar');
+
+                            sonidoErrorDado.play();
+                            setTimeout(() => {
+                                this.style.filter = "none"
+                                this.classList.remove('vibrar');
+                            }, 500);
+                            
+                            console.log("Esa ficha no vale!")
+                        }
+                        break;                
                     default:
                         console.log("Algo ha salido mal al comparar las fichas especiales!")
                         break;    
