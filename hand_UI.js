@@ -29,18 +29,24 @@ passB.addEventListener("click", function(){
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Logica del boton para pedir fichas
+//Logica para pedir fichas
 
-const giveMeButton = document.getElementById("giveMeButton");
 
 const contadorFichas = document.getElementById("contadorFichas");
 
+const taptapTable = document.getElementById("taptapTable");
+
 let fichasContadas = 3;
 
-giveMeButton.addEventListener("click", function(){
+//Se pide ficha "golpeando la mesa 2 veces", es decir haciendo doble click en cualquier parte de la mesa.
+document.addEventListener("dblclick", async function(){
     
-
     if (dadoInvisible<=10){
+        taptapTable.play()
+
+        await esperar(1000)
+
+        sonidoSeleccion.play();
 
         let dadoInv = document.getElementById(`dado${dadoInvisible}`)
         // Obtener todas las clases del elemento

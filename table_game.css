@@ -19,6 +19,7 @@ body {
     font-family: 'PixelFont';
     aspect-ratio: 16 / 9;
     overflow: hidden;
+    user-select: none;
     /*cursor: url("sprites/UI/cursors/default_cursor.png"), auto;*/
 }
 
@@ -114,14 +115,6 @@ body {
 }
 
 
-.giveMeB {
-    width: 50px;
-    height: 50px;
-    padding: 100px;
-    margin-left: -150px;
-    cursor: pointer;
-}
-
 .fichasRestantes {
     font-size: 3rem;
     color: white;
@@ -133,7 +126,7 @@ body {
 .passB {
     width: 71px;
     height: 61px;
-    margin-left: 90px;
+    margin-left: 150px;
     margin-right: -50px;
     margin-bottom: 70px;
     scale: 350%;
@@ -222,14 +215,14 @@ body {
     margin-right: 120px;
     padding: 20px;
     text-shadow: 4px 4px 0 #000000;
-    margin-left: -150px;
+    margin-left: -250px;
 }
 
 .hpLoss{
     color: #a1234d;
     font-size: 4rem;
     margin-bottom: 60px;
-    margin-left: -1550px;
+    margin-left: -1560px;
     position:absolute;
 
 }
