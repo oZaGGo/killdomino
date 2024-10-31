@@ -11,11 +11,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-color: #29465e;
+    background-image: url("sprites/UI/backgrounds/tapete.png");
+    background-repeat: no-repeat;
+    background-size: cover; /* Esto ajusta la imagen para cubrir todo el fondo */
+    background-attachment: fixed;
+    image-rendering: pixelated;
     font-family: 'PixelFont';
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    cursor: url("sprites/UI/cursors/default_cursor.png"), auto;
+    /*cursor: url("sprites/UI/cursors/default_cursor.png"), auto;*/
 }
 
 #contenedor {
@@ -113,14 +117,35 @@ body {
 .giveMeB {
     width: 50px;
     height: 50px;
-    padding: 70px;
+    padding: 100px;
+    margin-left: -150px;
+    cursor: pointer;
+}
+
+.fichasRestantes {
+    font-size: 3rem;
+    color: white;
+    width: 50px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #000000;
 }
 
 .passB {
-
-    width: 50px;
-    height: 50px;
-    padding: 70px;
+    width: 71px;
+    height: 61px;
+    margin-left: 90px;
+    margin-right: -50px;
+    margin-bottom: 70px;
+    scale: 350%;
+    cursor: pointer;
+    image-rendering: pixelated;
+    -webkit-user-drag: none; /* Chrome, Safari, Opera */
+    -moz-user-drag: none;    /* Firefox */
+    -ms-user-drag: none;     /* Internet Explorer */
+    -webkit-user-select: none; /* Desactivar selección en WebKit */
+    -moz-user-select: none;    /* Desactivar selección en Firefox */
+    -ms-user-select: none;     /* Desactivar selección en Internet Explorer */
+    user-select: none;         /* Desactivar selección en navegadores modernos */
 
 }
 
@@ -197,13 +222,14 @@ body {
     margin-right: 120px;
     padding: 20px;
     text-shadow: 4px 4px 0 #000000;
+    margin-left: -150px;
 }
 
 .hpLoss{
     color: #a1234d;
     font-size: 4rem;
     margin-bottom: 60px;
-    margin-left: -1500px;
+    margin-left: -1550px;
     position:absolute;
 
 }

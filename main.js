@@ -7,14 +7,15 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
-    }
+    },
+    fullscreen: true
     //resizable: false
     //fullscreen: true
   })
 
   mainWindow.loadFile('index.html')
   // Quitar la barra de menú
-  //Menu.setApplicationMenu(null);    para cando teña que compilar a app que se quiten os menus de navegador
+  Menu.setApplicationMenu(null);    //para cando teña que compilar a app que se quiten os menus de navegador
 }
 
 //AL cargar la ventana principal, se carga el index.html y se comprueban los estados que cmabian escenas
