@@ -303,7 +303,7 @@ async function piecesLogic() {
                         async function burn() { // Uso una funcion asincrona para poder esperar para el efecto
                             
                             console.log(dadosVisibles)
-                            await esperar(2000)
+                            await esperar(1200)
 
                             let fireBurn = document.getElementById("fireBurn")
                             fireBurn.currentTime=0

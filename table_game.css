@@ -124,12 +124,13 @@ body {
 }
 
 .passB {
-    width: 71px;
-    height: 61px;
-    margin-left: 150px;
-    margin-right: -50px;
-    margin-bottom: 70px;
-    scale: 350%;
+    width: 94px;
+    height: 63px;
+    position: absolute;
+    margin-left: 1500px;
+    margin-right: -120px;
+    margin-bottom: 86px;
+    scale: 380%;
     cursor: pointer;
     image-rendering: pixelated;
     -webkit-user-drag: none; /* Chrome, Safari, Opera */
@@ -222,7 +223,7 @@ body {
     color: #a1234d;
     font-size: 4rem;
     margin-bottom: 60px;
-    margin-left: -1560px;
+    margin-left: -1400px;
     position:absolute;
 
 }

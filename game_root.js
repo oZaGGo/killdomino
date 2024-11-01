@@ -12,13 +12,13 @@ This script is the point of start of the game scene.
 const atmos = document.getElementById('atmos');
 
 const bmusic = document.getElementById('bmusic');
-atmos.volume = 0.05;
+atmos.volume = 0.03;
 
 atmos.loop = true;
 
 bmusic.loop = true;
 
-bmusic.volume = 0.03;
+bmusic.volume = 0.3;
 
 atmos.play();
 bmusic.play();

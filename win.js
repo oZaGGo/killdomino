@@ -4,6 +4,6 @@ async function win() {
         console.log("Has ganado")
         dadosRestantes=7;
         await esperar(2000);
-        ipcRenderer.send('win');
+        //ipcRenderer.send('win');
     }
 }

@@ -10,8 +10,9 @@ This script contains the events and the code to the UI in the hand.
 //Logica para el boton de pasar turno
 
 const passB = document.getElementById("passB");
+const ding = document.getElementById("ding");
 
-passB.addEventListener("click", function(){
+passB.addEventListener("click", async function(){
 
     if (turno==1){ //si le toca al jugador
 
@@ -20,7 +21,11 @@ passB.addEventListener("click", function(){
         turno=0;
 
         comboNumber=0;
-
+        this.src = "sprites/UI/buttons/timbre.gif"
+        await esperar(100)
+        ding.play()
+        await esperar(900)
+        this.src = "sprites/UI/buttons/timbre.png"
         turnoIA()
 
     }

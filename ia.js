@@ -63,19 +63,6 @@ async function turnoIA(){
 
         console.log("La cara necesaria antes de la IA: " + caraNecesaria)
         
-        if(fichasIAJugar==1){
-            await esperar(600);
-        }else if(fichasIAJugar==2){
-            await esperar(500);
-        }else if(fichasIAJugar==3){
-            await esperar(400);
-        }else if(fichasIAJugar==4){
-            await esperar(300);
-        }else if(fichasIAJugar==5){
-            await esperar(100);
-        }
-        
-        
 
         switch(caraNecesaria){
             case 1:
