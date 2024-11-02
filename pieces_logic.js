@@ -38,10 +38,13 @@ async function piecesLogic() {
 
     sonidoErrorDado.volume = 0.2;
 
+    const dragSound = document.getElementById('dragSound');
+    dragSound.volume = 0.5;
+
 
     // Recorrer cada imagen y agregarle el evento de click
     imagenes.forEach(function(imagen) {
-        imagen.addEventListener("click", function() {
+        imagen.addEventListener("click", async function() {
             console.log(dadosVisibles)
             // Obtener todas las clases del elemento
             const clases = this.className.split(" ");
@@ -53,6 +56,7 @@ async function piecesLogic() {
 
             if (dadoSeleccionado.length<3 && turno==1){
 
+                turno=0
 
                 let cifra1 = dadoSeleccionado[0];
                 let cifra2 = dadoSeleccionado[1];
@@ -76,6 +80,8 @@ async function piecesLogic() {
                     this.remove();
 
                     console.log(dadosVisibles)
+                    sonidoSeleccion.currentTime = 0;
+                    sonidoSeleccion.play();
 
                     //Quitar la propia pieza seleccionada
                     let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
@@ -87,14 +93,15 @@ async function piecesLogic() {
                     
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                     manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
                     manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                     dadosMano--;
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
-
-                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                    sonidoSeleccion.play();
                     dadosRestantes--
+                    turno=1
 
                     
 
@@ -118,26 +125,28 @@ async function piecesLogic() {
                     this.remove();
 
                     console.log(dadosVisibles)
+                    sonidoSeleccion.currentTime = 0;
+                    sonidoSeleccion.play();
 
                     //Quitar la propia pieza seleccionada
                     let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
                     if (index !== -1) {
                         dadosVisibles.splice(index, 1);
                     }
-                    
-                    console.log(dadosVisibles)
 
+                    console.log(dadosVisibles)
+                    
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                     manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
                     manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                     dadosMano--;
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
-
-                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                    sonidoSeleccion.play();
                     dadosRestantes--
-                    
+                    turno=1
 
                 } else {
 
@@ -152,6 +161,7 @@ async function piecesLogic() {
                     }, 500);
                     
                     console.log("Esa ficha no vale!")
+                    turno=1
                 }
 
 
@@ -159,7 +169,7 @@ async function piecesLogic() {
                 let cifra1 = dadoSeleccionado[0];
                 let cifra2 = dadoSeleccionado[1];
                 let cifra3 = dadoSeleccionado[2];
-
+                turno=0
                 switch(cifra3){
                     case "t":
                             
@@ -182,9 +192,11 @@ async function piecesLogic() {
                             this.remove();
 
                             console.log(dadosVisibles)
+                            sonidoSeleccion.currentTime = 0;
+                            sonidoSeleccion.play();
 
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
@@ -193,14 +205,15 @@ async function piecesLogic() {
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                            await esperar(200)
+                            dragSound.currentTime=0
+                            dragSound.play();
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
                             desplazamientoManoJugada = desplazamientoManoJugada - 430
-
-                            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                            sonidoSeleccion.play();
                             dadosRestantes--
+                            turno=1
                            
 
                         } else if (cifra2==caraNecesaria) { //la segunda cara es la que vale
@@ -223,9 +236,11 @@ async function piecesLogic() {
                             this.remove();
 
                             console.log(dadosVisibles)
+                            sonidoSeleccion.currentTime = 0;
+                            sonidoSeleccion.play();
 
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
@@ -234,14 +249,15 @@ async function piecesLogic() {
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                            await esperar(200)
+                            dragSound.currentTime=0
+                            dragSound.play();
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
                             desplazamientoManoJugada = desplazamientoManoJugada - 430
-
-                            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                            sonidoSeleccion.play();
                             dadosRestantes--
+                            turno=1
 
                         } else {
 
@@ -256,6 +272,7 @@ async function piecesLogic() {
                             }, 500);
                             
                             console.log("Esa ficha no vale!")
+                            turno=1
                         }
                         break;
                     case "f":
@@ -281,16 +298,27 @@ async function piecesLogic() {
 
                         this.remove();
                         
+                        console.log(dadosVisibles)
+                        sonidoSeleccion.currentTime = 0;
+                        sonidoSeleccion.play();
+
+                        //Quitar la propia pieza seleccionada
+                        let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                        if (index !== -1) {
+                            dadosVisibles.splice(index, 1);
+                        }
+
+                        console.log(dadosVisibles)
+                        
                         contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                         manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        await esperar(200)
+                        dragSound.currentTime=0
+                        dragSound.play();
                         manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                         dadosMano--;
                         dadosJugados++;
                         desplazamientoManoJugada = desplazamientoManoJugada - 430
-
-                        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                        sonidoSeleccion.play();
-
                         dadosRestantes--
 
                         if(dadosRestantes>=1){
@@ -367,23 +395,29 @@ async function piecesLogic() {
 
                             this.remove();
 
+                            console.log(dadosVisibles)
+                            sonidoSeleccion.currentTime = 0;
+                            sonidoSeleccion.play();
+
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
 
+                            console.log(dadosVisibles)
+                            
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                            await esperar(200)
+                            dragSound.currentTime=0
+                            dragSound.play();
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
                             desplazamientoManoJugada = desplazamientoManoJugada - 430
-
-                            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                            sonidoSeleccion.play();
-
                             dadosRestantes--
+                            turno=1
                         }else {
 
                             this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
@@ -397,6 +431,7 @@ async function piecesLogic() {
                             }, 500);
                             
                             console.log("Esa ficha no vale!")
+                            turno=1
                         }
                         break;
                     case "p":
@@ -420,23 +455,29 @@ async function piecesLogic() {
 
                             this.remove();
 
+                            console.log(dadosVisibles)
+                            sonidoSeleccion.currentTime = 0;
+                            sonidoSeleccion.play();
+
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
 
+                            console.log(dadosVisibles)
+                            
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                            await esperar(200)
+                            dragSound.currentTime=0
+                            dragSound.play();
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
                             desplazamientoManoJugada = desplazamientoManoJugada - 430
-
-                            sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                            sonidoSeleccion.play();
-
                             dadosRestantes--
+                            turno=1
                         }else {
 
                             this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
@@ -450,6 +491,7 @@ async function piecesLogic() {
                             }, 500);
                             
                             console.log("Esa ficha no vale!")
+                            turno=1
                         }
                         break;                
                     default:

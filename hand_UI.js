@@ -40,6 +40,7 @@ passB.addEventListener("click", async function(){
 const contadorFichas = document.getElementById("contadorFichas");
 
 const taptapTable = document.getElementById("taptapTable");
+taptapTable.volume = 0.8;
 
 let fichasContadas = 3;
 
@@ -84,3 +85,11 @@ document.addEventListener("dblclick", async function(){
 //Logica destras de la seleccion de los dados jugados
 
 piecesLogic()
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+const imagenes = document.querySelectorAll(".dado");
+
+imagenes.forEach(function(imagen) {
+    imagen.removeEventListener("dblclick", function(){})
+})

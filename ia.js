@@ -22,6 +22,9 @@ async function turnoIA(){
     const comboSound = document.getElementById("comboSound")
     comboSound.volume=0.7
 
+    const dragSound = document.getElementById('dragSound');
+    dragSound.volume = 0.5;
+
     let combo = document.getElementById("combo");
 
     let hpLoss = document.getElementById("hpLoss");
@@ -76,15 +79,16 @@ async function turnoIA(){
                     resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
+                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                    sonidoSeleccion.play();
                     manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
                     desplazamientoManoJugada = desplazamientoManoJugada - 430
                 
-                    sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                    sonidoSeleccion.play();
-
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
@@ -123,15 +127,15 @@ async function turnoIA(){
                         resultadoJugadaIA.style.transform = "scaleX(-1)";
                     
                         manoJugadaIA.appendChild(resultadoJugadaIA);
-                    
-                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
-                           
-                        dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - 430
-                    
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        await esperar(200)
+                        dragSound.currentTime=0
+                        dragSound.play();
+                        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                        dadosJugados++;
+                        desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                         //Combo aplicado
                         let combo = document.getElementById("combo");
@@ -164,14 +168,15 @@ async function turnoIA(){
                         resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
                     
                         manoJugadaIA.appendChild(resultadoJugadaIA);
-                    
+                        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                        sonidoSeleccion.play();
                         manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        await esperar(200)
+                        dragSound.currentTime=0
+                        dragSound.play();
                         manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                         dadosJugados++;
                         desplazamientoManoJugada = desplazamientoManoJugada - 430
-                    
-                        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
-                        sonidoSeleccion.play();
 
                         //Combo aplicado
                         let combo = document.getElementById("combo");
@@ -211,15 +216,15 @@ async function turnoIA(){
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
-                       
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -252,14 +257,15 @@ async function turnoIA(){
                     resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -299,15 +305,15 @@ async function turnoIA(){
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
-                       
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -340,14 +346,15 @@ async function turnoIA(){
                     resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -387,15 +394,15 @@ async function turnoIA(){
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
-                        
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -428,14 +435,15 @@ async function turnoIA(){
                     resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -475,15 +483,15 @@ async function turnoIA(){
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
-                        
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -517,14 +525,15 @@ async function turnoIA(){
                     resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
-                
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`   
-                    dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
-                
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime=0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                    dadosJugados++;
+                    desplazamientoManoJugada = desplazamientoManoJugada - 430
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -557,7 +566,7 @@ async function turnoIA(){
     //Despues del turno de la IA se aplican los daños
     color = 0;
     combo.textContent="";
-    await esperar(500);
+    await esperar(100);
     let vidaJugador = document.getElementById("vidaJugador");
 
     //Vida sustraida del jugador que se muestra arriba del HP

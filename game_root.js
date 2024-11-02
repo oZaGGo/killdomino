@@ -18,7 +18,7 @@ atmos.loop = true;
 
 bmusic.loop = true;
 
-bmusic.volume = 0.3;
+bmusic.volume = 0.2;
 
 atmos.play();
 bmusic.play();

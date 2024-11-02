@@ -7,8 +7,12 @@
 
 body {
     margin: 0;
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
+    max-height: 1080px;
+    max-width: 1980px;
+    min-width: 1280px;
+    min-height: 720px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -102,7 +106,7 @@ body {
 
     width: 73px;
     height: 39px;
-    scale: 260%;
+    scale: 225%;
     margin-left: -20px;
     image-rendering: pixelated;
     -webkit-user-drag: none; /* Chrome, Safari, Opera */
