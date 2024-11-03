@@ -65,6 +65,8 @@ async function piecesLogic() {
             const resultadoJugada = document.createElement('img');
 
             console.log("El dado seleccionado es: " + dadoSeleccionado)
+
+            console.log(dadosVisibles)
             
 
             if (dadoSeleccionado.length<3 && turno==1){
@@ -317,7 +319,7 @@ async function piecesLogic() {
 
                         //Logica para quemar una ficha aleatoria de la mano
 
-                        async function burn() { // Uso una funcion asincrona para poder esperar para el efecto
+                        async function burn() { // Uso una funcion asincrona para poder esperar para el efecto, esto lo uso en muchas otras partes del codigo
                             
     
                             await esperar(1200)
@@ -390,9 +392,7 @@ async function piecesLogic() {
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
-
-    
-                            
+     
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
                             await esperar(200)
@@ -447,9 +447,7 @@ async function piecesLogic() {
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
-
-    
-                            
+                         
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
                             await esperar(200)
@@ -482,6 +480,8 @@ async function piecesLogic() {
                         break;    
                 }
             }
+            
+            console.log(dadosVisibles)
             console.log(dadosRestantes)
             win();
             turno=1
