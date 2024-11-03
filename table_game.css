@@ -236,3 +236,9 @@ body {
 .vibrarHpLoss{
     animation: vibrar 0.1s infinite !important;
 }
+
+.taptapC{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}

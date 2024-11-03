@@ -27,23 +27,28 @@
     <audio id="dragSound" src="sounds/dragSound.mp3"></audio>
 
 
+    <!-- Contenedor div para añadir la mecanica del dobleclick para pedir ficha -->
+     <div id="taptap" class="taptapC"></div>
+    <!-- Contenedor div que almacena el combo aplicado por la IA -->
     <div id="combo" class="contadorCombo"></div>
-
+    <!-- Contenedor div que almacena los dados jugados en horizontal -->
     <div id="manoJugada"></div>
 
-    <!-- Añadir un contador que muestre los puntos que se van a restar y haga una animacion hacia abajo y los reste -->
+    <!-- Contenedores que sirve npara mostrar la vida del jugador y lo que pierde por combo -->
     <div id="hpLoss" class="hpLoss"></div>
     <div id="vidaJugador" class="vidaJugador">HP:15</div>
 
+    <!-- Contenedor div que almacena los dados en vertical de la mano-->
     <div  id="contenedor"></div>
 
-    
+    <!-- Contenedor div que almacena el numero de fichas que se pueden pedir -->
     <h1 id="contadorFichas" class="fichasRestantes">3/3</h1>
 
+    <!-- Campana para pasar turno -->
     <img id="passB" src="sprites/UI/buttons/timbre.png" class="passB">
 
 
-
+    <!-- Scripts (el orden es importante)-->
     <script src="global_variables.js"></script>
     <script src="ia.js"></script>
     <script src="game_root.js"></script>

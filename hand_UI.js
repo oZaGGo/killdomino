@@ -44,8 +44,10 @@ taptapTable.volume = 0.8;
 
 let fichasContadas = 3;
 
+const taptap = document.getElementById("taptap");
+
 //Se pide ficha "golpeando la mesa 2 veces", es decir haciendo doble click en cualquier parte de la mesa.
-document.addEventListener("dblclick", async function(){
+taptap.addEventListener("dblclick", async function(){
     
     if (dadoInvisible<=10){
         taptapTable.play()
@@ -88,8 +90,3 @@ piecesLogic()
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-const imagenes = document.querySelectorAll(".dado");
-
-imagenes.forEach(function(imagen) {
-    imagen.removeEventListener("dblclick", function(){})
-})

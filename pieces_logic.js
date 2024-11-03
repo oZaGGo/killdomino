@@ -28,6 +28,15 @@ Thx for keeping the game alive!
 
 */
 
+//Funcion debounce para evitar que se hagan varias llamadas a la vez
+function debounce(func, delay) {
+    let timeoutId;
+    return function(...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
 async function piecesLogic() {
 
     // Seleccionar todas las imágenes con la clase "dado"
@@ -44,15 +53,19 @@ async function piecesLogic() {
 
     // Recorrer cada imagen y agregarle el evento de click
     imagenes.forEach(function(imagen) {
-        imagen.addEventListener("click", async function() {
-            console.log(dadosVisibles)
+        imagen.addEventListener("click",debounce(async function() {
+            
+            
             // Obtener todas las clases del elemento
-            const clases = this.className.split(" ");
-                    
+            const clases = this.className.split(" ");         
             // Obtener la última clase para saber que dado estamos seleccionando
             const ultimaClase = clases[clases.length - 1];
-
             dadoSeleccionado = ultimaClase;
+            const manoJugada = document.getElementById('manoJugada');
+            const resultadoJugada = document.createElement('img');
+
+            console.log("El dado seleccionado es: " + dadoSeleccionado)
+            
 
             if (dadoSeleccionado.length<3 && turno==1){
 
@@ -65,10 +78,6 @@ async function piecesLogic() {
 
                     caraNecesaria = parseInt(cifra2)
 
-                    const manoJugada = document.getElementById('manoJugada');
-
-                    const resultadoJugada = document.createElement('img');
-
                     resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
                     resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
@@ -79,7 +88,6 @@ async function piecesLogic() {
 
                     this.remove();
 
-                    console.log(dadosVisibles)
                     sonidoSeleccion.currentTime = 0;
                     sonidoSeleccion.play();
 
@@ -89,7 +97,6 @@ async function piecesLogic() {
                         dadosVisibles.splice(index, 1);
                     }
 
-                    console.log(dadosVisibles)
                     
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                     manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -109,10 +116,6 @@ async function piecesLogic() {
 
                     caraNecesaria = parseInt(cifra1)
 
-                    const manoJugada = document.getElementById('manoJugada');
-
-                    const resultadoJugada = document.createElement('img');
-
                     resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
                     resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
@@ -124,7 +127,6 @@ async function piecesLogic() {
 
                     this.remove();
 
-                    console.log(dadosVisibles)
                     sonidoSeleccion.currentTime = 0;
                     sonidoSeleccion.play();
 
@@ -134,7 +136,6 @@ async function piecesLogic() {
                         dadosVisibles.splice(index, 1);
                     }
 
-                    console.log(dadosVisibles)
                     
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                     manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -177,10 +178,6 @@ async function piecesLogic() {
 
                             caraNecesaria = parseInt(cifra1)
 
-                            const manoJugada = document.getElementById('manoJugada');
-
-                            const resultadoJugada = document.createElement('img');
-
                             resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
@@ -191,7 +188,7 @@ async function piecesLogic() {
 
                             this.remove();
 
-                            console.log(dadosVisibles)
+    
                             sonidoSeleccion.currentTime = 0;
                             sonidoSeleccion.play();
 
@@ -201,7 +198,7 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
-                            console.log(dadosVisibles)
+    
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -220,10 +217,6 @@ async function piecesLogic() {
 
                             caraNecesaria = parseInt(cifra2)
 
-                            const manoJugada = document.getElementById('manoJugada');
-
-                            const resultadoJugada = document.createElement('img');
-
                             resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
@@ -235,7 +228,7 @@ async function piecesLogic() {
 
                             this.remove();
 
-                            console.log(dadosVisibles)
+    
                             sonidoSeleccion.currentTime = 0;
                             sonidoSeleccion.play();
 
@@ -245,7 +238,7 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
-                            console.log(dadosVisibles)
+    
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -284,10 +277,6 @@ async function piecesLogic() {
 
                         caraNecesaria = parseInt(cifra2)
 
-                        const manoJugada = document.getElementById('manoJugada');
-
-                        const resultadoJugada = document.createElement('img');
-
                         resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                         resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
@@ -298,7 +287,7 @@ async function piecesLogic() {
 
                         this.remove();
                         
-                        console.log(dadosVisibles)
+
                         sonidoSeleccion.currentTime = 0;
                         sonidoSeleccion.play();
 
@@ -308,7 +297,7 @@ async function piecesLogic() {
                             dadosVisibles.splice(index, 1);
                         }
 
-                        console.log(dadosVisibles)
+
                         
                         contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                         manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -330,7 +319,7 @@ async function piecesLogic() {
 
                         async function burn() { // Uso una funcion asincrona para poder esperar para el efecto
                             
-                            console.log(dadosVisibles)
+    
                             await esperar(1200)
 
                             let fireBurn = document.getElementById("fireBurn")
@@ -345,7 +334,7 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
-                            console.log(dadosVisibles)
+    
 
                             // Mezclar la lista usando el algoritmo de Fisher-Yates
                             for (let i = dadosVisibles.length - 1; i > 0; i--) {
@@ -381,10 +370,7 @@ async function piecesLogic() {
                         
                         if (parseInt(caraNecesaria)%2!=0) {
                             caraNecesaria = parseInt(cifra2)
-                            const manoJugada = document.getElementById('manoJugada');
-
-                            const resultadoJugada = document.createElement('img');
-
+                        
                             resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
@@ -395,7 +381,7 @@ async function piecesLogic() {
 
                             this.remove();
 
-                            console.log(dadosVisibles)
+    
                             sonidoSeleccion.currentTime = 0;
                             sonidoSeleccion.play();
 
@@ -405,7 +391,7 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
-                            console.log(dadosVisibles)
+    
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -441,9 +427,6 @@ async function piecesLogic() {
                         
                         if (parseInt(caraNecesaria)%2==0) {
                             caraNecesaria = parseInt(cifra2)
-                            const manoJugada = document.getElementById('manoJugada');
-
-                            const resultadoJugada = document.createElement('img');
 
                             resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
@@ -455,7 +438,7 @@ async function piecesLogic() {
 
                             this.remove();
 
-                            console.log(dadosVisibles)
+    
                             sonidoSeleccion.currentTime = 0;
                             sonidoSeleccion.play();
 
@@ -465,7 +448,7 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
-                            console.log(dadosVisibles)
+    
                             
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano-1}, 1fr)`
                             manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
@@ -501,8 +484,9 @@ async function piecesLogic() {
             }
             console.log(dadosRestantes)
             win();
+            turno=1
 
-        });
+        },160));
     });
     
 }
