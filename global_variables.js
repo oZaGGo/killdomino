@@ -45,9 +45,9 @@ let primerTurno = true; //Para simbolizar un supuesto "primer turno"
 
 let comboNumber = 0;
 
-let playerHP = 15;
+let playerHP = 20;
 
-let ratHP = 3;
+let ratHP = 5;
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 

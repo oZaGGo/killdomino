@@ -3,7 +3,11 @@ async function checkIfRoundWin(){
         console.log("Has ganado la ronda")
         ratHP--;
         const rathp = document.getElementById("ratHp");
-        if (ratHP == 2){
+        if (ratHP == 4){
+            rathp.innerText = "****";
+        }else if (ratHP == 3){
+            rathp.innerText = "***";
+        }else if (ratHP == 2){
             rathp.innerText = "**";
         }else if (ratHP == 1){
             rathp.innerText = "*";
