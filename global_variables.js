@@ -38,7 +38,6 @@ let turno = 0; //0 es turno de la IA y 1 es turno del jugador
 
 let primerTurno = true; //Para simbolizar un supuesto "primer turno"
 
-let fichasIA = 7; //Numero imaginario de fichas que tiene la ia
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 

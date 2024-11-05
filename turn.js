@@ -15,8 +15,11 @@ async function checkIfRoundWin(){
         contadorFichas.innerText = `3/3`
         fichasContadas=3;
         contenedor.style.gridTemplateColumns = `repeat(10, 1fr)`
+        dadosVisibles = [];
+        dadoInvisible = 8;
         randomizeHand();
         piecesLogic();
+        hoverFunctions();
         console.log("Dados restantes: "+dadosRestantes)
     }
 }

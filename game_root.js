@@ -160,88 +160,92 @@ setTimeout(() => {
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Efectos y funciones al hacer hover en los dados
-const dadosS = document.querySelectorAll('.dado');
-//Sonidos de hover:
-const sonidoHoverDado = document.getElementById('sonidoHoverDado');
-const fireHover = document.getElementById("fireHover");
-const magneticHover = document.getElementById("magneticHover");
-//Caja de descripcion del dado:
-const infoBox = document.getElementById('infoBox');
+async function hoverFunctions() {
 
-dadosS.forEach(dado => {
-    dado.addEventListener('mouseenter', async () => {
-        //Mostrar la caja de descripcion
-        infoBox.style.display = "block";
-        //Extraer la posicio ndel dado seleccionado
-        const rect = dado.getBoundingClientRect();
-        //Posicionar la caja de descripcion
-        infoBox.style.left = `${rect.left - 30}px`;
-        infoBox.style.top = `${rect.top - 100}px`;
+    //Efectos y funciones al hacer hover en los dados
+    const dadosS = document.querySelectorAll('.dado');
+    //Sonidos de hover:
+    const sonidoHoverDado = document.getElementById('sonidoHoverDado');
+    const fireHover = document.getElementById("fireHover");
+    const magneticHover = document.getElementById("magneticHover");
+    //Caja de descripcion del dado:
+    const infoBox = document.getElementById('infoBox');
 
-        //Reproducir sonidos de hover
-        sonidoHoverDado.currentTime = 0; // Reiniciar el sonido al inicio
-        sonidoHoverDado.play(); // Reproducir el sonido
+    dadosS.forEach(dado => {
+        dado.addEventListener('mouseenter', async () => {
+            //Mostrar la caja de descripcion
+            infoBox.style.display = "block";
+            //Extraer la posicio ndel dado seleccionado
+            const rect = dado.getBoundingClientRect();
+            //Posicionar la caja de descripcion
+            infoBox.style.left = `${rect.left - 30}px`;
+            infoBox.style.top = `${rect.top - 100}px`;
 
-        // Obtener todas las clases del elemento
-        let clasesDadoEspecial = dado.className.split(" ");
+            //Reproducir sonidos de hover
+            sonidoHoverDado.currentTime = 0; // Reiniciar el sonido al inicio
+            sonidoHoverDado.play(); // Reproducir el sonido
 
-        // Obtener la última clase para saber que dado estamos seleccionando
-        let ultimaClaseDadoEspecial = clasesDadoEspecial[clasesDadoEspecial.length - 1];
+            // Obtener todas las clases del elemento
+            let clasesDadoEspecial = dado.className.split(" ");
 
-        let dadoEspecialSeleccionado = ultimaClaseDadoEspecial;
+            // Obtener la última clase para saber que dado estamos seleccionando
+            let ultimaClaseDadoEspecial = clasesDadoEspecial[clasesDadoEspecial.length - 1];
 
-        let cifra3 = dadoEspecialSeleccionado[2];
+            let dadoEspecialSeleccionado = ultimaClaseDadoEspecial;
+
+            let cifra3 = dadoEspecialSeleccionado[2];
 
 
-        switch (cifra3) {
-            case "f":
-                fireHover.volume = 0.6;
-                fireHover.loop = true;
-                fireHover.currentTime = 0;
-                fireHover.play();
-                //Empezar la transicion de la caja de descripcion
-                infoBox.style.opacity = "1";
-                infoBox.innerText = "It burns!";
-                break;
-            case "n":
-                magneticHover.volume = 0.4;
-                magneticHover.loop = false;
-                magneticHover.currentTime = 0;
-                magneticHover.play();
-                //Empezar la transicion de la caja de descripcion
-                infoBox.style.opacity = "1";
-                infoBox.style.left = `${rect.left - 60}px`;
-                infoBox.innerText = "It attracts odd stuff...";
-                break;
-            case "p":
-                magneticHover.volume = 0.3;
-                magneticHover.loop = false;
-                magneticHover.currentTime = 0;
-                magneticHover.play();
-                //Empezar la transicion de la caja de descripcion
-                infoBox.style.opacity = "1";
-                infoBox.style.left = `${rect.left - 60}px`;
-                infoBox.innerText = "Even you can use it...";
-                break;
-            case "t":
-                //Empezar la transicion de la caja de descripcion
-                infoBox.style.opacity = "1";
-                infoBox.style.left = `${rect.left - 60}px`;
-                infoBox.innerText = "It seems to not exist...";
-                break;
-        }
+            switch (cifra3) {
+                case "f":
+                    fireHover.volume = 0.6;
+                    fireHover.loop = true;
+                    fireHover.currentTime = 0;
+                    fireHover.play();
+                    //Empezar la transicion de la caja de descripcion
+                    infoBox.style.opacity = "1";
+                    infoBox.innerText = "It burns!";
+                    break;
+                case "n":
+                    magneticHover.volume = 0.4;
+                    magneticHover.loop = false;
+                    magneticHover.currentTime = 0;
+                    magneticHover.play();
+                    //Empezar la transicion de la caja de descripcion
+                    infoBox.style.opacity = "1";
+                    infoBox.style.left = `${rect.left - 60}px`;
+                    infoBox.innerText = "It attracts odd stuff...";
+                    break;
+                case "p":
+                    magneticHover.volume = 0.3;
+                    magneticHover.loop = false;
+                    magneticHover.currentTime = 0;
+                    magneticHover.play();
+                    //Empezar la transicion de la caja de descripcion
+                    infoBox.style.opacity = "1";
+                    infoBox.style.left = `${rect.left - 60}px`;
+                    infoBox.innerText = "Even you can use it...";
+                    break;
+                case "t":
+                    //Empezar la transicion de la caja de descripcion
+                    infoBox.style.opacity = "1";
+                    infoBox.style.left = `${rect.left - 60}px`;
+                    infoBox.innerText = "It seems to not exist...";
+                    break;
+            }
+        });
+
+        dado.addEventListener('mouseleave', () => {
+
+            fireHover.pause();
+            magneticHover.pause();
+
+            infoBox.style.opacity = "0";
+            infoBox.style.display = "none";
+
+        });
     });
+}
 
-    dado.addEventListener('mouseleave', () => {
-
-        fireHover.pause();
-        magneticHover.pause();
-
-        infoBox.style.opacity = "0";
-        infoBox.style.display = "none";
-
-    });
-});
-
+hoverFunctions();
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
