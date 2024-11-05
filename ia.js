@@ -52,10 +52,6 @@ async function turnoIA(){
 
     }
 
-    fichasIAJugar = 4;
-    
-
-    console.log("LA IA VA A JUGAR " + fichasIAJugar + " veces")
 
     let color = 0;
 

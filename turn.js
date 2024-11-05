@@ -1,5 +1,7 @@
 async function checkIfRoundWin(){
     if (dadosRestantes<=0){
+        taptap.style.pointerEvents = "none";
+        contenedor.style.pointerEvents = "none";
         console.log("Has ganado la ronda")
         ratHP--;
         const rathp = document.getElementById("ratHp");
@@ -24,7 +26,8 @@ async function checkIfRoundWin(){
         randomizeHand();
         piecesLogic();
         hoverFunctions();
-        console.log("Dados restantes: "+dadosRestantes)
+        taptap.style.pointerEvents = "auto";
+        contenedor.style.pointerEvents = "auto";
     }
 
 }
