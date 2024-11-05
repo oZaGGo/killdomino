@@ -11,17 +11,31 @@ This script is the point of start of the game scene.
 
 const atmos = document.getElementById('atmos');
 
-const bmusic = document.getElementById('bmusic');
+const bmusic1 = document.getElementById('bmusic1');
+
+const bmusic2 = document.getElementById('bmusic2');
+
 atmos.volume = 0.03;
 
 atmos.loop = true;
 
-bmusic.loop = true;
+bmusic1.loop = true;
 
-bmusic.volume = 0.3;
+bmusic1.volume = 0.4;
+
+bmusic2.loop = true;
+
+bmusic2.volume = 0.5;
 
 atmos.play();
-bmusic.play();
+
+const numeroAleatorio = Math.floor(Math.random() * 2) + 1;
+
+if (numeroAleatorio === 1) {
+  bmusic1.play();
+} else if (numeroAleatorio === 2) {
+  bmusic2.play();
+}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -140,13 +154,26 @@ setTimeout(() => {
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//Sonido hover mouse dado domino
-const dadosS = document.querySelectorAll('.dado'); // Seleccionar todas las imágenes con clase 'dado'
+//Efectos y funciones al hacer hover en los dados
+const dadosS = document.querySelectorAll('.dado');
+//Sonidos de hover:
 const sonidoHoverDado = document.getElementById('sonidoHoverDado');
 const fireHover = document.getElementById("fireHover");
 const magneticHover = document.getElementById("magneticHover");
+//Caja de descripcion del dado:
+const infoBox = document.getElementById('infoBox');
+
 dadosS.forEach(dado => {
     dado.addEventListener('mouseenter', async () => {
+        //Mostrar la caja de descripcion
+        infoBox.style.display = "block";
+        //Extraer la posicio ndel dado seleccionado
+        const rect = dado.getBoundingClientRect();
+        //Posicionar la caja de descripcion
+        infoBox.style.left = `${rect.left-30}px`;
+        infoBox.style.top = `${rect.top-100}px`;
+
+        //Reproducir sonidos de hover
         sonidoHoverDado.currentTime = 0; // Reiniciar el sonido al inicio
         sonidoHoverDado.play(); // Reproducir el sonido
 
@@ -167,19 +194,36 @@ dadosS.forEach(dado => {
                 fireHover.loop = true;
                 fireHover.currentTime = 0;
                 fireHover.play();
+                //Empezar la transicion de la caja de descripcion
+                infoBox.style.opacity = "1";
+                infoBox.innerText = "It burns!";
                 break;
             case "n": 
                 magneticHover.volume = 0.4;
                 magneticHover.loop = false;
                 magneticHover.currentTime = 0;
                 magneticHover.play();
+                //Empezar la transicion de la caja de descripcion
+                infoBox.style.opacity = "1";
+                infoBox.style.left = `${rect.left-60}px`;
+                infoBox.innerText = "It attracts odd stuff...";
                 break;
             case "p": 
                 magneticHover.volume = 0.3;
                 magneticHover.loop = false;
                 magneticHover.currentTime = 0;
                 magneticHover.play();
-                break;        
+                //Empezar la transicion de la caja de descripcion
+                infoBox.style.opacity = "1";
+                infoBox.style.left = `${rect.left-60}px`;
+                infoBox.innerText = "Even you can use it...";
+                break;
+            case "t":
+                //Empezar la transicion de la caja de descripcion
+                infoBox.style.opacity = "1";
+                infoBox.style.left = `${rect.left-60}px`;
+                infoBox.innerText = "It seems to not exist...";
+                break;            
         }
     });
 
@@ -187,6 +231,9 @@ dadosS.forEach(dado => {
         
         fireHover.pause();
         magneticHover.pause();
+
+        infoBox.style.opacity = "0";
+        infoBox.style.display = "none";
 
     });
 });

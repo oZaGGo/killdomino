@@ -288,6 +288,9 @@ async function piecesLogic() {
                         console.log("El dado seleccionado es: " + dadoSeleccionado)
 
                         this.remove();
+
+                        infoBox.style.opacity = "0";
+                        infoBox.style.display = "none";
                         
 
                         sonidoSeleccion.currentTime = 0;
@@ -353,6 +356,8 @@ async function piecesLogic() {
                                 dadosVisibles.splice(index, 1);
                             }
 
+                            console.log("El dado a quemar es: " + dadoAQuemar)
+
                             let dadoQuemado = document.getElementsByClassName(`${dadoAQuemar}`)
 
                             dadoQuemado[0].remove()
@@ -383,12 +388,15 @@ async function piecesLogic() {
 
                             this.remove();
 
+                            infoBox.style.opacity = "0";
+                            infoBox.style.display = "none";
+
     
                             sonidoSeleccion.currentTime = 0;
                             sonidoSeleccion.play();
 
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
@@ -437,6 +445,9 @@ async function piecesLogic() {
                             console.log("El dado seleccionado es: " + dadoSeleccionado)
 
                             this.remove();
+
+                            infoBox.style.opacity = "0";
+                            infoBox.style.display = "none";
 
     
                             sonidoSeleccion.currentTime = 0;
