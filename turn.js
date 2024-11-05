@@ -26,4 +26,5 @@ async function checkIfRoundWin(){
         hoverFunctions();
         console.log("Dados restantes: "+dadosRestantes)
     }
+
 }

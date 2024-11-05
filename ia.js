@@ -31,6 +31,8 @@ async function turnoIA(){
 
     let damageCombo = 0;
     turno=0
+
+    contenedor.style.pointerEvents = "none"; //Se desactiva el click en los dados
     
     let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
     
@@ -49,6 +51,8 @@ async function turnoIA(){
         fichasIAJugar = 5;
 
     }
+
+    fichasIAJugar = 4;
     
 
     console.log("LA IA VA A JUGAR " + fichasIAJugar + " veces")
@@ -63,8 +67,6 @@ async function turnoIA(){
         const manoJugadaIA = document.getElementById('manoJugada');
     
         const resultadoJugadaIA = document.createElement('img');
-
-        console.log("La cara necesaria antes de la IA: " + caraNecesaria)
         
 
         switch(caraNecesaria){
@@ -72,7 +74,6 @@ async function turnoIA(){
                     segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                     fichaIAResultante = 10 + segundaCaraFichaIA
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -109,8 +110,6 @@ async function turnoIA(){
                 
                     caraNecesaria = segundaCaraFichaIA
 
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-
                 break;
             case 2:
                     segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
@@ -118,7 +117,7 @@ async function turnoIA(){
 
                         fichaIAResultante = 12;
 
-                        console.log("La IA ha jugado: " + fichaIAResultante)
+
 
                         resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                     
@@ -156,12 +155,12 @@ async function turnoIA(){
                         hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                     
                         caraNecesaria = segundaCaraFichaIA
-                        console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                        
                     } else {
 
                         fichaIAResultante = 20 + segundaCaraFichaIA
 
-                        console.log("La IA ha jugado: " + fichaIAResultante)
+
 
                         resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                     
@@ -197,7 +196,7 @@ async function turnoIA(){
                         hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                     
                         caraNecesaria = segundaCaraFichaIA
-                        console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                        
 
                     }
                 break;
@@ -207,7 +206,6 @@ async function turnoIA(){
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 3;
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -245,12 +243,11 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    
                 } else {
 
                     fichaIAResultante = 30 + segundaCaraFichaIA
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -286,8 +283,7 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
-
+                    
                 }
                 break;
             case 4:
@@ -296,7 +292,6 @@ async function turnoIA(){
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 4;
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -334,12 +329,11 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    
                 } else {
 
                     fichaIAResultante = 40 + segundaCaraFichaIA
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -375,7 +369,7 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
                 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    
 
                 }
                 break;
@@ -385,7 +379,6 @@ async function turnoIA(){
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 5;
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -423,12 +416,11 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    
                 } else {
 
                     fichaIAResultante = 50 + segundaCaraFichaIA
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -464,7 +456,7 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    
 
                 }
                 break;
@@ -474,7 +466,6 @@ async function turnoIA(){
 
                     fichaIAResultante = (segundaCaraFichaIA*10) + 6;
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -513,12 +504,11 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    
                 } else {
 
                     fichaIAResultante = 60 + segundaCaraFichaIA
 
-                    console.log("La IA ha jugado: " + fichaIAResultante)
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
@@ -554,7 +544,7 @@ async function turnoIA(){
                     hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
 
                     caraNecesaria = segundaCaraFichaIA
-                    console.log("La cara necesaria despues de la IA: " + caraNecesaria)
+                    
 
                 }
                 break;
@@ -586,11 +576,11 @@ async function turnoIA(){
     vidaJugador.classList.add("vibrarHpLoss")
     await esperar(200);
     vidaJugador.classList.remove("vibrarHpLoss")
-
+    await esperar(1000);
     turno = 1; //Se devuelve el turno al jugador
 
     console.log("Turno: " + turno)
-
-    win()
     lose()
+
+    contenedor.style.pointerEvents = "auto"; //Se activa el click en los dados
 }

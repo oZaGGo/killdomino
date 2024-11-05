@@ -279,6 +279,7 @@ async function piecesLogic() {
                     case "f":
 
                         fireHover.pause();
+                        contenedor.style.pointerEvents = "none";
 
                         //La ficha de fuego se puede usar con cualquier cara
                         turno=0
@@ -365,7 +366,7 @@ async function piecesLogic() {
                             dadosRestantes--
                             checkIfRoundWin();
                             win();
-                            
+                            contenedor.style.pointerEvents = "auto"; 
                         }
 
                         break;
