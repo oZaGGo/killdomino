@@ -190,12 +190,15 @@ async function piecesLogic() {
 
                             this.remove();
 
+                            infoBox.style.opacity = "0";
+                            infoBox.style.display = "none";
+
     
                             sonidoSeleccion.currentTime = 0;
                             sonidoSeleccion.play();
 
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
@@ -230,12 +233,15 @@ async function piecesLogic() {
 
                             this.remove();
 
+                            infoBox.style.opacity = "0";
+                            infoBox.style.display = "none";
+
     
                             sonidoSeleccion.currentTime = 0;
                             sonidoSeleccion.play();
 
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
@@ -357,6 +363,7 @@ async function piecesLogic() {
                             turno=1
 
                             dadosRestantes--
+                            checkIfRoundWin();
                             win();
                             
                         }
@@ -486,6 +493,7 @@ async function piecesLogic() {
             
             console.log(dadosVisibles)
             console.log(dadosRestantes)
+            checkIfRoundWin();
             win();
             turno=1
 

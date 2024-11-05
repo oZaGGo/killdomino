@@ -76,7 +76,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -122,7 +122,7 @@ async function turnoIA(){
 
                         resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                     
-                        resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                        resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
                         resultadoJugadaIA.style.transform = "scaleX(-1)";
                     
@@ -165,7 +165,7 @@ async function turnoIA(){
 
                         resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                     
-                        resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                        resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                     
                         manoJugadaIA.appendChild(resultadoJugadaIA);
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -211,7 +211,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
 
@@ -254,7 +254,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -300,7 +300,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
                 
@@ -343,7 +343,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -389,7 +389,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
                 
@@ -432,7 +432,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -478,7 +478,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
                     resultadoJugadaIA.style.transform = "scaleX(-1)";
                 
@@ -522,7 +522,7 @@ async function turnoIA(){
 
                     resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
-                    resultadoJugadaIA.className = `dadoJugado ${fichaIAResultante}`;
+                    resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
