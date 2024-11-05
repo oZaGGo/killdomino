@@ -297,7 +297,7 @@ async function piecesLogic() {
                         sonidoSeleccion.play();
 
                         //Quitar la propia pieza seleccionada
-                        let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                        let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
                         if (index !== -1) {
                             dadosVisibles.splice(index, 1);
                         }
@@ -332,14 +332,6 @@ async function piecesLogic() {
                             fireBurn.volume=0.4
                             fireBurn.play()
                             await esperar(100)
-
-                            //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
-                            if (index !== -1) {
-                                dadosVisibles.splice(index, 1);
-                            }
-
-    
 
                             // Mezclar la lista usando el algoritmo de Fisher-Yates
                             for (let i = dadosVisibles.length - 1; i > 0; i--) {
@@ -454,7 +446,7 @@ async function piecesLogic() {
                             sonidoSeleccion.play();
 
                             //Quitar la propia pieza seleccionada
-                            let index = dadosVisibles.indexOf(`${cifra1+cifra2}`);
+                            let index = dadosVisibles.indexOf(`${cifra1+cifra2+cifra3}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
