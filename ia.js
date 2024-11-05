@@ -579,4 +579,6 @@ async function turnoIA(){
     lose()
 
     contenedor.style.pointerEvents = "auto"; //Se activa el click en los dados
+
+    console.log("Necesitas esta cara: " + caraNecesaria)
 }

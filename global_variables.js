@@ -30,6 +30,8 @@ let caraNecesaria = ""; //cara necesaria para poner el dado correcto (pongo 1 po
 
 let dadoInvisible = 8; //dados invisible al que se quiere revelar
 
+let dadosInvisiblesRestantes = 3; //dados invisibles restantes
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Crear sistema de turnos contra la IA

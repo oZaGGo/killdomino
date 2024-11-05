@@ -75,6 +75,8 @@ taptap.addEventListener("dblclick", async function(){
         contadorFichas.innerText = `${fichasContadas}/3`
 
         dadosRestantes++
+        dadosInvisiblesRestantes--
+        console.log(dadosVisibles)
 
     } else {
         console.log("No puedes pillar mas fichas!")

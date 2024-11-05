@@ -102,7 +102,8 @@ function randomizeHand() {
 
     const sonidoCreacion = document.getElementById('sonidoCreacionDados');
     sonidoCreacion.volume = 0.2;
-    sonidoCreacion.play(); //Reproduce un sonido despues de crear los dados en la mano randomizados  
+    sonidoCreacion.play(); //Reproduce un sonido despues de crear los dados en la mano randomizados
+    console.log("Dados randomizados: " + dadosVisibles)  
 
 }
 
