@@ -51,6 +51,7 @@ async function piecesLogic() {
     dragSound.volume = 0.5;
 
 
+
     // Recorrer cada imagen y agregarle el evento de click
     imagenes.forEach(function (imagen) {
         imagen.addEventListener("click", debounce(async function () {
@@ -62,8 +63,7 @@ async function piecesLogic() {
             const ultimaClase = clases[clases.length - 1];
             dadoSeleccionado = ultimaClase;
             const manoJugada = document.getElementById('manoJugada');
-            const resultadoJugada = document.createElement('img')
-
+            const resultadoJugada = document.createElement('img');
             console.log(dadosVisibles)
 
 
@@ -296,9 +296,9 @@ async function piecesLogic() {
                         sonidoSeleccion.play();
 
                         //Quitar la pieza seleccionada de las piezas visibles ya que va a ser destruida de la mano
-                        let index = dadosVisibles.indexOf(`${cifra1 + cifra2 + cifra3}`);
-                        if (index !== -1) {
-                            dadosVisibles.splice(index, 1);
+                        let index1 = dadosVisibles.indexOf(`${cifra1 + cifra2 + cifra3}`);
+                        if (index1 !== -1) {
+                            dadosVisibles.splice(index1, 1);
                         }
 
                         contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
@@ -458,7 +458,7 @@ async function piecesLogic() {
                             dadosRestantes--
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
-                            
+
                         } else {
 
                             this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
@@ -474,6 +474,90 @@ async function piecesLogic() {
 
                             turno = 1
                         }
+                        break;
+                    case "e":
+                        tntHover.pause();
+                        contenedor.style.pointerEvents = "none";
+                        resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+
+                        resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+                        manoJugada.appendChild(resultadoJugada);
+
+                        this.remove();
+
+                        infoBox.style.opacity = "0";
+                        infoBox.style.display = "none";
+
+                        sonidoSeleccion.currentTime = 0;
+                        sonidoSeleccion.play();
+
+                        //Quitar la pieza seleccionada de las piezas visibles ya que va a ser destruida de la mano
+                        let index2 = dadosVisibles.indexOf(`${cifra1 + cifra2 + cifra3}`);
+                        if (index2 !== -1) {
+                            dadosVisibles.splice(index2, 1);
+                        }
+                        
+
+                        contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
+                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                        await esperar(200)
+                        dragSound.currentTime = 0
+                        dragSound.play();
+                        manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+                        dadosMano--;
+                        dadosJugados++;
+                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                        dadosRestantes--
+
+                        //Secuencia de explosion
+                        tntHover.volume = 1;
+                        tntHover.currentTime = 0;
+                        tntHover.play();
+                        await esperar(2500)
+                        let tntBurn = document.getElementById("tntBurn")
+                        tntBurn.volume = 0.4
+                        tntBurn.play()
+                        tntHover.pause();
+
+                        //Eliminarse a si misma
+
+                        let dadoQuemado = manoJugada.getElementsByClassName(`${dadoSeleccionado}`)
+                        dadoQuemado[0].remove()
+
+                        //Eliminar todas las piezas de la mano menos 1
+
+                        for (let i = 0; i < dadosRestantes-1; i++) {
+                            // Mezclar la lista usando el algoritmo de Fisher-Yates
+                            for (let i = dadosVisibles.length - 1; i > 0; i--) {
+                                let j = Math.floor(Math.random() * (i + 1));
+                                // Intercambiar elementos
+                                [dadosVisibles[i], dadosVisibles[j]] = [dadosVisibles[j], dadosVisibles[i]];
+                            }
+
+                            let dadoAQuemar = dadosVisibles.slice(0, 1)
+
+                            //Quitar el dado quemado de la lista de dados visibles
+                            index = dadosVisibles.indexOf(`${dadoAQuemar}`);
+                            if (index !== -1) {
+                                dadosVisibles.splice(index, 1);
+                            }
+
+                            console.log("El dado a quemar es: " + dadoAQuemar)
+
+                            let dadoQuemado = contenedor.getElementsByClassName(`${dadoAQuemar}`)
+
+                            dadoQuemado[0].remove()
+
+                            dadosRestantes--
+                            dadosMano--
+                        }
+                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados - 1}, minmax(215px, 1fr))`
+                        desplazamientoManoJugada = desplazamientoManoJugada + 430
+                        manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+
+                        turno = 1
+                        contenedor.style.pointerEvents = "auto";
                         break;
                     default:
                         console.log("Algo ha salido mal al comparar las fichas especiales!")

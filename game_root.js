@@ -169,6 +169,7 @@ async function hoverFunctions() {
     const sonidoHoverDado = document.getElementById('sonidoHoverDado');
     const fireHover = document.getElementById("fireHover");
     const magneticHover = document.getElementById("magneticHover");
+    const tntHover = document.getElementById("tntHover");
     //Caja de descripcion del dado:
     const infoBox = document.getElementById('infoBox');
 
@@ -233,6 +234,15 @@ async function hoverFunctions() {
                     infoBox.style.left = `${rect.left - 60}px`;
                     infoBox.innerText = "It seems to not exist...";
                     break;
+                case "e":
+                    tntHover.volume = 0.3;
+                    tntHover.loop = false;
+                    tntHover.currentTime = 0;
+                    tntHover.play();
+                    infoBox.style.opacity = "1";
+                    infoBox.style.left = `${rect.left - 60}px`;
+                    infoBox.innerText = "It explodes!";
+                    break;    
             }
         });
 
@@ -240,6 +250,7 @@ async function hoverFunctions() {
 
             fireHover.pause();
             magneticHover.pause();
+            tntHover.pause();
 
             infoBox.style.opacity = "0";
             infoBox.style.display = "none";
