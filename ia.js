@@ -30,6 +30,8 @@ async function turnoIA(){
     let hpLoss = document.getElementById("hpLoss");
 
     let damageCombo = 0;
+
+    let damageDealt = 0;
     turno=0
 
     contenedor.style.pointerEvents = "none"; //Se desactiva el click en los dados
@@ -89,7 +91,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -99,11 +101,12 @@ async function turnoIA(){
                     combo.classList.remove(`combo${color}`)
                     color++
 
+                    damageDealt = damageCombo + 1;
+
                     //Vida sustraida del jugador
-                    playerHP--
                     damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
-                
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
 
                 break;
@@ -135,7 +138,7 @@ async function turnoIA(){
                         //Combo aplicado
                         let combo = document.getElementById("combo");
                         comboNumber++;
-                        combo.textContent = `Combo X${comboNumber}`
+                        combo.textContent = `${roundDamage}$ X${comboNumber}`
                         comboSound.play()
 
                         combo.classList.add(`combo${color}`)
@@ -145,11 +148,13 @@ async function turnoIA(){
                         combo.classList.remove(`combo${color}`)
                         color++
 
+                        damageDealt = damageCombo + 1;
+
                         //Vida sustraida del jugador
-                        playerHP--
                         damageCombo++
-                        hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
-                    
+
+                        hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                        
                         caraNecesaria = segundaCaraFichaIA
                         
                     } else {
@@ -176,7 +181,7 @@ async function turnoIA(){
                         //Combo aplicado
                         let combo = document.getElementById("combo");
                         comboNumber++;
-                        combo.textContent = `Combo X${comboNumber}`
+                        combo.textContent = `${roundDamage}$ X${comboNumber}`
                         comboSound.play()
 
                         combo.classList.add(`combo${color}`)
@@ -186,11 +191,13 @@ async function turnoIA(){
                         combo.classList.remove(`combo${color}`)
                         color++
 
+                        damageDealt = damageCombo + 1;
+
                         //Vida sustraida del jugador
-                        playerHP--
                         damageCombo++
-                        hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
-                    
+
+                        hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                        
                         caraNecesaria = segundaCaraFichaIA
                         
 
@@ -223,7 +230,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -233,11 +240,12 @@ async function turnoIA(){
                     combo.classList.remove(`combo${color}`)
                     color++
 
+                    damageDealt = damageCombo + 1;
+
                     //Vida sustraida del jugador
-                    playerHP--
                     damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
-                
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
                     
                 } else {
@@ -263,7 +271,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -273,11 +281,12 @@ async function turnoIA(){
                     combo.classList.remove(`combo${color}`)
                     color++
 
+                    damageDealt = damageCombo + 1;
+
                     //Vida sustraida del jugador
-                    playerHP--
                     damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
-                
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
                     
                 }
@@ -309,7 +318,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -319,11 +328,12 @@ async function turnoIA(){
                     combo.classList.remove(`combo${color}`)
                     color++
 
-                    //Vida sustraida del jugador
-                    playerHP--
-                    damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+                    damageDealt = damageCombo + 1;
 
+                    //Vida sustraida del jugador
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
                     
                 } else {
@@ -349,7 +359,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -359,11 +369,12 @@ async function turnoIA(){
                     combo.classList.remove(`combo${color}`)
                     color++
 
+                    damageDealt = damageCombo + 1;
+
                     //Vida sustraida del jugador
-                    playerHP--
                     damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
-                
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
                     
 
@@ -396,7 +407,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -406,11 +417,12 @@ async function turnoIA(){
                     combo.classList.remove(`combo${color}`)
                     color++
 
-                    //Vida sustraida del jugador
-                    playerHP--
-                    damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+                    damageDealt = damageCombo + 1;
 
+                    //Vida sustraida del jugador
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
                     
                 } else {
@@ -436,7 +448,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -446,11 +458,12 @@ async function turnoIA(){
                     combo.classList.remove(`combo${color}`)
                     color++
 
-                    //Vida sustraida del jugador
-                    playerHP--
-                    damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+                    damageDealt = damageCombo + 1;
 
+                    //Vida sustraida del jugador
+                    damageCombo++
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
                     
 
@@ -483,7 +496,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -492,13 +505,14 @@ async function turnoIA(){
                     combo.classList.remove("comboAnimation")
                     combo.classList.remove(`combo${color}`)
                     color++
+
+                    damageDealt = damageCombo + 1;
                     
 
                     //Vida sustraida del jugador
-                    playerHP--
                     damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
-
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
                     caraNecesaria = segundaCaraFichaIA
                     
                 } else {
@@ -524,7 +538,7 @@ async function turnoIA(){
                     //Combo aplicado
                     let combo = document.getElementById("combo");
                     comboNumber++;
-                    combo.textContent = `Combo X${comboNumber}`
+                    combo.textContent = `${roundDamage}$ X${comboNumber}`
                     comboSound.play()
 
                     combo.classList.add(`combo${color}`)
@@ -533,11 +547,13 @@ async function turnoIA(){
                     combo.classList.remove("comboAnimation")
                     combo.classList.remove(`combo${color}`)
                     color++
+
+                    damageDealt = damageCombo + 1;
  
                     //Vida sustraida del jugador
-                    playerHP--
                     damageCombo++
-                    hpLoss.textContent = `-${damageCombo}`; //Se muestra la vida sustraida en la pantalla
+                    hpLoss.textContent = `-${damageCombo*roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    
 
                     caraNecesaria = segundaCaraFichaIA
                     
@@ -562,13 +578,15 @@ async function turnoIA(){
     hpLoss.textContent = "";
 
     //Vida sustraida del jugador
+    playerHP=playerHP-(roundDamage*damageDealt)
+    damageDealt = 0;
     let loseHP = document.getElementById("loseHP")
     loseHP.play()
     //Para evitar numeros negativos de vida
     if(playerHP<0){
         playerHP=0;
     }
-    vidaJugador.textContent = `HP:${playerHP}`;
+    vidaJugador.textContent = `CASH ${playerHP}$`;
     vidaJugador.classList.add("vibrarHpLoss")
     await esperar(200);
     vidaJugador.classList.remove("vibrarHpLoss")

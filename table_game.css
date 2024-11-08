@@ -5,6 +5,10 @@
     font-style: normal;
 }
 
+svg{
+    display: none;
+}
+
 body {
     margin: 0;
     width: 100vw;
@@ -25,8 +29,19 @@ body {
     aspect-ratio: 16 / 9;
     overflow: hidden;
     user-select: none;
+    filter: url(#wave);
+    
     /*cursor: url("sprites/UI/cursors/default_cursor.png"), auto;*/
 }
+
+.background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
 
 #contenedor {
     display: grid;
@@ -36,6 +51,9 @@ body {
     /*background-color: black;*/
     width: 1000px;
     height: 100px;
+    transition: filter 0.1s ease-in-out;
+    filter: drop-shadow(10px 15px 10px rgba(0, 0, 0, 0.397));
+    filter: url(#wave);
 }
 
 .dado {
@@ -100,6 +118,7 @@ body {
     grid-auto-flow: dense; /* Avanza hacia la izquierda conforme se agregan más elementos */
     width: 300px;
     transition: margin-left 0.5s ease;
+    filter: drop-shadow(-5px 2px 5px rgba(0, 0, 0, 0.397));
 }
 
 .dadoJugado {
@@ -217,19 +236,36 @@ body {
 
 .vidaJugador{
     font-size: 4rem;
-    color: white;
+    color: rgb(235, 229, 171);
     margin-right: 120px;
     padding: 20px;
     text-shadow: 4px 4px 0 #000000;
     margin-left: -250px;
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+      transform: translateX(0) rotate(0deg);
+    }
+    25% {
+      transform: translateX(-5px) rotate(-2deg);
+    }
+    50% {
+      transform: translateX(5px) rotate(2deg);
+    }
+    75% {
+      transform: translateX(-2px) rotate(-1deg);
+    }
 }
 
 .hpLoss{
     color: #a1234d;
     font-size: 4rem;
     margin-bottom: 60px;
-    margin-left: -1400px;
+    margin-left: -1350px;
     position:absolute;
+    animation: bounce 0.5s ease-in-out infinite;
 
 }
 

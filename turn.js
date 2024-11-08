@@ -1,5 +1,9 @@
 async function checkIfRoundWin(){
     if (dadosRestantes<=0){
+        ronda++;
+        roundDamage = roundDamage * Math.round(ronda/1.5);
+        playerHP = playerHP * Math.round(ronda/1.1);
+        vidaJugador.textContent = `CASH ${playerHP}$`;
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none";
         console.log("Has ganado la ronda")

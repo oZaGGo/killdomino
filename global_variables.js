@@ -41,6 +41,10 @@ let turno = 0; //0 es turno de la IA y 1 es turno del jugador
 
 let primerTurno = true; //Para simbolizar un supuesto "primer turno"
 
+let ronda = 1; //ronda actual
+
+let roundDamage = 2; //daño base por ronda
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -51,6 +55,8 @@ let comboNumber = 0;
 let playerHP = 20;
 
 let ratHP = 5;
+
+let damageCombo = 1;
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 

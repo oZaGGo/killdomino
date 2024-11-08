@@ -11,6 +11,14 @@
    
 </head>
 
+<svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="wave" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="turbulence"/>
+            <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="20" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+    </defs>
+</svg>
   
 <body>
 
@@ -33,6 +41,9 @@
     <audio id="tntHover" src="sounds/Especial_Pieces/tntHover.wav"></audio>
     <audio id="tntBurn" src="sounds/effects/tntExplosion.wav"></audio>
 
+    <!-- Background -->
+
+    <img src="sprites/UI/backgrounds/tapete.png" class="background">
 
     <!-- Contenedor div para añadir la mecanica del dobleclick para pedir ficha -->
     <div id="taptap" class="taptapC"></div>
@@ -47,7 +58,7 @@
 
     <!-- Contenedores que sirve npara mostrar la vida del jugador y lo que pierde por combo -->
     <div id="hpLoss" class="hpLoss"></div>
-    <div id="vidaJugador" class="vidaJugador">HP:20</div>
+    <div id="vidaJugador" class="vidaJugador">CASH 20$</div>
 
     <!-- Contenedor div que almacena los dados en horizontal de la mano-->
     <div id="infoBox" class="infobox"></div>
