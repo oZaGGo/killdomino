@@ -28,6 +28,8 @@ Thx for keeping the game alive!
 
 */
 
+const { sin } = require("three/webgpu");
+
 //Funcion debounce para evitar que se hagan varias llamadas a la vez
 function debounce(func, delay) {
     let timeoutId;
@@ -176,6 +178,8 @@ async function piecesLogic() {
                 switch (cifra3) {
                     case "t":
 
+                        //FIcha transparente
+
                         if (cifra1 == caraNecesaria) { //la primera cara es la que vale
 
                             caraNecesaria = parseInt(cifra1)
@@ -273,6 +277,8 @@ async function piecesLogic() {
                         break;
                     case "f":
 
+                        //Ficha de fuego
+
                         fireHover.pause();
                         contenedor.style.pointerEvents = "none";
 
@@ -361,6 +367,9 @@ async function piecesLogic() {
 
                         break;
                     case "n":
+
+                        //Ficha iman negativo
+
                         magneticHover.pause();
 
                         //Solo se puede usar con impares
@@ -418,6 +427,9 @@ async function piecesLogic() {
                         }
                         break;
                     case "p":
+
+                        //Ficha iman positivo
+
                         magneticHover.pause();
                         contenedor.style.pointerEvents = "none";
 
@@ -476,6 +488,9 @@ async function piecesLogic() {
                         }
                         break;
                     case "e":
+
+                        //Ficha tnt
+
                         tntHover.pause();
                         contenedor.style.pointerEvents = "none";
                         resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
@@ -497,7 +512,7 @@ async function piecesLogic() {
                         if (index2 !== -1) {
                             dadosVisibles.splice(index2, 1);
                         }
-                        
+
 
                         contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
                         manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
@@ -527,7 +542,7 @@ async function piecesLogic() {
 
                         //Eliminar todas las piezas de la mano menos 1
 
-                        for (let i = 0; i < dadosRestantes-1; i++) {
+                        for (let i = 0; i < dadosRestantes - 1; i++) {
                             // Mezclar la lista usando el algoritmo de Fisher-Yates
                             for (let i = dadosVisibles.length - 1; i > 0; i--) {
                                 let j = Math.floor(Math.random() * (i + 1));
@@ -556,6 +571,134 @@ async function piecesLogic() {
                         desplazamientoManoJugada = desplazamientoManoJugada + 430
                         manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
 
+                        turno = 1
+                        contenedor.style.pointerEvents = "auto";
+                        break;
+                    case "c":
+
+                        //Ficha de cerveza
+
+                        let bottleDing = document.getElementById("bottleDing")
+                        bottleDing.volume = 0.6
+                        bottleDing.currentTime = 0
+                        bottleDing.play()
+
+                        contenedor.style.pointerEvents = "none";
+
+                        this.remove();
+
+                        contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
+                        
+                        infoBox.style.opacity = "0";
+                        infoBox.style.display = "none";
+
+
+                        //Quitar la pieza seleccionada de las piezas visibles ya que va a ser destruida de la mano
+                        let index3 = dadosVisibles.indexOf(`${cifra1 + cifra2 + cifra3}`);
+                        if (index3 !== -1) {
+                            dadosVisibles.splice(index3, 1);
+                        }
+
+                        await esperar(1000)
+
+                        //Quitar tapon
+
+                        let corkPop = document.getElementById("corkPop")
+                        corkPop.volume = 0.2
+                        corkPop.currentTime = 0
+                        corkPop.play()
+
+                        await esperar(1000)
+
+                        //Beber
+
+                        let drink = document.getElementById("drink")
+
+                        drink.volume = 0.6
+                        drink.currentTime = 0
+                        drink.play()
+
+                        await esperar(300)
+                        const turbulence = document.getElementById('turbulence');
+                        const displacement = document.getElementById('displacement');
+
+                        for (let i = 0; i < 5; i++) {
+                            turbulence.setAttribute('baseFrequency', `0.0${i}`);
+                            await esperar(200);
+                        }
+                        for (let i = 0; i < 5; i++) {
+                            turbulence.setAttribute('baseFrequency', `0.0${i}`);
+                            await esperar(200);
+                        }
+                         //Efecto de borracho
+                         let toser = document.getElementById("toser")
+                         toser.volume = 0.6
+                         toser.currentTime = 0
+                         toser.play()
+                        for (let i = 5; i > 0; i--) {
+                            turbulence.setAttribute('baseFrequency', `0.0${i}`);
+                            await esperar(300);
+                        }
+                        turbulence.setAttribute('baseFrequency', `0`)
+                        await esperar(500)
+
+                        //Añadir dinero al jugador
+
+                        let singleCoinSound = document.getElementById("singleCoinSound")
+                        singleCoinSound.volume = 0.9
+                        singleCoinSound.currentTime = 0
+                        singleCoinSound.play()
+
+                        let hpGain = document.getElementById("hpGain")
+
+                        let vidaJugador = document.getElementById("vidaJugador");
+
+                        hpGain.textContent = `+${Math.floor(playerHP/6)}$`
+
+                        hpGain.classList.add("fadeOut")
+                        await esperar(1000);
+                        hpGain.classList.remove("fadeOut")
+                        hpGain.textContent = "";
+
+                        //Añadir una ficha aleatoria a la mano jugada
+
+                        const manoJugadaIA = document.getElementById('manoJugada');
+    
+                        const resultadoJugadaIA = document.createElement('img');
+
+                        segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                        fichaResultante = 10 + segundaCaraFichaIA
+
+                        caraNecesaria = segundaCaraFichaIA
+
+
+                        resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaResultante}.png`;
+                    
+                        resultadoJugadaIA.className = `dadoJugado h${fichaResultante}`;
+                    
+                        manoJugadaIA.appendChild(resultadoJugadaIA);
+                        sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
+                        sonidoSeleccion.play();
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        await esperar(200)
+                        dragSound.currentTime=0
+                        dragSound.play();
+                        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                        dadosJugados++;
+                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+
+                        //Vida resultante del jugador
+                        playerHP=playerHP+Math.floor(playerHP/6)
+    
+                        vidaJugador.textContent = `CASH ${playerHP}$`;
+                        vidaJugador.classList.add("vibrarHpLoss")
+                        await esperar(200);
+                        vidaJugador.classList.remove("vibrarHpLoss")
+                        await esperar(1000);
+                
+                        dadosMano--;
+                        dadosJugados++;
+                        dadosRestantes--
                         turno = 1
                         contenedor.style.pointerEvents = "auto";
                         break;

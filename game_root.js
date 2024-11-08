@@ -242,7 +242,12 @@ async function hoverFunctions() {
                     infoBox.style.opacity = "1";
                     infoBox.style.left = `${rect.left - 60}px`;
                     infoBox.innerText = "It explodes!";
-                    break;    
+                    break;
+                case "c":
+                    infoBox.style.opacity = "1";
+                    infoBox.style.left = `${rect.left - 60}px`;
+                    infoBox.innerText = "Do wanever you want...";
+                    break;         
             }
         });
 

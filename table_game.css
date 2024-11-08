@@ -30,7 +30,6 @@ body {
     overflow: hidden;
     user-select: none;
     filter: url(#wave);
-    
     /*cursor: url("sprites/UI/cursors/default_cursor.png"), auto;*/
 }
 
@@ -53,7 +52,6 @@ body {
     height: 100px;
     transition: filter 0.1s ease-in-out;
     filter: drop-shadow(10px 15px 10px rgba(0, 0, 0, 0.397));
-    filter: url(#wave);
 }
 
 .dado {
@@ -261,6 +259,16 @@ body {
 
 .hpLoss{
     color: #a1234d;
+    font-size: 4rem;
+    margin-bottom: 60px;
+    margin-left: -1350px;
+    position:absolute;
+    animation: bounce 0.5s ease-in-out infinite;
+
+}
+
+.hpGain{
+    color: rgb(138, 207, 219);
     font-size: 4rem;
     margin-bottom: 60px;
     margin-left: -1350px;
