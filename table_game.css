@@ -298,13 +298,13 @@ body {
     font-size: 3rem;
     pointer-events: none; /* Para que la descripcion no interfiera con el cursor */
     opacity: 0; /* Oculto por defecto */
-    transition: opacity 4s step-end;
+    transition: opacity 3s step-end;
     background-color: rgba(0, 0, 0, 0.432);
 }
 
 .rathp{
     position:absolute;
-    font-size: 6rem;
+    font-size: 4rem;
     color: rgb(235, 229, 171);
     text-shadow: 4px 4px 0 #000000;
     margin-bottom: 900px;

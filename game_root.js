@@ -246,7 +246,7 @@ async function hoverFunctions() {
                 case "c":
                     infoBox.style.opacity = "1";
                     infoBox.style.left = `${rect.left - 60}px`;
-                    infoBox.innerText = "Do wanever you want...";
+                    infoBox.innerText = "Hell yeah!";
                     break;         
             }
         });

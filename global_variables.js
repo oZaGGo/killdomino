@@ -45,6 +45,9 @@ let ronda = 1; //ronda actual
 
 let roundDamage = 2; //daño base por ronda
 
+let exedCash = 1; //limitar el exceso de cash en la banca
+
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -54,7 +57,7 @@ let comboNumber = 0;
 
 let playerHP = 20;
 
-let ratHP = 5;
+let maxBet = 100000;
 
 let damageCombo = 1;
 

@@ -1,23 +1,13 @@
 async function checkIfRoundWin(){
     if (dadosRestantes<=0){
         ronda++;
-        roundDamage = roundDamage * Math.round(ronda/1.5);
-        playerHP = playerHP * Math.round(ronda/1.1);
+        exedCash = exedCash + 0.5;
+        roundDamage = roundDamage * Math.round(ronda/2.1);
+        playerHP = playerHP * Math.round(ronda/exedCash);
         vidaJugador.textContent = `CASH ${playerHP}$`;
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none";
         console.log("Has ganado la ronda")
-        ratHP--;
-        const rathp = document.getElementById("ratHp");
-        if (ratHP == 4){
-            rathp.innerText = "****";
-        }else if (ratHP == 3){
-            rathp.innerText = "***";
-        }else if (ratHP == 2){
-            rathp.innerText = "**";
-        }else if (ratHP == 1){
-            rathp.innerText = "*";
-        }
 
         if (dadosInvisiblesRestantes==3){
             for (let i = 8; i <= 10; i++){
