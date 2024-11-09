@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain } = require('electron')
+const { app, BrowserWindow, Menu, ipcMain, globalShortcut } = require('electron')
 let mainWindow;
 const createWindow = () => {
   mainWindow = new BrowserWindow({
@@ -8,7 +8,7 @@ const createWindow = () => {
       nodeIntegration: true,
       contextIsolation: false
     },
-    //fullscreen: true,
+    fullscreen: true,
     frame: false
     //resizable: false
     //fullscreen: true
@@ -16,7 +16,20 @@ const createWindow = () => {
 
   mainWindow.loadFile('index.html')
   // Quitar la barra de menú
-  //Menu.setApplicationMenu(null);    //para cando teña que compilar a app que se quiten os menus de navegador
+  //Menu.setApplicationMenu(null);
+
+  //Eventos de teclado:
+
+  globalShortcut.register('Escape', () => {
+    // Abrir el menú de pausa
+    mainWindow.webContents.send('trigger-pause');
+    
+  });
+
+  // Escuchar el mensaje 'close-app' para cerrar la aplicación
+  ipcMain.on('close-app', () => {
+    app.quit();
+  });
 }
 
 //AL cargar la ventana principal, se carga el index.html y se comprueban los estados que cmabian escenas
@@ -32,6 +45,7 @@ app.whenReady().then(() => {
   ipcMain.on('lose', () => {
     mainWindow.loadFile('lose.html');
   });
+
 })
 
 app.on('window-all-closed', () => {

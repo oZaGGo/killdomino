@@ -69,3 +69,9 @@ let damageCombo = 1;
 function esperar(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Variables para el menu de pausa
+
+let pauseMenu = 0;

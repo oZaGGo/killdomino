@@ -365,3 +365,59 @@ body {
     text-shadow: 4px 4px 0 #000000;
     text-align: center;
 }
+
+.pauseMenu{
+    position: absolute;
+    width: 30vw;
+    height: 50vh;
+    background-color: rgba(0, 0, 0, 0.938);
+    z-index: 3;
+    display: none;
+    image-rendering: pixelated;
+    margin-bottom: 20vh;
+    animation: aparecerElastico 0.5s ease-out forwards;
+    box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.397);
+
+    font-size: 3rem;
+    color: rgb(235, 229, 171);
+    text-shadow: 4px 4px 0 #000000;
+    text-align: center;
+}
+
+@keyframes aparecerElastico {
+    0% {
+        transform: scale(0); /* Comienza desde tamaño 0 (invisible) */
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2); /* Escala a un poco más grande de su tamaño final */
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.9); /* Rebota hacia un tamaño ligeramente menor */
+    }
+    100% {
+        transform: scale(1); /* Termina en su tamaño natural */
+    }
+}
+
+.PAUSE{
+    color: rgb(69, 130, 130);
+    text-shadow: 4px 4px 0 rgba(69, 130, 130, 0.493);;
+}
+
+.pauseMenu button{
+    font-family: 'PixelFont';
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 2px;
+    margin: 10px;
+}
+
+.pauseMenu button:hover{
+    color: rgb(235, 229, 171);
+    cursor: pointer;
+}

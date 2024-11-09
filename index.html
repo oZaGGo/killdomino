@@ -46,7 +46,15 @@
     <audio id="singleCoinSound" src="sounds/effects/singleCoinSound.wav"></audio>
     <audio id="mechanicalSound" src="sounds/effects/mechanicalKey1.wav"></audio>
 
-    <!-- Div para hacer el efecto de blanco y negro -->
+    <!-- Div del menu de pausa -->
+
+    <div id="pauseMenu" class="pauseMenu">
+        <h1 class="PAUSE">PAUSE</h1>
+        <button id="settingsButton" class="settingsButton">SETTINGS</button>
+        <button id="exitButton" class="exitButton">EXIT</button>
+    </div>
+    
+    <!-- Div para hacer el efecto de que se oscurezca-->
 
     <div id="filterScreen" class="filterScreen"></div>
 
@@ -61,7 +69,7 @@
 
     <!-- Background -->
 
-    <img src="sprites/UI/backgrounds/tapete.png" class="background">
+    <img id="background" src="sprites/UI/backgrounds/tapete.png" class="background">
 
     <!-- Contenedor div para añadir la mecanica del dobleclick para pedir ficha -->
     <div id="taptap" class="taptapC"></div>
@@ -101,6 +109,7 @@
     <script src="lose.js"></script>
     <script src="turn.js"></script>
     <script src="roundGains.js"></script>
+    <script src="settings.js"></script>
 
 </body>
 </html>
