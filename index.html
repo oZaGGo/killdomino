@@ -44,6 +44,20 @@
     <audio id="corkPop" src="sounds/Especial_Pieces/corkPop.wav"></audio>
     <audio id="bottleDing" src="sounds/Especial_Pieces/bottleDing.wav"></audio>
     <audio id="singleCoinSound" src="sounds/effects/singleCoinSound.wav"></audio>
+    <audio id="mechanicalSound" src="sounds/effects/mechanicalKey1.wav"></audio>
+
+    <!-- Div para hacer el efecto de blanco y negro -->
+
+    <div id="filterScreen" class="filterScreen"></div>
+
+    <!-- Div en donde se hacen las animaciones y efectos de los calculos de ganacias y perdidas por ronda-->
+
+    <div id="gainsContainer" class="roundGainsContainer">
+        <h3 id="betContainer" class="gainsText"></h3>
+        <h3 id="cashContainer" class="gainsText"></h3>
+        <h3 id="nextCashContainer" class="gainsText"></h3>
+        <h3 id="roundDamageContainer" class="damageText"></h3>
+    </div>    
 
     <!-- Background -->
 
@@ -63,7 +77,7 @@
     <!-- Contenedores que sirven para mostrar la vida del jugador y lo que pierde o gana de vida -->
     <div id="hpLoss" class="hpLoss"></div>
     <div id="hpGain" class="hpGain"></div>
-    <div id="vidaJugador" class="vidaJugador">CASH 20$</div>
+    <div id="vidaJugador" class="vidaJugador">CASH 100$</div>
 
     <!-- Contenedor div que almacena los dados en horizontal de la mano-->
     <div id="infoBox" class="infobox"></div>
@@ -86,6 +100,7 @@
     <script src="win.js"></script>
     <script src="lose.js"></script>
     <script src="turn.js"></script>
+    <script src="roundGains.js"></script>
 
 </body>
 </html>

@@ -1,12 +1,13 @@
 async function checkIfRoundWin(){
     if (dadosRestantes<=0){
+        taptap.style.pointerEvents = "none";
+        contenedor.style.pointerEvents = "none"
+        await gains();
         ronda++;
         exedCash = exedCash + 0.3;
         roundDamage = roundDamage + Math.round((playerHP/(15-exedCash)));
         playerHP = playerHP * Math.round(ronda/exedCash);
         vidaJugador.textContent = `CASH ${playerHP}$`;
-        taptap.style.pointerEvents = "none";
-        contenedor.style.pointerEvents = "none";
         console.log("Has ganado la ronda")
 
         if (dadosInvisiblesRestantes==3){
@@ -25,7 +26,7 @@ async function checkIfRoundWin(){
         }
 
         //Resetear todo lo necesario para la nueva mano
-        await esperar(2000);
+        await esperar(500);
         dadosRestantes=7;
         dadosInvisiblesRestantes=3;
         dadosMano=10;

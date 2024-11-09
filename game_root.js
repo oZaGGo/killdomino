@@ -29,6 +29,7 @@ bmusic2.volume = 0.5;
 
 atmos.play();
 
+
 const numeroAleatorio = Math.floor(Math.random() * 2) + 1;
 
 if (numeroAleatorio === 1) {

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'PixelFont';
-    src: url('fonts/pixeldroidConsoleRegular.ttf') format('truetype');
+    src: url('fonts/Sonic_Advanced_2.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -39,6 +39,13 @@ body {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
+    -webkit-user-drag: none; /* Chrome, Safari, Opera */
+    -moz-user-drag: none;    /* Firefox */
+    -ms-user-drag: none;     /* Internet Explorer */
+    -webkit-user-select: none; /* Desactivar selección en WebKit */
+    -moz-user-select: none;    /* Desactivar selección en Firefox */
+    -ms-user-select: none;     /* Desactivar selección en Internet Explorer */
+    user-select: none;         /* Desactivar selección en navegadores modernos */
 }
 
 
@@ -138,7 +145,7 @@ body {
 
 
 .fichasRestantes {
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
     width: 50px;
     margin-bottom: 20px;
@@ -167,7 +174,7 @@ body {
 
 
 .contadorCombo{
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
     position: absolute;
     width: 500px;
@@ -233,7 +240,7 @@ body {
 }
 
 .vidaJugador{
-    font-size: 4rem;
+    font-size: 3rem;
     color: rgb(235, 229, 171);
     margin-right: 120px;
     padding: 20px;
@@ -259,7 +266,7 @@ body {
 
 .hpLoss{
     color: #a1234d;
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 60px;
     margin-left: -1350px;
     position:absolute;
@@ -269,7 +276,7 @@ body {
 
 .hpGain{
     color: rgb(138, 207, 219);
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 60px;
     margin-left: -1350px;
     position:absolute;
@@ -304,9 +311,57 @@ body {
 
 .rathp{
     position:absolute;
-    font-size: 4rem;
+    font-size: 3rem;
     color: rgb(235, 229, 171);
     text-shadow: 4px 4px 0 #000000;
     margin-bottom: 900px;
     margin-left: 1600px;
+}
+
+.filterScreen{
+    position: absolute;
+    width: 1980px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.459);
+    z-index: 1;
+    display: none;
+    animation: subirOpacidad 0.5s ease-out forwards;
+}
+
+@keyframes subirOpacidad {
+    from {
+        background-color: rgba(0, 0, 0, 0); /* Completamente transparente */
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.842); /* Completamente opaco */
+    }
+}
+
+
+.roundGainsContainer{
+    position: absolute;
+    width: 20vw;
+    height: 50vh;
+    z-index: 2;
+    margin-bottom: 20vh;
+    display: none;
+    image-rendering: pixelated;
+}
+
+.gainsText{
+    font-size: 3rem; 
+    line-height: 1; 
+    image-rendering: pixelated; /* Asegura que la fuente no se escale */   
+    color: rgb(235, 229, 171);
+    text-shadow: 4px 4px 0 #000000;
+    text-align: center;
+}
+
+.damageText{
+    font-size: 3rem; 
+    line-height: 1; 
+    image-rendering: pixelated; /* Asegura que la fuente no se escale */   
+    color: #a1234d;
+    text-shadow: 4px 4px 0 #000000;
+    text-align: center;
 }

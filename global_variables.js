@@ -43,7 +43,7 @@ let primerTurno = true; //Para simbolizar un supuesto "primer turno"
 
 let ronda = 1; //ronda actual
 
-let roundDamage = 1; //daño base por ronda
+let roundDamage = 5; //daño base por ronda
 
 let exedCash = 1; //limitar el exceso de cash en la banca
 
@@ -55,7 +55,7 @@ let exedCash = 1; //limitar el exceso de cash en la banca
 
 let comboNumber = 0;
 
-let playerHP = 20;
+let playerHP = 100;
 
 let maxBet = 1000000;
 
