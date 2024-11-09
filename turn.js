@@ -1,8 +1,8 @@
 async function checkIfRoundWin(){
     if (dadosRestantes<=0){
         ronda++;
-        exedCash = exedCash + 0.5;
-        roundDamage = roundDamage * Math.round(ronda/2.1);
+        exedCash = exedCash + 0.3;
+        roundDamage = roundDamage + Math.round((playerHP/(15-exedCash)));
         playerHP = playerHP * Math.round(ronda/exedCash);
         vidaJugador.textContent = `CASH ${playerHP}$`;
         taptap.style.pointerEvents = "none";

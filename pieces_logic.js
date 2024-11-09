@@ -626,10 +626,6 @@ async function piecesLogic() {
                             turbulence.setAttribute('baseFrequency', `0.0${i}`);
                             await esperar(200);
                         }
-                        for (let i = 0; i < 5; i++) {
-                            turbulence.setAttribute('baseFrequency', `0.0${i}`);
-                            await esperar(200);
-                        }
                          //Efecto de borracho
                          let toser = document.getElementById("toser")
                          toser.volume = 0.6
