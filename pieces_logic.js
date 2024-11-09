@@ -271,7 +271,7 @@ async function piecesLogic() {
                                 this.classList.remove('vibrar');
                             }, 500);
 
-
+                            contenedor.style.pointerEvents = "auto";
                             turno = 1
                         }
                         break;
@@ -422,7 +422,7 @@ async function piecesLogic() {
                                 this.style.filter = "none"
                                 this.classList.remove('vibrar');
                             }, 500);
-
+                            contenedor.style.pointerEvents = "auto";
                             turno = 1
                         }
                         break;
@@ -483,7 +483,7 @@ async function piecesLogic() {
                                 this.classList.remove('vibrar');
                             }, 500);
 
-
+                            contenedor.style.pointerEvents = "auto";
                             turno = 1
                         }
                         break;
@@ -626,11 +626,6 @@ async function piecesLogic() {
                             turbulence.setAttribute('baseFrequency', `0.0${i}`);
                             await esperar(200);
                         }
-                         //Efecto de borracho
-                         let toser = document.getElementById("toser")
-                         toser.volume = 0.6
-                         toser.currentTime = 0
-                         toser.play()
                         for (let i = 5; i > 0; i--) {
                             turbulence.setAttribute('baseFrequency', `0.0${i}`);
                             await esperar(300);
