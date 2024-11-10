@@ -13,8 +13,8 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    max-height: 1080px;
     max-width: 1980px;
+    max-height: 1080px;
     min-width: 1280px;
     min-height: 720px;
     display: flex;
@@ -32,8 +32,8 @@ body {
 
 .background {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 1980px;
+    height: 1080px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
     -webkit-user-drag: none; /* Chrome, Safari, Opera */
@@ -59,17 +59,10 @@ body {
 }
 
 .dado {
-    /*
-    width: 33px;
-    height: 83px;
-    */
     width: 33px;
     height: 82px;
     background-color: transparent;
     position: relative;  
-    /*
-    scale: 180%
-    */
     scale: 260%;
     top: -40px;
     image-rendering: pixelated;
@@ -81,6 +74,21 @@ body {
     -moz-user-select: none;    /* Desactivar selección en Firefox */
     -ms-user-select: none;     /* Desactivar selección en Internet Explorer */
     user-select: none;         /* Desactivar selección en navegadores modernos */
+}
+
+.dadoApear{
+    animation: ascender 0.1s ease-out forwards;
+}
+
+@keyframes ascender {
+    0% {
+        transform: translateY(100px); /* Comienza 100px debajo de su posición */
+        opacity: 0;                   /* Totalmente invisible */
+    }
+    100% {
+        transform: translateY(0);     /* Posición final */
+        opacity: 1;                   /* Totalmente visible */
+    }
 }
 
 .vibrar {
@@ -154,7 +162,7 @@ body {
     height: 63px;
     position: absolute;
     margin-left: 1500px;
-    margin-right: -120px;
+    margin-right: -130px;
     margin-bottom: 86px;
     scale: 380%;
     cursor: pointer;
@@ -419,6 +427,7 @@ body {
     cursor: pointer;
 }
 
+/*
 .testJson{
     font-size: 3rem;
     color: white;
@@ -429,3 +438,4 @@ body {
     z-index: 4;
     margin-bottom: 20vh;
 }
+*/

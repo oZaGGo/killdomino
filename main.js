@@ -17,19 +17,6 @@ const createWindow = () => {
   mainWindow.loadFile('scenes/game.html');
   // Quitar la barra de menú
   //Menu.setApplicationMenu(null);
-
-  //Eventos de teclado:
-
-  globalShortcut.register('Escape', () => {
-    // Abrir el menú de pausa
-    mainWindow.webContents.send('trigger-pause');
-    
-  });
-
-  // Escuchar el mensaje 'close-app' para cerrar la aplicación
-  ipcMain.on('close-app', () => {
-    app.quit();
-  });
 }
 
 //AL cargar la ventana principal, se carga el index.html y se comprueban los estados que cmabian escenas
@@ -44,6 +31,19 @@ app.whenReady().then(() => {
   //Comprobacion de la escena de juego de perder
   ipcMain.on('lose', () => {
     mainWindow.loadFile('lose.html');
+  });
+
+  //Eventos de teclado:
+
+  globalShortcut.register('Escape', () => {
+    // Abrir el menú de pausa
+    mainWindow.webContents.send('trigger-pause');
+    
+  });
+
+  // Escuchar el mensaje 'close-app' para cerrar la aplicación
+  ipcMain.on('close-app', () => {
+    app.quit();
   });
 
 })

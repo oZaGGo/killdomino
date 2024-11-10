@@ -573,11 +573,9 @@ async function turnoIA(){
 
     //Vida sustraida del jugador que se muestra arriba del HP
     hpLoss.classList.add("fadeOut")
-    await esperar(1000);
-    hpLoss.classList.remove("fadeOut")
-    hpLoss.textContent = "";
 
-    //Vida sustraida del jugador
+
+    //Modificar la vida sustraida del jugador
     playerHP=playerHP-(roundDamage*damageDealt)
     damageDealt = 0;
     let loseHP = document.getElementById("loseHP")
@@ -590,12 +588,14 @@ async function turnoIA(){
     vidaJugador.classList.add("vibrarHpLoss")
     await esperar(200);
     vidaJugador.classList.remove("vibrarHpLoss")
-    await esperar(1000);
     turno = 1; //Se devuelve el turno al jugador
-
-    lose()
-
     contenedor.style.pointerEvents = "auto"; //Se activa el click en los dados
+
+    //Espera para que se vea la vida sustraida unratito
+    await esperar(1000);
+    hpLoss.classList.remove("fadeOut")
+    hpLoss.textContent = "";
+    lose()
 
     //Test de guardar datos
     guardarDatos(playerHP);

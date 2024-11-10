@@ -3,7 +3,7 @@ async function gains(params) {
     const audios = document.querySelectorAll("audio");
     async function bajarVolumenGradualmente(audio) {
         let volumeLower = 0.5;
-    
+        
         for (let i = 0; i < 5; i++) {
             audio.volume = volumeLower;
             volumeLower -= 0.1;
@@ -11,7 +11,7 @@ async function gains(params) {
         }
     }
     audios.forEach(audio => {
-        if (!audio.paused && audio.id != "atmos") {
+        if (audio.id == "bmusic1" || audio.id == "bmusic2") {
             bajarVolumenGradualmente(audio);
         }
     });

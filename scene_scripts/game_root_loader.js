@@ -11,38 +11,27 @@ This script is the point of start of the game scene.
 
 const atmos = document.getElementById('atmos');
 
-const bmusic1 = document.getElementById('bmusic1');
+const numeroAleatorio = Math.floor(Math.random() * 2) + 1; //Seleccionar un numero aleatorio entre 1 y 2
 
-const bmusic2 = document.getElementById('bmusic2');
+const bmusic = document.getElementById(`bmusic${numeroAleatorio}`);
 
 atmos.volume = 0.03;
 
 atmos.loop = true;
 
-bmusic1.loop = true;
+bmusic.loop = true;
 
-bmusic1.volume = 0.4;
+bmusic.volume = 0.4;
 
-bmusic2.loop = true;
-
-bmusic2.volume = 0.5;
-
+bmusic.play();
 atmos.play();
-
-
-const numeroAleatorio = Math.floor(Math.random() * 2) + 1;
-
-if (numeroAleatorio === 1) {
-    bmusic1.play();
-} else if (numeroAleatorio === 2) {
-    bmusic2.play();
-}
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Renderizar la mano randomizada y el primer dado de la partida
 
-function randomizeHand() {
+async function randomizeHand() {
+    
     // Mezclar la lista usando el algoritmo de Fisher-Yates
     for (let i = dados.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -53,33 +42,41 @@ function randomizeHand() {
     // Seleccionar los primeros 10 elementos de la lista mezclada
     let dadosSeleccionados = dados.slice(0, 10);
 
+    const sonidoCreacion = document.getElementById('sonidoCreacionDados');
+    sonidoCreacion.volume = 0.5;
+
+    console.log("Dados randomizados: " + dadosVisibles)  
+
     const contenedor = document.getElementById('contenedor'); //contenedor de los dados
 
-    dadosSeleccionados.forEach((dado, index) => {
+    // Cambiar forEach por un bucle for...of
+    for (let [index, dado] of dadosSeleccionados.entries()) {
+        const img = document.createElement('img');
 
         if (index < 7) {
-            const img = document.createElement('img');
-
             if (dado.length < 3) {
                 img.src = `../sprites/dados/dado${dado}.png`;
                 img.alt = dado;
-                img.className = `dado ${dado}`;  // Asignar clases
+                img.className = `dado ${dado} dadoApear`;  // Asignar clases
                 img.id = `dado${(index % 10) + 1}`;
                 img.draggable = false;
                 contenedor.appendChild(img);
+                await esperar(100);
+                img.classList.remove('dadoApear');
             } else {
                 img.src = `../sprites/dados/dado${dado}.gif`;
                 img.alt = dado;
-                img.className = `dado ${dado}`;  // Asignar clases
+                img.className = `dado ${dado} dadoApear`;  // Asignar clases
                 img.id = `dado${(index % 10) + 1}`;
                 img.draggable = false;
                 contenedor.appendChild(img);
+                await esperar(100);
+                img.classList.remove('dadoApear');
             }
-
-            dadosVisibles.push(dado)
-
+            sonidoCreacion.currentTime = 0;
+            sonidoCreacion.play();
+            dadosVisibles.push(dado);
         } else {
-            const img = document.createElement('img');
             if (dado.length < 3) {
                 img.src = `../sprites/dados/dado${dado}.png`;
                 img.alt = dado;
@@ -99,16 +96,16 @@ function randomizeHand() {
             }
         }
 
-    });
+        // Esperar 10 segundos antes de continuar con el siguiente dado
+        await esperar(200);
+    }
 
-    const sonidoCreacion = document.getElementById('sonidoCreacionDados');
-    sonidoCreacion.volume = 0.2;
-    sonidoCreacion.play(); //Reproduce un sonido despues de crear los dados en la mano randomizados
-    console.log("Dados randomizados: " + dadosVisibles)  
+    hoverFunctions();
+
+    piecesLogic()
 
 }
 
-randomizeHand();
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -265,5 +262,6 @@ async function hoverFunctions() {
     });
 }
 
-hoverFunctions();
+
+randomizeHand();
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
