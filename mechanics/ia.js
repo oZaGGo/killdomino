@@ -593,10 +593,11 @@ async function turnoIA(){
     await esperar(1000);
     turno = 1; //Se devuelve el turno al jugador
 
-    console.log("Turno: " + turno)
     lose()
 
     contenedor.style.pointerEvents = "auto"; //Se activa el click en los dados
 
-    console.log("Necesitas esta cara: " + caraNecesaria)
+    //Test de guardar datos
+    guardarDatos(playerHP);
+    
 }

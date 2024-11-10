@@ -20,10 +20,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-image: url("sprites/UI/backgrounds/tapete.png");
-    background-repeat: no-repeat;
-    background-size: cover; /* Esto ajusta la imagen para cubrir todo el fondo */
-    background-attachment: fixed;
+    background-color: black;
     image-rendering: pixelated;
     font-family: 'PixelFont';
     aspect-ratio: 16 / 9;
@@ -420,4 +417,15 @@ body {
 .pauseMenu button:hover{
     color: rgb(235, 229, 171);
     cursor: pointer;
+}
+
+.testJson{
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    width: 10vw;
+    height: 10vh;
+    background-color: rgb(0, 0, 0);
+    z-index: 4;
+    margin-bottom: 20vh;
 }
