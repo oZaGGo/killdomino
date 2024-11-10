@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>killdomino</title>
-    <link rel="stylesheet" href="table_game.css">
+    <link rel="stylesheet" href="../CSS/game_scene.css">
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
@@ -23,28 +23,28 @@
 <body>
 
     <!-- Cargar el sonido -->
-    <audio id="sonidoHoverDado" src="sounds/dominoHover.mp3"></audio>
-    <audio id="sonidoSeleccion" src="sounds/dominoSelect.mp3"></audio>
-    <audio id="sonidoCreacionDados" src="sounds/dominoCreated.mp3"></audio>
-    <audio id="sonidoErrorDado" src="sounds/errorSelected.mp3"></audio>
-    <audio id="atmos" src="music/atmos/crowded_bar.mp3"></audio>
-    <audio id="bmusic1" src="music/b_music.flac"></audio>
-    <audio id="bmusic2" src="music/b_music2.flac"></audio>
-    <audio id="fireHover" src="sounds/Especial_Pieces/fireHover.mp3"></audio>
-    <audio id="fireBurn" src="sounds/Especial_Pieces/fireBurn.mp3"></audio>
-    <audio id="comboSound" src="sounds/effects/comboSound.mp3"></audio>
-    <audio id="loseHP" src="sounds/effects/loseHP.mp3"></audio>
-    <audio id="magneticHover" src="sounds/Especial_Pieces/magneticHover.mp3"></audio>
-    <audio id="taptapTable" src="sounds/taptapTable.wav"></audio>
-    <audio id="ding" src="sounds/timbre.wav"></audio>
-    <audio id="dragSound" src="sounds/dragSound.mp3"></audio>
-    <audio id="tntHover" src="sounds/Especial_Pieces/tntHover.wav"></audio>
-    <audio id="tntBurn" src="sounds/effects/tntExplosion.wav"></audio>
-    <audio id="drink" src="sounds/Especial_Pieces/drink.mp3"></audio>
-    <audio id="corkPop" src="sounds/Especial_Pieces/corkPop.wav"></audio>
-    <audio id="bottleDing" src="sounds/Especial_Pieces/bottleDing.wav"></audio>
-    <audio id="singleCoinSound" src="sounds/effects/singleCoinSound.wav"></audio>
-    <audio id="mechanicalSound" src="sounds/effects/mechanicalKey1.wav"></audio>
+    <audio id="sonidoHoverDado" src="../sounds/dominoHover.mp3"></audio>
+    <audio id="sonidoSeleccion" src="../sounds/dominoSelect.mp3"></audio>
+    <audio id="sonidoCreacionDados" src="../sounds/dominoCreated.mp3"></audio>
+    <audio id="sonidoErrorDado" src="../sounds/errorSelected.mp3"></audio>
+    <audio id="atmos" src="../music/atmos/crowded_bar.mp3"></audio>
+    <audio id="bmusic1" src="../music/b_music.flac"></audio>
+    <audio id="bmusic2" src="../music/b_music2.flac"></audio>
+    <audio id="fireHover" src="../sounds/Especial_Pieces/fireHover.mp3"></audio>
+    <audio id="fireBurn" src="../sounds/Especial_Pieces/fireBurn.mp3"></audio>
+    <audio id="comboSound" src="../sounds/effects/comboSound.mp3"></audio>
+    <audio id="loseHP" src="../sounds/effects/loseHP.mp3"></audio>
+    <audio id="magneticHover" src="../sounds/Especial_Pieces/magneticHover.mp3"></audio>
+    <audio id="taptapTable" src="../sounds/taptapTable.wav"></audio>
+    <audio id="ding" src="../sounds/timbre.wav"></audio>
+    <audio id="dragSound" src="../sounds/dragSound.mp3"></audio>
+    <audio id="tntHover" src="../sounds/Especial_Pieces/tntHover.wav"></audio>
+    <audio id="tntBurn" src="../sounds/effects/tntExplosion.wav"></audio>
+    <audio id="drink" src="../sounds/Especial_Pieces/drink.mp3"></audio>
+    <audio id="corkPop" src="../sounds/Especial_Pieces/corkPop.wav"></audio>
+    <audio id="bottleDing" src="../sounds/Especial_Pieces/bottleDing.wav"></audio>
+    <audio id="singleCoinSound" src="../sounds/effects/singleCoinSound.wav"></audio>
+    <audio id="mechanicalSound" src="../sounds/effects/mechanicalKey1.wav"></audio>
 
     <!-- Div del menu de pausa -->
 
@@ -69,7 +69,7 @@
 
     <!-- Background -->
 
-    <img id="background" src="sprites/UI/backgrounds/tapete.png" class="background">
+    <img id="background" src="../sprites/UI/backgrounds/tapete.png" class="background">
 
     <!-- Contenedor div para añadir la mecanica del dobleclick para pedir ficha -->
     <div id="taptap" class="taptapC"></div>
@@ -96,20 +96,20 @@
     <h1 id="contadorFichas" class="fichasRestantes">3/3</h1>
 
     <!-- Campana para pasar turno -->
-    <img id="passB" src="sprites/UI/buttons/timbre.png" class="passB">
+    <img id="passB" src="../sprites/UI/buttons/timbre.png" class="passB">
 
 
     <!-- Scripts (el orden es importante)-->
-    <script src="global_variables.js"></script>
-    <script src="ia.js"></script>
-    <script src="game_root.js"></script>
-    <script src="pieces_logic.js"></script>
-    <script src="hand_UI.js"></script>
-    <script src="win.js"></script>
-    <script src="lose.js"></script>
-    <script src="turn.js"></script>
-    <script src="roundGains.js"></script>
-    <script src="settings.js"></script>
+    <script src="../data/global_variables.js"></script>
+    <script src="../mechanics/ia.js"></script>
+    <script src="../scene_scripts/game_root_loader.js"></script>
+    <script src="../mechanics/pieces_logic.js"></script>
+    <script src="../mechanics/hand_UI.js"></script>
+    <script src="../scene_scripts/win.js"></script>
+    <script src="../scene_scripts/lose.js"></script>
+    <script src="../mechanics/turn.js"></script>
+    <script src="../mechanics/roundGains.js"></script>
+    <script src="../scene_scripts/settings.js"></script>
 
 </body>
 </html>

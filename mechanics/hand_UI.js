@@ -21,11 +21,11 @@ passB.addEventListener("click", async function(){
         turno=0;
 
         comboNumber=0;
-        this.src = "sprites/UI/buttons/timbre.gif"
+        this.src = "../sprites/UI/buttons/timbre.gif"
         await esperar(100)
         ding.play()
         await esperar(900)
-        this.src = "sprites/UI/buttons/timbre.png"
+        this.src = "../sprites/UI/buttons/timbre.png"
         turnoIA()
 
     }

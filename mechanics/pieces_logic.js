@@ -81,7 +81,7 @@ async function piecesLogic() {
                     caraNecesaria = parseInt(cifra2)
                     contenedor.style.pointerEvents = "none";
 
-                    resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.png`;
+                    resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
                     resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
@@ -120,7 +120,7 @@ async function piecesLogic() {
                     caraNecesaria = parseInt(cifra1)
                     contenedor.style.pointerEvents = "none";
 
-                    resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.png`;
+                    resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
                     resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
                     resultadoJugada.style.transform = "scaleX(-1)";
@@ -185,7 +185,7 @@ async function piecesLogic() {
                             caraNecesaria = parseInt(cifra1)
                             contenedor.style.pointerEvents = "none";
 
-                            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+                            resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
@@ -225,7 +225,7 @@ async function piecesLogic() {
                             caraNecesaria = parseInt(cifra2)
                             contenedor.style.pointerEvents = "none";
 
-                            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+                            resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
                             resultadoJugada.style.transform = "scaleX(-1)";
@@ -287,7 +287,7 @@ async function piecesLogic() {
 
                         caraNecesaria = parseInt(cifra2)
 
-                        resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+                        resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                         resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
@@ -378,7 +378,7 @@ async function piecesLogic() {
                             contenedor.style.pointerEvents = "none";
                             caraNecesaria = parseInt(cifra2)
 
-                            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+                            resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
@@ -438,7 +438,7 @@ async function piecesLogic() {
                         if (parseInt(caraNecesaria) % 2 == 0) {
                             caraNecesaria = parseInt(cifra2)
 
-                            resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+                            resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
@@ -493,7 +493,7 @@ async function piecesLogic() {
 
                         tntHover.pause();
                         contenedor.style.pointerEvents = "none";
-                        resultadoJugada.src = `sprites/dados_h/hdado${dadoSeleccionado}.gif`;
+                        resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                         resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
@@ -663,7 +663,7 @@ async function piecesLogic() {
                         caraNecesaria = segundaCaraFichaIA
 
 
-                        resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaResultante}.png`;
+                        resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaResultante}.png`;
                     
                         resultadoJugadaIA.className = `dadoJugado h${fichaResultante}`;
                     

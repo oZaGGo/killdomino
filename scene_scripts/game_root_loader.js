@@ -61,14 +61,14 @@ function randomizeHand() {
             const img = document.createElement('img');
 
             if (dado.length < 3) {
-                img.src = `sprites/dados/dado${dado}.png`;
+                img.src = `../sprites/dados/dado${dado}.png`;
                 img.alt = dado;
                 img.className = `dado ${dado}`;  // Asignar clases
                 img.id = `dado${(index % 10) + 1}`;
                 img.draggable = false;
                 contenedor.appendChild(img);
             } else {
-                img.src = `sprites/dados/dado${dado}.gif`;
+                img.src = `../sprites/dados/dado${dado}.gif`;
                 img.alt = dado;
                 img.className = `dado ${dado}`;  // Asignar clases
                 img.id = `dado${(index % 10) + 1}`;
@@ -81,7 +81,7 @@ function randomizeHand() {
         } else {
             const img = document.createElement('img');
             if (dado.length < 3) {
-                img.src = `sprites/dados/dado${dado}.png`;
+                img.src = `../sprites/dados/dado${dado}.png`;
                 img.alt = dado;
                 img.className = `dado ${dado}`;  // Asignar clases
                 img.id = `dado${(index % 10) + 1}`;
@@ -89,7 +89,7 @@ function randomizeHand() {
                 img.style.display = "none";
                 contenedor.appendChild(img);
             } else {
-                img.src = `sprites/dados/dado${dado}.gif`;
+                img.src = `../sprites/dados/dado${dado}.gif`;
                 img.alt = dado;
                 img.className = `dado ${dado}`;  // Asignar clases
                 img.id = `dado${(index % 10) + 1}`;
@@ -135,7 +135,7 @@ setTimeout(() => {
 
         const resultadoJugadaIA = document.createElement('img');
 
-        resultadoJugadaIA.src = `sprites/dados_h/hdado${dadoSeleccionadoIA}.png`;
+        resultadoJugadaIA.src = `../sprites/dados_h/hdado${dadoSeleccionadoIA}.png`;
 
         resultadoJugadaIA.className = `dadoJugado ${dadoSeleccionadoIA}`;
 

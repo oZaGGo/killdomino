@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'PixelFont';
-    src: url('fonts/Sonic_Advanced_2.ttf') format('truetype');
+    src: url('../fonts/Sonic_Advanced_2.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }

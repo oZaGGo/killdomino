@@ -73,7 +73,7 @@ async function turnoIA(){
                     fichaIAResultante = 10 + segundaCaraFichaIA
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
@@ -118,7 +118,7 @@ async function turnoIA(){
 
 
 
-                        resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                        resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                     
                         resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
@@ -163,7 +163,7 @@ async function turnoIA(){
 
 
 
-                        resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                        resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                     
                         resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                     
@@ -210,7 +210,7 @@ async function turnoIA(){
                     fichaIAResultante = (segundaCaraFichaIA*10) + 3;
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
@@ -253,7 +253,7 @@ async function turnoIA(){
                     fichaIAResultante = 30 + segundaCaraFichaIA
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
@@ -298,7 +298,7 @@ async function turnoIA(){
                     fichaIAResultante = (segundaCaraFichaIA*10) + 4;
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
@@ -341,7 +341,7 @@ async function turnoIA(){
                     fichaIAResultante = 40 + segundaCaraFichaIA
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
@@ -387,7 +387,7 @@ async function turnoIA(){
                     fichaIAResultante = (segundaCaraFichaIA*10) + 5;
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
@@ -430,7 +430,7 @@ async function turnoIA(){
                     fichaIAResultante = 50 + segundaCaraFichaIA
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
@@ -476,7 +476,7 @@ async function turnoIA(){
                     fichaIAResultante = (segundaCaraFichaIA*10) + 6;
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
@@ -520,7 +520,7 @@ async function turnoIA(){
                     fichaIAResultante = 60 + segundaCaraFichaIA
 
 
-                    resultadoJugadaIA.src = `sprites/dados_h/hdado${fichaIAResultante}.png`;
+                    resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
