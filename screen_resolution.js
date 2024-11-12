@@ -19,7 +19,7 @@ async function screen() {
     let contenedor = document.getElementById("contenedor")
     contenedor.style.transform = `scale(${Math.round(screenX*100/1920)}%)`
     contenedor.style.width = `${screenX*1000/1920}px`
-    contenedor.style.height = `${screenY*100/1080}px`
+    contenedor.style.height = `${screenX*100/1920}px`
     contenedor.style.gap = `${screenX*10/1920}px`
     contenedor.style.padding = `${screenX*10/1920}px`
 
@@ -29,11 +29,11 @@ async function screen() {
     manoJugada.style.transform = `scale(${screenX*100/1920}%)`
 
     let contadorFichas = document.getElementById("contadorFichas")
-    contadorFichas.style = `margin-bottom: ${screenY * 20 / 1080}px;`
+    contadorFichas.style = `margin-bottom: ${screenX * 20 / 1920}px;`
     contadorFichas.style.width = `${screenX * 50 / 1920}px`
 
     let combo = document.getElementById("combo")
-    combo.style = `margin-bottom: ${screenY * 650 / 1080}px; margin-left: ${screenX * (-400) / 1920}px;`
+    combo.style = `margin-bottom: ${screenX * 650 / 1920}px; margin-left: ${screenX * (-400) / 1920}px;`
     combo.style.width = `${screenX * 500 / 1920}px`
 
     let vidaJugador = document.getElementById("vidaJugador")
@@ -41,11 +41,11 @@ async function screen() {
     vidaJugador.style.transform = `scale(${screenX*100/1920}%)`
 
     let hpLoss = document.getElementById("hpLoss")
-    hpLoss.style = `margin-bottom: ${screenY * 60 / 1080}px; margin-left: ${screenX * (-1350) / 1920}px;`
+    hpLoss.style = `margin-bottom: ${screenX * 60 / 1920}px; margin-left: ${screenX * (-1350) / 1920}px;`
     hpLoss.style.transform = `scale(${screenX*100/1920}%)`
 
     let hpGain = document.getElementById("hpGain")
-    hpGain.style = `margin-bottom: ${screenY * 60 / 1080}px; margin-left: ${screenX * (-1350) / 1920}px;`
+    hpGain.style = `margin-bottom: ${screenX * 60 / 1920}px; margin-left: ${screenX * (-1350) / 1920}px;`
     hpGain.style.transform = `scale(${screenX*100/1920}%)`
 
     let ratHp = document.getElementById("ratHp")
@@ -59,10 +59,21 @@ async function screen() {
             // Buscamos la clase que queremos modificar
             if (rule.selectorText === '.dado') {
                 rule.style.width = `${screenX * 33 / 1920}px`
-                rule.style.height = `${screenY * 82 / 1080}px`
+                rule.style.height = `${screenX * 82 / 1920}px`
                 rule.style.transform = `scale(${screenX*260/1920}%) !important`
             }else if (rule.selectorText === '.passB') {
-                rule.style = `position: absolute; margin-bottom: ${screenY * 82 / 1080}px; margin-right: ${screenX * (-130) / 1920}px; margin-left: ${screenX * (1500) / 1920}px; width: ${screenX * 94 / 1920}px; height: ${screenY * 63 / 1080}px;`
+                rule.style = `position: absolute; margin-bottom: ${screenY * 82 / 1080}px;
+                margin-right: ${screenX * (-130) / 1920}px;
+                margin-left: ${screenX * (1500) / 1920}px;
+                width: ${screenX * 94 / 1920}px;
+                height: ${screenX * 63 / 1920}px;
+                -webkit-user-drag:none !important;
+                -moz-user-drag: none !important;
+                -ms-user-drag: none !important;
+                -webkit-user-select: none !important;
+                -moz-user-select: none !important;
+                -ms-user-select: none !important;
+                user-select: none !important;`
                 rule.style.transform = `scale(${screenX*390/1920}%)`
             }
         }
