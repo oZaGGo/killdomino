@@ -123,7 +123,7 @@ async function piecesLogic() {
                     resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
                     resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
-                    resultadoJugada.style.transform = "scaleX(-1)";
+                    resultadoJugada.style.transform = `scale(2.1) scaleX(-1)`;
 
                     manoJugada.appendChild(resultadoJugada);
 
@@ -228,7 +228,7 @@ async function piecesLogic() {
                             resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
                             resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
-                            resultadoJugada.style.transform = "scaleX(-1)";
+                            resultadoJugada.style.transform = `scale(2.1) scaleX(-1)`;
 
                             manoJugada.appendChild(resultadoJugada);
 

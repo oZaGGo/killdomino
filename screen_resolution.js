@@ -91,7 +91,7 @@ async function screen() {
 
 
 
-    minmax = screenX * 215 / 1920
+    minmax = Math.floor(screenX * 215 / 1920)
     desplazamientoManoJugada = screenX * (450) / 1980
     desplazamientoManoJugadaOld = desplazamientoManoJugada
     desplazamientoManoJugada = -desplazamientoManoJugada

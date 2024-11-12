@@ -138,7 +138,7 @@ setTimeout(() => {
 
         manoJugadaIA.appendChild(resultadoJugadaIA);
 
-        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
         manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
         dadosJugados++;
         desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld

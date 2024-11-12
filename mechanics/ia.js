@@ -80,7 +80,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -127,7 +127,7 @@ async function turnoIA(){
                         manoJugadaIA.appendChild(resultadoJugadaIA);
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
-                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                         await esperar(200)
                         dragSound.currentTime=0
                         dragSound.play();
@@ -170,7 +170,7 @@ async function turnoIA(){
                         manoJugadaIA.appendChild(resultadoJugadaIA);
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
-                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                         await esperar(200)
                         dragSound.currentTime=0
                         dragSound.play();
@@ -219,7 +219,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -260,7 +260,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -307,7 +307,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -348,7 +348,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -396,7 +396,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -437,7 +437,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -485,7 +485,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();
@@ -527,7 +527,7 @@ async function turnoIA(){
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                     sonidoSeleccion.play();
-                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                    manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime=0
                     dragSound.play();

@@ -144,6 +144,7 @@ body {
     height: 39px;
     scale: 225%;
     margin-left: -20px;
+    transform: scale(210%);
     image-rendering: pixelated;
     -webkit-user-drag: none; /* Chrome, Safari, Opera */
     -moz-user-drag: none;    /* Firefox */
