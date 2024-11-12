@@ -13,7 +13,6 @@ const createWindow = () => {
     //resizable: false
     //fullscreen: true
   })
-
   mainWindow.loadFile('scenes/game.html');
   // Quitar la barra de menú
   //Menu.setApplicationMenu(null);

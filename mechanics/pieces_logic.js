@@ -698,9 +698,6 @@ async function piecesLogic() {
                         break;
                 }
             }
-
-            console.log("CUanto va de desplazamiento: " + desplazamientoManoJugada)
-            console.log("Se le resta: " + desplazamientoManoJugadaOld)
             checkIfRoundWin();
             win();
             turno = 1

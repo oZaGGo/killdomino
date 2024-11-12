@@ -1,7 +1,6 @@
 async function screen() {
     // Escucha el evento 'screen-resolution' y recibe el ancho y alto
     ipcRenderer.on('screen-resolution', (event, { width, height }) => {
-        console.log(`Ancho de pantalla: ${width}, Alto de pantalla: ${height}`);
         screenX = width
         screenY = height
     });
@@ -19,6 +18,10 @@ async function screen() {
 
     let contenedor = document.getElementById("contenedor")
     contenedor.style.transform = `scale(${Math.round(screenX*100/1920)}%)`
+    contenedor.style.width = `${screenX*1000/1920}px`
+    contenedor.style.height = `${screenY*100/1080}px`
+    contenedor.style.gap = `${screenX*10/1920}px`
+    contenedor.style.padding = `${screenX*10/1920}px`
 
     let manoJugada = document.getElementById("manoJugada")
     manoJugada.style = `top: ${screenX * 500 / 1920}px; margin-left: ${screenX * (-500) / 1080}px;`
@@ -29,39 +32,42 @@ async function screen() {
     contadorFichas.style = `margin-bottom: ${screenY * 20 / 1080}px;`
     contadorFichas.style.width = `${screenX * 50 / 1920}px`
 
-    let passB = document.getElementById("passB")
-    passB.style.width = `${screenX * 94 / 1920}px`
-    passB.style.height = `${screenY * 63 / 1080}px`
-    passB.style = `margin-left: ${screenX * 1500 / 1920}px;`
-    passB.style = `margin-right: ${screenY * (-130) / 1080}px;`
-    passB.style = `margin-bottom: ${screenY * 86 / 1080}px;`
-    passB.style.transform = `scale(${screenX*100/1920}%)`
-
     let combo = document.getElementById("combo")
-    combo.style = `margin-left: ${screenX * (-400) / 1920}px;`
-    combo.style = `margin-bottom: ${screenY * 650 / 1080}px;`
+    combo.style = `margin-bottom: ${screenY * 650 / 1080}px; margin-left: ${screenX * (-400) / 1920}px;`
     combo.style.width = `${screenX * 500 / 1920}px`
 
     let vidaJugador = document.getElementById("vidaJugador")
-    vidaJugador.style = `margin-left: ${screenX * (-250) / 1920}px;`
-    vidaJugador.style = `margin-right: ${screenX * 100 / 1920}px;`
-    vidaJugador.style = `padding: ${screenX * 20 / 1920}px;`
+    vidaJugador.style = `padding: ${screenX * 20 / 1920}px; margin-left: ${screenX * (-250) / 1920}px; margin-right: ${screenX * 100 / 1920}px;`
     vidaJugador.style.transform = `scale(${screenX*100/1920}%)`
 
     let hpLoss = document.getElementById("hpLoss")
-    hpLoss.style = `margin-left: ${screenX * (-1350) / 1920}px;`
-    hpLoss.style = `margin-bottom: ${screenY * 60 / 1080}px;`
+    hpLoss.style = `margin-bottom: ${screenY * 60 / 1080}px; margin-left: ${screenX * (-1350) / 1920}px;`
     hpLoss.style.transform = `scale(${screenX*100/1920}%)`
 
     let hpGain = document.getElementById("hpGain")
-    hpGain.style = `margin-left: ${screenX * (-1350) / 1920}px;`
-    hpGain.style = `margin-bottom: ${screenY * 60 / 1080}px;`
+    hpGain.style = `margin-bottom: ${screenY * 60 / 1080}px; margin-left: ${screenX * (-1350) / 1920}px;`
     hpGain.style.transform = `scale(${screenX*100/1920}%)`
 
     let ratHp = document.getElementById("ratHp")
-    ratHp.style = `margin-left: ${screenX * (1600) / 1920}px;`
-    ratHp.style = `margin-bottom: ${screenY * 900 / 1080}px;`
+    ratHp.style = `margin-bottom: ${screenY * 900 / 1080}px; margin-left: ${screenX * (1600) / 1920}px;`
     ratHp.style.transform = `scale(${screenX*100/1920}%)`
+
+    // Recorremos las hojas de estilo cargadas
+    for (let sheet of document.styleSheets) {
+        // Recorremos las reglas CSS de cada hoja
+        for (let rule of sheet.cssRules) {
+            // Buscamos la clase que queremos modificar
+            if (rule.selectorText === '.dado') {
+                rule.style.width = `${screenX * 33 / 1920}px`
+                rule.style.height = `${screenY * 82 / 1080}px`
+                rule.style.transform = `scale(${screenX*260/1920}%) !important`
+            }else if (rule.selectorText === '.passB') {
+                rule.style = `position: absolute; margin-bottom: ${screenY * 82 / 1080}px; margin-right: ${screenX * (-130) / 1920}px; margin-left: ${screenX * (1500) / 1920}px; width: ${screenX * 94 / 1920}px; height: ${screenY * 63 / 1080}px;`
+                rule.style.transform = `scale(${screenX*390/1920}%)`
+            }
+        }
+    }
+
 
 
 

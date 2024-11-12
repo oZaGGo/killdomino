@@ -20,7 +20,6 @@ body {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     font-family: 'PixelFont';
-    aspect-ratio: 16 / 9;
     overflow: hidden;
     user-select: none;
     filter: url(#wave);
@@ -40,6 +39,7 @@ body {
     -moz-user-select: none;    /* Desactivar selección en Firefox */
     -ms-user-select: none;     /* Desactivar selección en Internet Explorer */
     user-select: none;         /* Desactivar selección en navegadores modernos */
+    aspect-ratio: 16/9;
 }
 
 
@@ -162,8 +162,6 @@ body {
     position: absolute;
     margin-left: 1500px;
     margin-right: -130px;
-    margin-bottom: 86px;
-    scale: 380%;
     cursor: pointer;
     image-rendering: pixelated;
     -webkit-user-drag: none; /* Chrome, Safari, Opera */
