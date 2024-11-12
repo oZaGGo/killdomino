@@ -13,10 +13,6 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    max-width: 1980px;
-    max-height: 1080px;
-    min-width: 1280px;
-    min-height: 720px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -417,9 +413,6 @@ body {
     color: rgb(255, 255, 255);
     background-color: transparent;
     border: none;
-    padding: 10px;
-    border-radius: 2px;
-    margin: 10px;
 }
 
 .pauseMenu button:hover{

@@ -75,3 +75,10 @@ function esperar(ms) {
 //Variables para el menu de pausa
 
 let pauseMenu = 0;
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Variables para el sistema de ajuste de UI
+
+let screenX 
+let screenY 
