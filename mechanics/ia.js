@@ -122,7 +122,7 @@ async function turnoIA(){
                     
                         resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
-                        resultadoJugadaIA.style.transform = "scaleX(-1)";
+                        resultadoJugadaIA.style.transform = "scale(2.1) scaleX(-1)";
                     
                         manoJugadaIA.appendChild(resultadoJugadaIA);
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -214,7 +214,7 @@ async function turnoIA(){
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
                 
-                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+                    resultadoJugadaIA.style.transform = "scale(2.1) scaleX(-1)";
 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -302,7 +302,7 @@ async function turnoIA(){
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
-                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+                    resultadoJugadaIA.style.transform = "scale(2.1) scaleX(-1)";
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -391,7 +391,7 @@ async function turnoIA(){
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
-                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+                    resultadoJugadaIA.style.transform = "scale(2.1) scaleX(-1)";
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
@@ -480,7 +480,7 @@ async function turnoIA(){
                 
                     resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
 
-                    resultadoJugadaIA.style.transform = "scaleX(-1)";
+                    resultadoJugadaIA.style.transform = "scale(2.1) scaleX(-1)";
                 
                     manoJugadaIA.appendChild(resultadoJugadaIA);
                     sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
