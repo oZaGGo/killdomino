@@ -73,13 +73,25 @@ async function screen() {
                 -ms-user-select: none !important;
                 user-select: none !important;
                 transform: scale(390%)`
+            }else if (rule.selectorText === '.dadoJugado'){
+                rule.style = `
+                width: ${screenX * 73 / 1920}px;
+                height: ${screenX * 39 / 1920}px;
+                -webkit-user-drag:none !important;
+                -moz-user-drag: none !important;
+                -ms-user-drag: none !important;
+                -webkit-user-select: none !important;
+                -moz-user-select: none !important;
+                -ms-user-select: none !important;
+                user-select: none !important;
+                transform: scale(210%)`
             }
         }
     }
 
 
 
-
+    minmax = screenX * 215 / 1920
     desplazamientoManoJugada = screenX * (450) / 1980
     desplazamientoManoJugadaOld = desplazamientoManoJugada
     desplazamientoManoJugada = -desplazamientoManoJugada

@@ -101,7 +101,7 @@ async function piecesLogic() {
 
 
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                    manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                    manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime = 0
                     dragSound.play();
@@ -141,7 +141,7 @@ async function piecesLogic() {
 
 
                     contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                    manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                    manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                     await esperar(200)
                     dragSound.currentTime = 0
                     dragSound.play();
@@ -207,7 +207,7 @@ async function piecesLogic() {
                             }
 
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                             await esperar(200)
                             dragSound.currentTime = 0
                             dragSound.play();
@@ -247,7 +247,7 @@ async function piecesLogic() {
                             }
 
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                             await esperar(200)
                             dragSound.currentTime = 0
                             dragSound.play();
@@ -308,7 +308,7 @@ async function piecesLogic() {
                         }
 
                         contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                         await esperar(200)
                         dragSound.currentTime = 0
                         dragSound.play();
@@ -399,7 +399,7 @@ async function piecesLogic() {
                             }
 
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                             await esperar(200)
                             dragSound.currentTime = 0
                             dragSound.play();
@@ -459,7 +459,7 @@ async function piecesLogic() {
                             }
 
                             contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                            manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                             await esperar(200)
                             dragSound.currentTime = 0
                             dragSound.play();
@@ -515,7 +515,7 @@ async function piecesLogic() {
 
 
                         contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
+                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                         await esperar(200)
                         dragSound.currentTime = 0
                         dragSound.play();
@@ -567,7 +567,7 @@ async function piecesLogic() {
                             dadosRestantes--
                             dadosMano--
                         }
-                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados - 1}, minmax(215px, 1fr))`
+                        manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados - 1}, minmax(${minmax}px, 1fr))`
                         desplazamientoManoJugada = desplazamientoManoJugada + desplazamientoManoJugadaOld
                         manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
 
@@ -670,7 +670,7 @@ async function piecesLogic() {
                         manoJugadaIA.appendChild(resultadoJugadaIA);
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
-                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(215px, 1fr))`
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
                         await esperar(200)
                         dragSound.currentTime=0
                         dragSound.play();

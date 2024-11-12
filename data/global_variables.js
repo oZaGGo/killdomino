@@ -86,3 +86,4 @@ let pauseMenu = 0;
 
 let screenX 
 let screenY 
+let minmax
