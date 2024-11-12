@@ -86,7 +86,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -133,7 +133,7 @@ async function turnoIA(){
                         dragSound.play();
                         manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                         dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                         //Combo aplicado
                         let combo = document.getElementById("combo");
@@ -176,7 +176,7 @@ async function turnoIA(){
                         dragSound.play();
                         manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                         dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                         //Combo aplicado
                         let combo = document.getElementById("combo");
@@ -225,7 +225,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -266,7 +266,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -313,7 +313,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -354,7 +354,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -402,7 +402,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -443,7 +443,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -491,7 +491,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");
@@ -533,7 +533,7 @@ async function turnoIA(){
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                     //Combo aplicado
                     let combo = document.getElementById("combo");

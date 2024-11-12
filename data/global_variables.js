@@ -1,9 +1,11 @@
 /*
 
-This script contains the main variables of the game.
+This script contains the main variables of the game and electron imports.
 
 
 */
+
+const { ipcRenderer } = require('electron');
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -24,7 +26,9 @@ let dadosMano = 10; //cantidad de dados en la mano
 
 let dadosJugados = 0; //cantidad de dados jugados
 
-let desplazamientoManoJugada = -430; //en px, son 215 por es lo que ocupa una pieza en horizontal
+let desplazamientoManoJugada = 0; 
+
+let desplazamientoManoJugadaOld = 0;
 
 let caraNecesaria = ""; //cara necesaria para poner el dado correcto (pongo 1 por defecto para hacer tests)
 

@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+
 async function win() {
     if(playerHP>=maxBet){
         console.log("Has ganado")

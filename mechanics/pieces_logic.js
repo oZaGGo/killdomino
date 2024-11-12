@@ -108,7 +108,7 @@ async function piecesLogic() {
                     manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                     dadosMano--;
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                     dadosRestantes--
                     turno = 1
                     contenedor.style.pointerEvents = "auto";
@@ -148,7 +148,7 @@ async function piecesLogic() {
                     manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                     dadosMano--;
                     dadosJugados++;
-                    desplazamientoManoJugada = desplazamientoManoJugada - 430
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                     dadosRestantes--
                     turno = 1
                     contenedor.style.pointerEvents = "auto";
@@ -214,7 +214,7 @@ async function piecesLogic() {
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
-                            desplazamientoManoJugada = desplazamientoManoJugada - 430
+                            desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                             dadosRestantes--
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
@@ -254,7 +254,7 @@ async function piecesLogic() {
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
-                            desplazamientoManoJugada = desplazamientoManoJugada - 430
+                            desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                             dadosRestantes--
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
@@ -315,7 +315,7 @@ async function piecesLogic() {
                         manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                         dadosMano--;
                         dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                         dadosRestantes--
 
                         if (dadosRestantes >= 1 && dadosVisibles.length >= 1) {
@@ -406,7 +406,7 @@ async function piecesLogic() {
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
-                            desplazamientoManoJugada = desplazamientoManoJugada - 430
+                            desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                             dadosRestantes--
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
@@ -466,7 +466,7 @@ async function piecesLogic() {
                             manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                             dadosMano--;
                             dadosJugados++;
-                            desplazamientoManoJugada = desplazamientoManoJugada - 430
+                            desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                             dadosRestantes--
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
@@ -522,7 +522,7 @@ async function piecesLogic() {
                         manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
                         dadosMano--;
                         dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                         dadosRestantes--
 
                         //Secuencia de explosion
@@ -568,7 +568,7 @@ async function piecesLogic() {
                             dadosMano--
                         }
                         manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados - 1}, minmax(215px, 1fr))`
-                        desplazamientoManoJugada = desplazamientoManoJugada + 430
+                        desplazamientoManoJugada = desplazamientoManoJugada + desplazamientoManoJugadaOld
                         manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
 
                         turno = 1
@@ -676,7 +676,7 @@ async function piecesLogic() {
                         dragSound.play();
                         manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                         dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - 430
+                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                         //Vida resultante del jugador
                         playerHP=playerHP+Math.floor(playerHP/6)
@@ -699,8 +699,8 @@ async function piecesLogic() {
                 }
             }
 
-            console.log("Dados en la mano: " + dadosVisibles)
-            console.log("Quedan: " + dadosRestantes)
+            console.log("CUanto va de desplazamiento: " + desplazamientoManoJugada)
+            console.log("Se le resta: " + desplazamientoManoJugadaOld)
             checkIfRoundWin();
             win();
             turno = 1

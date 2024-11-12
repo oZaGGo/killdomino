@@ -141,7 +141,7 @@ setTimeout(() => {
         manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(215px, 1fr))`
         manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
         dadosJugados++;
-        desplazamientoManoJugada = desplazamientoManoJugada - 430
+        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
         sonidoSeleccion.play(); //Sonido del primer dado seleccionado de la partida

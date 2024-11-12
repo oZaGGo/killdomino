@@ -18,6 +18,7 @@ body {
     align-items: flex-end;
     background-color: black;
     image-rendering: pixelated;
+    image-rendering: crisp-edges;
     font-family: 'PixelFont';
     aspect-ratio: 16 / 9;
     overflow: hidden;
@@ -28,7 +29,7 @@ body {
 
 .background {
     position: absolute;
-    width: 1980px;
+    width: 1920px;
     height: 1080px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
@@ -43,6 +44,7 @@ body {
 
 
 #contenedor {
+    transform: scale(100%);
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 10px;
@@ -55,13 +57,13 @@ body {
 }
 
 .dado {
+    image-rendering: pixelated;
     width: 33px;
     height: 82px;
     background-color: transparent;
     position: relative;  
     scale: 260%;
     top: -40px;
-    image-rendering: pixelated;
     transition: transform 0.1s;
     -webkit-user-drag: none; /* Chrome, Safari, Opera */
     -moz-user-drag: none;    /* Firefox */
@@ -102,7 +104,7 @@ body {
 
 .dado:hover {
     animation: flotar 0.6s ease-in-out infinite;
-    /*border: 2px solid cyan;*/
+    image-rendering: pixelated;
 }
 
 @keyframes flotar {
@@ -117,6 +119,7 @@ body {
 
 
 #manoJugada{
+    transform: scale(100%);
     top:500px;
     position: absolute;
     display: grid;
@@ -241,6 +244,7 @@ body {
 }
 
 .vidaJugador{
+    transform: scale(100%);
     font-size: 3rem;
     color: rgb(235, 229, 171);
     margin-right: 120px;
@@ -272,6 +276,7 @@ body {
     margin-left: -1350px;
     position:absolute;
     animation: bounce 0.5s ease-in-out infinite;
+    transform: scale(100%);
 
 }
 
@@ -282,6 +287,7 @@ body {
     margin-left: -1350px;
     position:absolute;
     animation: bounce 0.5s ease-in-out infinite;
+    transform: scale(100%);
 
 }
 
@@ -317,6 +323,7 @@ body {
     text-shadow: 4px 4px 0 #000000;
     margin-bottom: 900px;
     margin-left: 1600px;
+    transform: scale(100%);
 }
 
 .filterScreen{
