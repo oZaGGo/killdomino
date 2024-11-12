@@ -17,7 +17,6 @@ async function screen() {
     background.style.height = `${screenY}px`
 
     let contenedor = document.getElementById("contenedor")
-    contenedor.style.transform = `scale(${Math.round(screenX*100/1920)}%)`
     contenedor.style.width = `${screenX*1000/1920}px`
     contenedor.style.height = `${screenX*100/1920}px`
     contenedor.style.gap = `${screenX*10/1920}px`
@@ -26,7 +25,6 @@ async function screen() {
     let manoJugada = document.getElementById("manoJugada")
     manoJugada.style = `top: ${screenX * 500 / 1920}px; margin-left: ${screenX * (-500) / 1080}px;`
     manoJugada.style.width = `${screenX * 300 / 1920}px`
-    manoJugada.style.transform = `scale(${screenX*100/1920}%)`
 
     let contadorFichas = document.getElementById("contadorFichas")
     contadorFichas.style = `margin-bottom: ${screenX * 20 / 1920}px;`
