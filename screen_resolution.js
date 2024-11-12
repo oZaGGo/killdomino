@@ -71,8 +71,8 @@ async function screen() {
                 -webkit-user-select: none !important;
                 -moz-user-select: none !important;
                 -ms-user-select: none !important;
-                user-select: none !important;`
-                rule.style.transform = `scale(${screenX*390/1920}%)`
+                user-select: none !important;
+                transform: scale(390%)`
             }
         }
     }
