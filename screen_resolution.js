@@ -77,6 +77,7 @@ async function screen() {
                 rule.style = `
                 width: ${screenX * 73 / 1920}px;
                 height: ${screenX * 39 / 1920}px;
+                margin-left: ${screenX*(-60)/1920}px;
                 -webkit-user-drag:none !important;
                 -moz-user-drag: none !important;
                 -ms-user-drag: none !important;
@@ -91,8 +92,8 @@ async function screen() {
 
 
 
-    minmax = Math.floor(screenX * 215 / 1920)
-    desplazamientoManoJugada = screenX * (450) / 1980
+    minmax = Math.floor(screenX * 218 / 1920)
+    desplazamientoManoJugada = Math.floor(screenX * (450) / 1980)
     desplazamientoManoJugadaOld = desplazamientoManoJugada
     desplazamientoManoJugada = -desplazamientoManoJugada
 

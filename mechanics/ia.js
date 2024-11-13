@@ -116,8 +116,6 @@ async function turnoIA(){
 
                         fichaIAResultante = 12;
 
-
-
                         resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaIAResultante}.png`;
                     
                         resultadoJugadaIA.className = `dadoJugado h${fichaIAResultante}`;
