@@ -31,6 +31,8 @@ atmos.play();
 //Renderizar la mano randomizada y el primer dado de la partida
 
 async function randomizeHand() {
+
+    await esperar(1000);
     
     // Mezclar la lista usando el algoritmo de Fisher-Yates
     for (let i = dados.length - 1; i > 0; i--) {

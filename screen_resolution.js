@@ -50,6 +50,10 @@ async function screen() {
     ratHp.style = `margin-bottom: ${screenY * 900 / 1080}px; margin-left: ${screenX * (1600) / 1920}px;`
     ratHp.style.transform = `scale(${screenX*100/1920}%)`
 
+    let filterScreen = document.getElementById("filterScreen")
+    filterScreen.style = `width: ${screenX}px; height: ${screenY}px;`
+
+
     // Recorremos las hojas de estilo cargadas
     for (let sheet of document.styleSheets) {
         // Recorremos las reglas CSS de cada hoja
@@ -96,6 +100,10 @@ async function screen() {
     desplazamientoManoJugada = Math.floor(screenX * (450) / 1980)
     desplazamientoManoJugadaOld = desplazamientoManoJugada
     desplazamientoManoJugada = -desplazamientoManoJugada
+
+    // Al acabr de cargar la página, se muestra el contenido
+    let blackScreen = document.getElementById("blackScreen")
+    blackScreen.style.display = "none"
 
 }
 
