@@ -87,4 +87,20 @@ taptap.addEventListener("dblclick", async function(){
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+//Logica de los objetos en la mesa
+
+let objectContainer = document.getElementById("objectContainer");
+
+objectContainer.addEventListener("click", function(){
+
+    if (turno==1){
+        let object = objectContainer.innerText;
+        switch(object){
+            case "demonio":
+                demonLogic();
+                break;
+        }
+    }
+})
+
 

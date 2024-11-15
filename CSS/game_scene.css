@@ -454,3 +454,16 @@ body {
     margin-bottom: 20vh;
 }
 */
+
+.objectContainer{
+    position: absolute;
+    top:400px;
+    width: 200px;
+    height: 100px;
+    margin-left: 400px;
+    background-color: #000000;
+    font-size: 2rem;
+    color: white;
+    z-index: 4;
+    display: none; /* Oculto por defecto para testear uso de objetos*/
+}
