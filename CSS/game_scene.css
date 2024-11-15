@@ -467,3 +467,23 @@ body {
     z-index: 4;
     display: none; /* Oculto por defecto para testear uso de objetos*/
 }
+
+.enemyText{
+    position: absolute;
+    font-size: 2.5rem;
+    background-color: black;
+    color: #a1234d;
+    padding: 10px;
+    z-index: 6;
+    top: 10px;
+    display: none;
+}
+
+.ratSiluete{
+    width: 243px;
+    height: 154px; ;
+    position: absolute;
+    scale: 300%;
+    top: 150px;
+    opacity: 0.5;
+}
