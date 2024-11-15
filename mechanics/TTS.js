@@ -18,6 +18,7 @@ async function TTS(text){
     tuuntuun.volume = 0.1;
 
     let ruido = document.getElementById("ruido");
+    ruido.loop = true;
     ruido.volume = 1;
     ruido.currentTime = 0;
     ruido.play();
