@@ -27,7 +27,7 @@ passB.addEventListener("click", async function(){
         await esperar(900)
         this.src = "../sprites/UI/buttons/timbre.png"
         turnoIA()
-        TTS(`HOW TO SUMMON THE CUM DEMON`)
+        //TTS(`HOW TO SUMMON THE CUM DEMON`)
 
     }
 
