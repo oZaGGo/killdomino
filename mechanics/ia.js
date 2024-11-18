@@ -596,6 +596,8 @@ async function turnoIA(){
     lose()
 
     //Test de guardar datos
-    guardarDatos(playerHP);
+    if (leerDatos()<playerHP){
+        guardarDatos(playerHP);
+    }
     
 }

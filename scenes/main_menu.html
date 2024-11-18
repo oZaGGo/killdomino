@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>killdomino</title>
+    <link rel="stylesheet" href="../CSS/main_menu.css">
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
+</head>
+
+<!-- Efecto CRT -->
+
+<div class="crt"></div>
+
+  
+<body>
+
+    <!-- Cargar el sonido -->
+    <audio id="atmos" src="../music/atmos/crowded_bar.mp3"></audio>
+    <audio id="bmusic1" src="../music/b_music.flac"></audio>
+    <audio id="bmusic2" src="../music/b_music2.flac"></audio>
+
+
+    <!-- Test archivos JSON -->
+
+    <h1 id="testJson" class="testJson"></h1>
+
+
+    <!-- Div para hacer el efecto de que se oscurezca-->
+
+    <div id="blackScreen" class="blackScreen"></div>
+    
+    <!-- Div para hacer el efecto de que se oscurezca-->
+
+    <div id="filterScreen" class="filterScreen"></div>
+   
+
+    <!-- Background -->
+
+    <img id="background" src="../sprites/UI/backgrounds/tapete.png" class="background">
+
+    <!-- Logo -->
+
+    <h1 class="logo" >KILLDOMINO</h1>
+
+    <!-- Botones -->
+
+    <div class="buttonsBox">
+        <button id="playButton" class="button">START</button>
+        <button id="exitButton" class="button">EXIT</button>
+    </div>
+
+    <!-- SCORE-->
+
+    <h1 id="score" class="score">SCORE 0</h1>
+
+    <!-- Scripts (el orden es importante)-->
+    <script src="../player_data_Script.js"></script>
+    <script src="../scene_scripts/main_menu.js"></script>
+    
+
+</body>
+</html>
