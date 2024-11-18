@@ -150,6 +150,7 @@ body {
     font-family: 'PixelFont';
     background-color: transparent;
     border: none;
+    z-index: 3;
 }
 
 .button:hover{
@@ -163,4 +164,11 @@ body {
     left: 5vw;
     color: rgb(241, 102, 102);
     text-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+.filterScreen {
+    position: absolute;
+    width: 1980px;
+    height: 1080px;
+    background-color: rgba(0, 0, 0, 0.699);
 }

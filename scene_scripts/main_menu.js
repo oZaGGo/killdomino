@@ -30,4 +30,8 @@ exitButton.addEventListener('click', () => {
 
 const score = document.getElementById('score');
 
+if (localStorage.getItem('data') == null) {
+    localStorage.setItem('data', 0);
+}
+
 score.innerText = `BEST SCORE ${leerDatos()}`;
