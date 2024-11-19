@@ -614,7 +614,7 @@ body {
     font-size: 2rem;
     color: white;
     z-index: 4;
-    display: none;
+    /*display: none;*/
     /* Oculto por defecto para testear uso de objetos*/
 }
 
@@ -644,4 +644,5 @@ body {
     width: 1920px;
     height: 1080px;
     display: none;
+    cursor: pointer;
 }

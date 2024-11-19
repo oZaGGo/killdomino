@@ -43,6 +43,7 @@ async function checkIfRoundWin(){
         hoverFunctions();
         taptap.style.pointerEvents = "auto";
         contenedor.style.pointerEvents = "auto";
+        boxLogic();
     }
 
 }
