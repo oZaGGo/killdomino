@@ -2,6 +2,10 @@ async function TTS(text){
 
     let enemyText = document.getElementById("enemyText");
 
+    if (enemyText.innerText !== "") {
+        enemyText.innerText = "";
+    }
+
     let beeep = document.getElementById("beeep");
     beeep.volume = 0.1;
     let peeppop = document.getElementById("peeppop");

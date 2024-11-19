@@ -106,6 +106,10 @@ async function randomizeHand() {
 
     piecesLogic()
 
+    win()
+
+    //iaTalk(1)
+
 }
 
 

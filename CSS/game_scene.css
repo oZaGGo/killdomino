@@ -636,5 +636,13 @@ body {
     scale: 300%;
     top: 150px;
     opacity: 0.5;
+}
+
+.objectsBox{
+    position: absolute;
+    z-index: 4;
     display: none;
+    width: 1920px;
+    height: 1080px;
+    scale: 50%;
 }

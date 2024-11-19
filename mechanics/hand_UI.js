@@ -16,6 +16,8 @@ passB.addEventListener("click", async function(){
 
     if (turno==1){ //si le toca al jugador
 
+        bellTouched = true; //para temas de la IA
+
         console.log("He presionado el boton de turno")
 
         turno=0;

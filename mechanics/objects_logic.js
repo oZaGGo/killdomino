@@ -23,3 +23,10 @@ async function demonLogic(){
         }
     }
 }
+
+
+async function boxLogic(){
+    let objectBox = document.getElementById("objectBox");
+    //objectBox.style = "display: block !important";
+    objectBox.src = `../sprites/UI/box/caixaFinal.png`;
+}

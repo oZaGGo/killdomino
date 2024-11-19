@@ -2,6 +2,9 @@ async function checkIfRoundWin(){
     if (dadosRestantes<=0){
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none"
+        if (bellTouched==false){
+            await iaTalk(2);
+        }
         await gains();
         ronda++;
         exedCash = exedCash + 0.3;
