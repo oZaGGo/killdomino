@@ -99,7 +99,7 @@ objectContainer.addEventListener("click", function(){
     if (turno==1){
         let object = objectContainer.innerText;
         switch(object){
-            case "demonio":
+            case "demon":
                 demonLogic();
                 break;
         }

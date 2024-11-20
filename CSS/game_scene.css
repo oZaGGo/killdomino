@@ -606,15 +606,13 @@ body {
 
 .objectContainer {
     position: absolute;
-    top: 400px;
-    width: 200px;
-    height: 100px;
-    margin-left: 400px;
+    top: 50vh;
+    margin-left: 60vw;
     background-color: #000000;
     font-size: 2rem;
     color: white;
     z-index: 4;
-    /*display: none;*/
+    display: none;
     /* Oculto por defecto para testear uso de objetos*/
 }
 
@@ -640,9 +638,27 @@ body {
 
 .objectsBox{
     position: absolute;
-    z-index: 4;
+    z-index: 1;
     width: 1920px;
     height: 1080px;
     display: none;
     cursor: pointer;
+}
+
+#objectsContainer{
+    position: absolute;
+    z-index: 4;
+    scale: 300%;
+    top: 40vh;
+    gap: 2vw; 
+    display: none;
+}
+
+.objects{
+    display: none;
+    animation: flotar 0.6s ease-in-out infinite;
+}
+
+.objectText{
+    flex-wrap: wrap;
 }

@@ -108,6 +108,7 @@ async function randomizeHand() {
 
     win()
 
+    boxLogic()
     //iaTalk(1)
 
 }
