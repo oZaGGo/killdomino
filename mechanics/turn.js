@@ -5,7 +5,7 @@ async function checkIfRoundWin(){
         if (bellTouched==false){
             await iaTalk(2);
         }
-        await gains();
+        //await gains(); de momento no se usa
         ronda++;
         exedCash = exedCash + 0.3;
         roundDamage = roundDamage + Math.round((playerHP/(15-exedCash)));
@@ -28,6 +28,8 @@ async function checkIfRoundWin(){
             dadoR.remove();
         }
 
+        await boxLogic();
+
         //Resetear todo lo necesario para la nueva mano
         await esperar(500);
         dadosRestantes=7;
@@ -43,7 +45,6 @@ async function checkIfRoundWin(){
         hoverFunctions();
         taptap.style.pointerEvents = "auto";
         contenedor.style.pointerEvents = "auto";
-        boxLogic();
     }
 
 }

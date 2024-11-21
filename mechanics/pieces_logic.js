@@ -608,7 +608,7 @@ async function piecesLogic() {
                         corkPop.currentTime = 0
                         corkPop.play()
 
-                        await esperar(1000)
+                        await esperar(600)
 
                         //Beber
 
@@ -618,20 +618,7 @@ async function piecesLogic() {
                         drink.currentTime = 0
                         drink.play()
 
-                        await esperar(300)
-                        const turbulence = document.getElementById('turbulence');
-                        const displacement = document.getElementById('displacement');
-
-                        for (let i = 0; i < 5; i++) {
-                            turbulence.setAttribute('baseFrequency', `0.0${i}`);
-                            await esperar(200);
-                        }
-                        for (let i = 5; i > 0; i--) {
-                            turbulence.setAttribute('baseFrequency', `0.0${i}`);
-                            await esperar(300);
-                        }
-                        turbulence.setAttribute('baseFrequency', `0`)
-                        await esperar(500)
+                        await esperar(1200)
 
                         //Añadir dinero al jugador
 

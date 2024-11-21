@@ -50,13 +50,16 @@ async function boxLogic() {
     boxFall.volume = 0.6;
     boxFall2.volume = 0.4;
     objectBox.style.pointerEvents = "none"
+    objectBox.src = "../sprites/UI/box/caixacaendo.png"
     objectBox.style = "display: block";
     await esperar(1150);
     boxFall.play();
     boxFall2.play();
     await esperar(200);
     objectBox.src = `../sprites/UI/box/caixa19.png`;
+    await esperar(100);
     objectBox.style.pointerEvents = "auto"
+    TTS("Pick an item...")
     objectBox.addEventListener("click", async function () {
 
         objectBox.src = `../sprites/UI/box/caixabrindose.png`;
@@ -70,12 +73,18 @@ async function boxLogic() {
         objectsContainer.style = 'display: flex !important;';
         let objects = document.querySelectorAll('.objects');
         let selectedObjects = obtenerTresAleatorios(objetos);
+        console.log(selectedObjects);
         await esperar(500);
         let n = 0;
-        TTS("Pick an item...")
         let objectApear = document.getElementById('objectApear');
         for (object of objects) {
-            object.className = `${selectedObjects[n]}`;
+            object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+            object.src = ``;
+        }
+        await esperar(100);
+        for (object of objects) {
+            object.style = "display: block !important;";
+            object.id = `${selectedObjects[n]}`;
             object.src = `../sprites/objects/${selectedObjects[n]}.png`;
             objectApear.currentTime = 0;
             objectApear.play();
@@ -93,7 +102,7 @@ async function boxLogic() {
     for (object of objects) {
         object.addEventListener("click", async function () {
             const filterScreen = document.getElementById('filterScreen');
-            switch (this.className) {
+            switch (this.id) {
                 case "luck":
                     objectContainer.innerText = "luck";
 
@@ -114,7 +123,12 @@ async function boxLogic() {
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
 
-                    
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
 
                     break;
                 case "demon":
@@ -136,8 +150,14 @@ async function boxLogic() {
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
-
                     
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
+
                     break;
                 case "coin":
                     objectContainer.innerText = "coin";
@@ -159,6 +179,12 @@ async function boxLogic() {
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
 
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
                     
                     break;
                 case "blank":
@@ -181,6 +207,12 @@ async function boxLogic() {
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
 
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
                     
                     break;
                 case "lastBurn":
@@ -203,6 +235,12 @@ async function boxLogic() {
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
 
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
                     
                     break;
                 case "mirror":
@@ -225,6 +263,12 @@ async function boxLogic() {
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
 
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
                     
                     break;
                 case "magnetic":
@@ -247,6 +291,12 @@ async function boxLogic() {
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
 
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
                     
                     break;
                 case "tedTalk":
@@ -268,6 +318,14 @@ async function boxLogic() {
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
+                    for (object of objects) {
+                        object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
+                        object.src = ``;
+                    }
+
+                    selectedObjects = [];
+
                     break;
                 default:
                     console.log("No object selected")
