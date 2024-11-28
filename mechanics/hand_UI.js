@@ -92,18 +92,37 @@ taptap.addEventListener("dblclick", async function(){
 
 //Logica de los objetos en la mesa
 
-let objectContainer = document.getElementById("objectContainer");
+async function objectsLogic() {
 
-objectContainer.addEventListener("click", function(){
+    let objectContainer = document.getElementById('objectContainer');
 
-    if (turno==1){
-        let object = objectContainer.innerText;
-        switch(object){
-            case "demon":
-                demonLogic();
-                break;
-        }
+    //Extraer ultima clase de las clases del objeto
+
+    let objectClass = objectContainer.className.split(' ').pop();
+
+    let isHovered = false;
+
+    switch (objectClass){
+        case "mirror":
+            //Quita los dados de caras iguales
+            dados = ["12", "13", "14", "15", "16", "23", "24", "25", "26", "34", "35", "36", "44", "45", "46", "56", "12t","23t","34t","56t","16t","01f","02f","03f","04f","05f","06f","01n","02p","03n","04p","05n","06p","00e","00c","00c"]
+            objectContainer.addEventListener('mouseenter',async function(){
+
+                if (isHovered==false){
+                    isHovered=true;
+                    await esperar(300)
+                    objectContainer.src =  `../sprites/objects/abrindose.png`;
+                    await esperar(1050)
+                    objectContainer.src =  `../sprites/objects/espello13.png`;
+                    await esperar(300)
+                    objectContainer.src =  `../sprites/objects/rompendose.png`;
+                    await esperar(400)
+                    objectContainer.src =  `../sprites/objects/espello28.png`;
+                }
+            })
+            break;
     }
-})
+  
+}
 
 

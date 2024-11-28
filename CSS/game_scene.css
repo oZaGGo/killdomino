@@ -606,14 +606,13 @@ body {
 
 .objectContainer {
     position: absolute;
-    top: 50vh;
+    top: 35vh;
     margin-left: 60vw;
-    background-color: #000000;
-    font-size: 2rem;
-    color: white;
     z-index: 4;
+    scale: 200%;
+    animation: aparecerElastico 0.5s ease-out forwards;
+    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.397));
     display: none;
-    /* Oculto por defecto para testear uso de objetos*/
 }
 
 .enemyText {
@@ -649,7 +648,7 @@ body {
     position: absolute;
     z-index: 4;
     scale: 300%;
-    top: 40vh;
+    top: 30vh;
     gap: 2vw; 
     display: none;
 }
@@ -657,6 +656,7 @@ body {
 .objects{
     display: none;
     animation: flotar 0.6s ease-in-out infinite;
+    scale: 60%;
 }
 
 .objectText{

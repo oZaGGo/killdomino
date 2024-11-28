@@ -688,7 +688,7 @@ async function piecesLogic() {
             checkIfRoundWin();
             win();
             turno = 1
-
+            boxLogic();
         }, 160));
     });
 

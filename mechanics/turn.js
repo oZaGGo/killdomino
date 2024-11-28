@@ -1,3 +1,21 @@
+//Resetear todo lo necesario para la nueva mano
+async function handReset() {
+    await esperar(500);
+    dadosRestantes=7;
+    dadosInvisiblesRestantes=3;
+    dadosMano=10;
+    contadorFichas.innerText = `3/3`
+    fichasContadas=3;
+    contenedor.style.gridTemplateColumns = `repeat(10, 1fr)`
+    dadosVisibles = [];
+    dadoInvisible = 8;
+    randomizeHand();
+    piecesLogic();
+    hoverFunctions();
+    taptap.style.pointerEvents = "auto";
+    contenedor.style.pointerEvents = "auto";
+}
+
 async function checkIfRoundWin(){
     if (dadosRestantes<=0){
         taptap.style.pointerEvents = "none";
@@ -29,22 +47,7 @@ async function checkIfRoundWin(){
         }
 
         await boxLogic();
-
-        //Resetear todo lo necesario para la nueva mano
-        await esperar(500);
-        dadosRestantes=7;
-        dadosInvisiblesRestantes=3;
-        dadosMano=10;
-        contadorFichas.innerText = `3/3`
-        fichasContadas=3;
-        contenedor.style.gridTemplateColumns = `repeat(10, 1fr)`
-        dadosVisibles = [];
-        dadoInvisible = 8;
-        randomizeHand();
-        piecesLogic();
-        hoverFunctions();
-        taptap.style.pointerEvents = "auto";
-        contenedor.style.pointerEvents = "auto";
     }
+
 
 }

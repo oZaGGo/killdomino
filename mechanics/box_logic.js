@@ -104,14 +104,6 @@ async function boxLogic() {
             const filterScreen = document.getElementById('filterScreen');
             switch (this.id) {
                 case "luck":
-                    objectContainer.innerText = "luck";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
@@ -129,17 +121,21 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("luck");
+
+                    objectContainer.src = `../sprites/objects/luck.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
 
                     break;
                 case "demon":
-                    objectContainer.innerText = "demon";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
@@ -157,17 +153,21 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("demon");
+
+                    objectContainer.src = `../sprites/objects/demon.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
 
                     break;
                 case "coin":
-                    objectContainer.innerText = "coin";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
@@ -185,17 +185,21 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("coin");
+
+                    objectContainer.src = `../sprites/objects/coin.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
                     
                     break;
-                case "blank":
-                    objectContainer.innerText = "blank";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-
+                case "blank":                
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
@@ -213,17 +217,21 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("blank");
+
+                    objectContainer.src = `../sprites/objects/blank.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
                     
                     break;
                 case "lastBurn":
-                    objectContainer.innerText = "lastBurn";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
@@ -241,17 +249,21 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("lastburn");
+
+                    objectContainer.src = `../sprites/objects/lastburn.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
                     
                     break;
                 case "mirror":
-                    objectContainer.innerText = "mirror";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
@@ -269,17 +281,21 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("mirror");
+
+                    objectContainer.src = `../sprites/objects/mirror.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
                     
                     break;
                 case "magnetic":
-                    objectContainer.innerText = "magnetic";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
@@ -297,16 +313,25 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("magnetic");
+
+                    objectContainer.src = `../sprites/objects/magnetic.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
                     
                     break;
                 case "tedTalk":
-                    objectContainer.innerText = "tedTalk";
-
-                    filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+                    handReset();
 
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
@@ -325,6 +350,13 @@ async function boxLogic() {
                     }
 
                     selectedObjects = [];
+
+                    objectContainer.classList.add("tedtalk");
+
+                    objectContainer.src = `../sprites/objects/tedtalk.png`;
+
+                    filterScreen.style = 'display: none !important;';
+                    objectContainer.style = "display: block !important";
 
                     break;
                 default:
