@@ -111,11 +111,16 @@ async function objectsLogic() {
                 if (isHovered==false){
                     isHovered=true;
                     await esperar(300)
+                    let openClick = document.getElementById("openClick");
+                    openClick.play();
                     objectContainer.src =  `../sprites/objects/abrindose.png`;
-                    await esperar(1050)
+                    await esperar(1030)
                     objectContainer.src =  `../sprites/objects/espello13.png`;
                     await esperar(300)
                     objectContainer.src =  `../sprites/objects/rompendose.png`;
+                    await esperar(50)
+                    let brokenGlass = document.getElementById("brokenGlass");
+                    brokenGlass.play(); 
                     await esperar(400)
                     objectContainer.src =  `../sprites/objects/espello28.png`;
                 }

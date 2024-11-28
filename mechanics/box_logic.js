@@ -100,6 +100,50 @@ async function boxLogic() {
     let objects = document.querySelectorAll('.objects');
 
     for (object of objects) {
+        object.addEventListener("mouseenter", function () {
+            let infoBoxObjects = document.getElementById("infoBoxObjects");
+            //Mostrar la caja de descripcion
+            infoBoxObjects.style.display = "block";
+
+            switch (this.id) {
+                case "luck":
+                    object.src = `../sprites/objects/luck.png`;
+                    break;
+                case "demon":
+                    object.src = `../sprites/objects/demon.png`;
+                    break;
+                case "coin":
+                    object.src = `../sprites/objects/coin.png`;
+                    break;
+                case "blank":
+                    object.src = `../sprites/objects/blank.png`;
+                    break;
+                case "lastBurn":
+                    object.src = `../sprites/objects/lastburn.png`;
+                    break;
+                case "mirror":
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "The reflections are gone... (Pasive)";
+                    break;
+                case "magnetic":
+                    object.src = `../sprites/objects/magnetic.png`;
+                    break;
+                case "tedTalk":
+                    object.src = `../sprites/objects/tedtalk.png`;
+                    break;
+                default:
+                    console.log("No object hovered")
+                    break;
+            }
+        })
+
+        object.addEventListener('mouseleave', () => {
+            infoBoxObjects.style.opacity = "0";
+            infoBoxObjects.style.display = "none !important";
+
+        });
+
         object.addEventListener("click", async function () {
             const filterScreen = document.getElementById('filterScreen');
             switch (this.id) {

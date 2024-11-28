@@ -459,6 +459,23 @@ body {
     background-color: rgba(0, 0, 0, 0.432);
 }
 
+.infoboxObjects {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 0 #000000;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 3rem;
+    pointer-events: none;
+    margin-bottom: 20vh;
+    /* Para que la descripcion no interfiera con el cursor */
+    opacity: 0;
+    /* Oculto por defecto */
+    transition: opacity 0.5s step-end;
+    background-color: rgba(0, 0, 0, 0.432);
+    z-index: 9;
+}
+
 .rathp {
     position: absolute;
     font-size: 3rem;
@@ -611,7 +628,7 @@ body {
     z-index: 4;
     scale: 200%;
     animation: aparecerElastico 0.5s ease-out forwards;
-    filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.397));
+    /*filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.397));*/
     display: none;
 }
 
@@ -655,8 +672,8 @@ body {
 
 .objects{
     display: none;
+    z-index: 6;
     animation: flotar 0.6s ease-in-out infinite;
-    scale: 60%;
 }
 
 .objectText{
