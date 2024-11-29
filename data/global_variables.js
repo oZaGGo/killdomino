@@ -19,6 +19,8 @@ let dadosVisibles = []; //dados de la mano
 
 let dadosRestantes = 7;
 
+let dadosSeleccionados = [];
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -95,3 +97,9 @@ let minmax
 //Variables para el sistema de inteligencia de la IA
 
 let bellTouched = false;
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Variables para el sistema de objetos
+
+let mirrored = false;

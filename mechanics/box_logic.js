@@ -93,7 +93,9 @@ async function boxLogic() {
             n++
         }
 
-    })
+        objectBox.removeEventListener("click", () => { });
+
+    },{ once: true })
 
     let objectContainer = document.getElementById('objectContainer');
 
@@ -407,6 +409,6 @@ async function boxLogic() {
                     console.log("No object selected")
                     break;
             }
-        })
+        },{ once: true })
     }
 }

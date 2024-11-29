@@ -10,8 +10,6 @@ async function handReset() {
     dadosVisibles = [];
     dadoInvisible = 8;
     randomizeHand();
-    piecesLogic();
-    hoverFunctions();
     taptap.style.pointerEvents = "auto";
     contenedor.style.pointerEvents = "auto";
 }

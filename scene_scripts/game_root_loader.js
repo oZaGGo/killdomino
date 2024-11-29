@@ -9,11 +9,11 @@ This script is the point of start of the game scene.
 
 //Musica del juego y ambiente
 
-const atmos = document.getElementById('atmos');
+let atmos = document.getElementById('atmos');
 
-const numeroAleatorio = Math.floor(Math.random() * 2) + 1; //Seleccionar un numero aleatorio entre 1 y 2
+let numeroAleatorio = Math.floor(Math.random() * 2) + 1; //Seleccionar un numero aleatorio entre 1 y 2
 
-const bmusic = document.getElementById(`bmusic${numeroAleatorio}`);
+let bmusic = document.getElementById(`bmusic${numeroAleatorio}`);
 
 atmos.volume = 0.03;
 
@@ -33,7 +33,12 @@ atmos.play();
 async function randomizeHand() {
 
     await esperar(1000);
-    
+
+    if (mirrored == true) { //Comprobar si esta en uso el espejo
+        dados = ["12", "13", "14", "15", "16", "23", "24", "25", "26", "34", "35", "36", "45", "46", "56", "12t","23t","34t","56t","16t","01f","02f","03f","04f","05f","06f","01n","02p","03n","04p","05n","06p","00e","00c","00c"]
+    } else {
+        dados = ["11", "12", "13", "14", "15", "16", "22", "23", "24", "25", "26", "33", "34", "35", "36", "44", "45", "46", "55", "56", "66", "12t","23t","34t","56t","16t","01f","02f","03f","04f","05f","06f","01n","02p","03n","04p","05n","06p","00e","00c","00c"]
+    }
     // Mezclar la lista usando el algoritmo de Fisher-Yates
     for (let i = dados.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -42,18 +47,18 @@ async function randomizeHand() {
     }
 
     // Seleccionar los primeros 10 elementos de la lista mezclada
-    let dadosSeleccionados = dados.slice(0, 10);
+    dadosSeleccionados = dados.slice(0, 10);
 
-    const sonidoCreacion = document.getElementById('sonidoCreacionDados');
+    let sonidoCreacion = document.getElementById('sonidoCreacionDados');
     sonidoCreacion.volume = 0.5;
 
-    console.log("Dados randomizados: " + dadosVisibles)  
+    console.log("Dados seleccionados: " + dadosSeleccionados)  
 
-    const contenedor = document.getElementById('contenedor'); //contenedor de los dados
+    let contenedor = document.getElementById('contenedor'); //contenedor de los dados
 
     // Cambiar forEach por un bucle for...of
     for (let [index, dado] of dadosSeleccionados.entries()) {
-        const img = document.createElement('img');
+        let img = document.createElement('img');
 
         if (index < 7) {
             if (dado.length < 3) {
@@ -108,8 +113,6 @@ async function randomizeHand() {
 
     win()
 
-    //iaTalk(1)
-
 }
 
 
@@ -117,7 +120,7 @@ async function randomizeHand() {
 
 //Primer dado de la partida
 
-const sonidoSeleccion = document.getElementById('sonidoSeleccion');
+let sonidoSeleccion = document.getElementById('sonidoSeleccion');
 
 let dadosN = [11, 12, 13, 14, 15, 16, 22, 23, 24, 25, 26, 33, 34, 35, 36, 44, 45, 46, 55, 56, 66] //Dados normales
 
@@ -134,9 +137,9 @@ setTimeout(() => {
         let dadoSeleccionadoIA = dadosN.slice(0, 1);
 
         console.log("La IA ha seleccionado: " + dadoSeleccionadoIA)
-        const manoJugadaIA = document.getElementById('manoJugada');
+        let manoJugadaIA = document.getElementById('manoJugada');
 
-        const resultadoJugadaIA = document.createElement('img');
+        let resultadoJugadaIA = document.createElement('img');
 
         resultadoJugadaIA.src = `../sprites/dados_h/hdado${dadoSeleccionadoIA}.png`;
 
@@ -168,21 +171,21 @@ setTimeout(() => {
 async function hoverFunctions() {
 
     //Efectos y funciones al hacer hover en los dados
-    const dadosS = document.querySelectorAll('.dado');
+    let dadosS = document.querySelectorAll('.dado');
     //Sonidos de hover:
-    const sonidoHoverDado = document.getElementById('sonidoHoverDado');
-    const fireHover = document.getElementById("fireHover");
-    const magneticHover = document.getElementById("magneticHover");
-    const tntHover = document.getElementById("tntHover");
+    let sonidoHoverDado = document.getElementById('sonidoHoverDado');
+    let fireHover = document.getElementById("fireHover");
+    let magneticHover = document.getElementById("magneticHover");
+    let tntHover = document.getElementById("tntHover");
     //Caja de descripcion del dado:
-    const infoBox = document.getElementById('infoBox');
+    let infoBox = document.getElementById('infoBox');
 
     dadosS.forEach(dado => {
         dado.addEventListener('mouseenter', async () => {
             //Mostrar la caja de descripcion
             infoBox.style.display = "block";
             //Extraer la posicio ndel dado seleccionado
-            const rect = dado.getBoundingClientRect();
+            let rect = dado.getBoundingClientRect();
             //Posicionar la caja de descripcion
             infoBox.style.left = `${rect.left - 30}px`;
             infoBox.style.top = `${rect.top - 100}px`;
@@ -267,7 +270,4 @@ async function hoverFunctions() {
         });
     });
 }
-
-
-randomizeHand();
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
