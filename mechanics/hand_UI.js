@@ -106,7 +106,7 @@ async function objectsLogic() {
         case "mirror":
             //Quita los dados de caras iguales
             mirrored = true;
-            objectContainer.addEventListener('mouseenter',async function(){
+            objectContainer.addEventListener('mouseenter',async function mirrorA(){
                 if (isHovered==false){
                     isHovered=true;
                     await esperar(300)
@@ -123,16 +123,16 @@ async function objectsLogic() {
                     await esperar(400)
                     objectContainer.src =  `../sprites/objects/espello28.png`;
                 }
-            })
+            }, {once: true})
             coinEarnings = false;
             lustBurnSelected = false;
             luck = false;
             break;
         case "demon":
-            objectContainer.addEventListener('click',async function(){
-                if (turnObject%6==0){
-                    demonLogic()
-                }
+            objectContainer.addEventListener('click',async function demonC(){
+               
+                demonLogic()
+
             }, {once: true})
             coinEarnings = false;
             lustBurnSelected = false;
@@ -140,7 +140,11 @@ async function objectsLogic() {
             mirrored = false;
             break;
         case "blank":
-            objectContainer.addEventListener('click',async function(){
+            coinEarnings = false;
+            lustBurnSelected = false;
+            luck = false;
+            mirrored = false;
+            objectContainer.addEventListener('click',async function blankU(){
 
                 let dragSound = document.getElementById('dragSound');
                 dragSound.volume = 0.5;
@@ -178,19 +182,25 @@ async function objectsLogic() {
                     contenedor.style.pointerEvents = "auto";
                 }
             }, {once: true})
+            break;
+        case "lastburn":
             coinEarnings = false;
+            lustBurnSelected = true;
+            luck = false;
+            mirrored = false;
+            break;
+        case "coin":
+            coinEarnings = true;
             lustBurnSelected = false;
             luck = false;
             mirrored = false;
             break;
-        case "lastburn":
-            
-            break;
-        case "coin":
-            coinEarnings = true;
-            break;
         case "luck":
             luck = true;
+            coinEarnings = false;
+            lustBurnSelected = false;
+            mirrored = false;
+            
             break;    
         default:
             coinEarnings = false;

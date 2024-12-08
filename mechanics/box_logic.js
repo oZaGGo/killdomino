@@ -11,7 +11,7 @@ This script contains the logic behind every object in the game.
 async function demonLogic() {
     let demonChange = document.getElementById("demonChange");
     demonChange.volume = 0.6;
-
+    objectContainer.style = "display:none !important" //Hacer que desaparezca el objeto
     const imagenes = document.querySelectorAll(".dado");
     for (imagen of imagenes) {
         if (imagen.style.display != "none") {
@@ -149,7 +149,29 @@ async function boxLogic() {
 
     },{ once: true })
 
-    let objectContainer = document.getElementById('objectContainer');
+    // Buscar el elemento por su ID
+    let imgElement = document.getElementById('objectContainer');
+
+    // Verificar si el elemento existe
+    if (imgElement) {
+        // Eliminar el elemento del DOM
+        imgElement.remove();
+        console.log('El elemento fue eliminado.');
+    } else {
+        console.log('El elemento no existe.');
+    }
+
+
+    // Crear el elemento img
+    let objectContainer = document.createElement('img');
+
+    // Agregar el atributo id
+    objectContainer.id = 'objectContainer';
+
+    // Agregar el atributo class
+    objectContainer.className = 'objectContainer';
+
+    document.body.appendChild(objectContainer);
 
     let objects = document.querySelectorAll('.objects');
 

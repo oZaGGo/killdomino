@@ -23,9 +23,6 @@ async function checkIfRoundWin(){
     if (dadosRestantes<=0){
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none"
-        if (bellTouched==false){
-            await iaTalk(2);
-        }
         //await gains(); de momento no se usa
         ronda++;
         exedCash = exedCash + 0.3;
@@ -33,7 +30,7 @@ async function checkIfRoundWin(){
         playerHP = playerHP * Math.round(ronda/exedCash);
 
         if (coinEarnings==true){
-            playerHP = playerHP + (playerHP * 0.1); //Aumento del dinero en un 10% al tener el onjeto de la moneda
+            playerHP = Math.floor(playerHP + (playerHP * 0.1)); //Aumento del dinero en un 10% al tener el onjeto de la moneda
         }
 
         vidaJugador.textContent = `CASH ${playerHP}$`;
