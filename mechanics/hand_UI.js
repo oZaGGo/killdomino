@@ -124,7 +124,80 @@ async function objectsLogic() {
                     objectContainer.src =  `../sprites/objects/espello28.png`;
                 }
             })
+            coinEarnings = false;
+            lustBurnSelected = false;
+            luck = false;
             break;
+        case "demon":
+            objectContainer.addEventListener('click',async function(){
+                if (turnObject%6==0){
+                    demonLogic()
+                }
+            }, {once: true})
+            coinEarnings = false;
+            lustBurnSelected = false;
+            luck = false;
+            mirrored = false;
+            break;
+        case "blank":
+            objectContainer.addEventListener('click',async function(){
+
+                let dragSound = document.getElementById('dragSound');
+                dragSound.volume = 0.5;
+
+                let manoJugada = document.getElementById('manoJugada');
+
+                let resultadoJugada = document.createElement('img');
+
+                if (blankUsed == false){
+
+                    blankUsed = true; //Para que no se pueda usar mas de una vez por ronda
+
+                    objectContainer.style = "display:none !important" //Hacer que desaparezca el objeto
+
+
+                    contenedor.style.pointerEvents = "none";
+
+                    resultadoJugada.src = `../sprites/objects/hblank.png`; //Dado en blanco
+
+                    resultadoJugada.className = `dadoJugado blank`;
+
+                    manoJugada.appendChild(resultadoJugada);
+
+                    sonidoSeleccion.currentTime = 0;
+                    sonidoSeleccion.play();
+
+                    manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
+                    await esperar(200)
+                    dragSound.currentTime = 0
+                    dragSound.play();
+                    manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
+                    desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
+                    dadosJugados++;
+                    blankFace = true;
+                    contenedor.style.pointerEvents = "auto";
+                }
+            }, {once: true})
+            coinEarnings = false;
+            lustBurnSelected = false;
+            luck = false;
+            mirrored = false;
+            break;
+        case "lastburn":
+            
+            break;
+        case "coin":
+            coinEarnings = true;
+            break;
+        case "luck":
+            luck = true;
+            break;    
+        default:
+            coinEarnings = false;
+            lustBurnSelected = false;
+            luck = false;
+            mirrored = false;
+            break;   
     }
   
 }

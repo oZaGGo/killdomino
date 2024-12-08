@@ -14,6 +14,11 @@ async function handReset() {
     contenedor.style.pointerEvents = "auto";
 }
 
+async function fixHandReset() {
+    await esperar(1600);
+    handReset();
+}
+
 async function checkIfRoundWin(){
     if (dadosRestantes<=0){
         taptap.style.pointerEvents = "none";
@@ -26,6 +31,11 @@ async function checkIfRoundWin(){
         exedCash = exedCash + 0.3;
         roundDamage = roundDamage + Math.round((playerHP/(15-exedCash)));
         playerHP = playerHP * Math.round(ronda/exedCash);
+
+        if (coinEarnings==true){
+            playerHP = playerHP + (playerHP * 0.1); //Aumento del dinero en un 10% al tener el onjeto de la moneda
+        }
+
         vidaJugador.textContent = `CASH ${playerHP}$`;
         console.log("Has ganado la ronda")
 
@@ -44,6 +54,17 @@ async function checkIfRoundWin(){
             dadoR.remove();
         }
 
+        turnObject++ //Aumento el turno de objetos que requieren de una activa
+        blankUsed = false; //Reinicio el uso de la carta en blanco
+        
+        let objectContainer = document.getElementById("objectContainer");
+        objectContainer.style= "display: none !important";
+
+        let objects = document.querySelectorAll('.objects');
+
+        for (object of objects){
+            object.removeEventListener("click", fixHandReset);
+        }
         await boxLogic();
     }
 

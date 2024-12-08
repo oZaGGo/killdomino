@@ -8,7 +8,7 @@ const createWindow = () => {
       nodeIntegration: true,
       contextIsolation: false
     },
-    fullscreen: false,
+    fullscreen: true,
     frame: false
     //resizable: false
     //fullscreen: true

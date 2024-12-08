@@ -1,6 +1,6 @@
 /*
 
-This script contains the logic behind every object i nthe game.
+This script contains the logic behind every object in the game.
 
 
 */
@@ -24,6 +24,54 @@ async function demonLogic() {
     }
 }
 
+async function lustBurnLogic() {
+    if (dadosRestantes == 1){
+        await esperar(1500);
+
+        let fireBurn = document.getElementById("fireBurn")
+        fireBurn.currentTime = 0
+        fireBurn.volume = 0.4
+        fireBurn.play()
+
+        //Animacion objeto
+        let objectContainer = document.getElementById('objectContainer');
+        objectContainer.src =  `../sprites/objects/rompendose.png`;
+        await esperar(700)
+        objectContainer.src =  `../sprites/objects/lastBurn.png`;
+        //
+
+        await esperar(100)
+
+        // Mezclar la lista usando el algoritmo de Fisher-Yates
+        for (let i = dadosVisibles.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            // Intercambiar elementos
+            [dadosVisibles[i], dadosVisibles[j]] = [dadosVisibles[j], dadosVisibles[i]];
+        }
+
+        let dadoAQuemar = dadosVisibles.slice(0, 1)
+
+        //Quitar el dado quemado de la lista de dados visibles
+        index = dadosVisibles.indexOf(`${dadoAQuemar}`);
+        if (index !== -1) {
+            dadosVisibles.splice(index, 1);
+        }
+
+        console.log("El dado a quemar es: " + dadoAQuemar)
+
+        let dadoQuemado = contenedor.getElementsByClassName(`${dadoAQuemar}`)
+
+        dadoQuemado[0].remove()
+
+        turno = 1
+
+        dadosRestantes--
+        checkIfRoundWin();
+        win();
+        contenedor.style.pointerEvents = "auto";
+    }
+}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //Funcion para mezclar los objetos
@@ -37,7 +85,7 @@ function obtenerTresAleatorios(arr) {
 async function boxLogic() {
 
     //Desplazar dados mano jugada
-    const manoJugadaIA = document.getElementById('manoJugada');
+    let manoJugadaIA = document.getElementById('manoJugada');
     dragSound.currentTime = 0
     dragSound.play();
     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada - screenX}px`
@@ -85,7 +133,11 @@ async function boxLogic() {
         for (object of objects) {
             object.style = "display: block !important;";
             object.id = `${selectedObjects[n]}`;
-            object.src = `../sprites/objects/${selectedObjects[n]}.png`;
+            if (selectedObjects[n] == "mirror") {
+                object.src = `../sprites/objects/mirror1.png`;
+            }else{
+                object.src = `../sprites/objects/${selectedObjects[n]}.png`;
+            }
             objectApear.currentTime = 0;
             objectApear.play();
             object.style = 'display: block !important;';
@@ -109,19 +161,29 @@ async function boxLogic() {
 
             switch (this.id) {
                 case "luck":
-                    object.src = `../sprites/objects/luck.png`;
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "You are lucky! (Pasive)";
                     break;
                 case "demon":
-                    object.src = `../sprites/objects/demon.png`;
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "Six steps ahead. (Active)";
                     break;
                 case "coin":
-                    object.src = `../sprites/objects/coin.png`;
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "STONKS! (Pasive)";
                     break;
                 case "blank":
-                    object.src = `../sprites/objects/blank.png`;
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "You thought we havent white pieces huh. (Active)";
                     break;
                 case "lastBurn":
-                    object.src = `../sprites/objects/lastburn.png`;
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "Burn the lust idiot. (Pasive)";
                     break;
                 case "mirror":
                     //Empezar la transicion de la caja de descripcion
@@ -129,10 +191,14 @@ async function boxLogic() {
                     infoBoxObjects.innerText = "The reflections are gone... (Pasive)";
                     break;
                 case "magnetic":
-                    object.src = `../sprites/objects/magnetic.png`;
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "Change the polarity. (Active)";
                     break;
                 case "tedTalk":
-                    object.src = `../sprites/objects/tedtalk.png`;
+                    //Empezar la transicion de la caja de descripcion
+                    infoBoxObjects.style.opacity = "1";
+                    infoBoxObjects.innerText = "A very strange piece... (Pasive)";
                     break;
                 default:
                     console.log("No object hovered")
@@ -145,6 +211,8 @@ async function boxLogic() {
             infoBoxObjects.style.display = "none !important";
 
         });
+
+        object.addEventListener("click", fixHandReset, { once: true });
 
         object.addEventListener("click", async function () {
             const filterScreen = document.getElementById('filterScreen');
@@ -178,7 +246,7 @@ async function boxLogic() {
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
 
                     break;
                 case "demon":
@@ -210,7 +278,7 @@ async function boxLogic() {
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
 
                     break;
                 case "coin":
@@ -242,7 +310,7 @@ async function boxLogic() {
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
                     
                     break;
                 case "blank":                
@@ -274,7 +342,7 @@ async function boxLogic() {
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
                     
                     break;
                 case "lastBurn":
@@ -306,7 +374,9 @@ async function boxLogic() {
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
+
+                    lustBurnSelected = true;
                     
                     break;
                 case "mirror":
@@ -338,7 +408,7 @@ async function boxLogic() {
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
                     
                     break;
                 case "magnetic":
@@ -370,14 +440,14 @@ async function boxLogic() {
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
                     
                     break;
                 case "tedTalk":
                     //Desaparecer los objetos
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
-                    handReset();
+                    
 
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;

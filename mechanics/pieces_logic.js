@@ -28,7 +28,7 @@ Thx for keeping the game alive!
 
 */
 
-const { sin } = require("three/webgpu");
+let { sin } = require("three/webgpu");
 
 //Funcion debounce para evitar que se hagan varias llamadas a la vez
 function debounce(func, delay) {
@@ -42,14 +42,14 @@ function debounce(func, delay) {
 async function piecesLogic() {
 
     // Seleccionar todas las imágenes con la clase "dado"
-    const imagenes = document.querySelectorAll(".dado");
+    let imagenes = document.querySelectorAll(".dado");
 
     //Extraer el sonido de error en caso de seleccioanr un dado erroneo
-    const sonidoErrorDado = document.getElementById('sonidoErrorDado');
+    let sonidoErrorDado = document.getElementById('sonidoErrorDado');
 
     sonidoErrorDado.volume = 0.2;
 
-    const dragSound = document.getElementById('dragSound');
+    let dragSound = document.getElementById('dragSound');
     dragSound.volume = 0.5;
 
 
@@ -60,12 +60,12 @@ async function piecesLogic() {
 
 
             // Obtener todas las clases del elemento
-            const clases = this.className.split(" ");
+            let clases = this.className.split(" ");
             // Obtener la última clase para saber que dado estamos seleccionando
-            const ultimaClase = clases[clases.length - 1];
+            let ultimaClase = clases[clases.length - 1];
             dadoSeleccionado = ultimaClase;
-            const manoJugada = document.getElementById('manoJugada');
-            const resultadoJugada = document.createElement('img');
+            let manoJugada = document.getElementById('manoJugada');
+            let resultadoJugada = document.createElement('img');
             console.log(dadosVisibles)
 
 
@@ -76,7 +76,7 @@ async function piecesLogic() {
                 let cifra1 = dadoSeleccionado[0];
                 let cifra2 = dadoSeleccionado[1];
 
-                if (cifra1 == caraNecesaria) { //la primera cara es la que vale
+                if (cifra1 == caraNecesaria || blankFace == true) { //la primera cara es la que vale
 
                     caraNecesaria = parseInt(cifra2)
                     contenedor.style.pointerEvents = "none";
@@ -111,11 +111,12 @@ async function piecesLogic() {
                     desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                     dadosRestantes--
                     turno = 1
+                    blankFace = false
                     contenedor.style.pointerEvents = "auto";
 
 
 
-                } else if (cifra2 == caraNecesaria) { //la segunda cara es la que vale
+                } else if (cifra2 == caraNecesaria || blankFace == true) { //la segunda cara es la que vale
 
                     caraNecesaria = parseInt(cifra1)
                     contenedor.style.pointerEvents = "none";
@@ -151,6 +152,7 @@ async function piecesLogic() {
                     desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
                     dadosRestantes--
                     turno = 1
+                    blankFace = false
                     contenedor.style.pointerEvents = "auto";
 
                 } else {
@@ -319,7 +321,11 @@ async function piecesLogic() {
                         dadosRestantes--
 
                         if (dadosRestantes >= 1 && dadosVisibles.length >= 1) {
-                            burn()
+                            await burn()
+                            //Para el objeto que quema la ultima ficha
+                            if (lustBurnSelected == true) {
+                                lustBurnLogic()
+                            }
                         }
 
 
@@ -640,9 +646,9 @@ async function piecesLogic() {
 
                         //Añadir una ficha aleatoria a la mano jugada
 
-                        const manoJugadaIA = document.getElementById('manoJugada');
+                        let manoJugadaIA = document.getElementById('manoJugada');
     
-                        const resultadoJugadaIA = document.createElement('img');
+                        let resultadoJugadaIA = document.createElement('img');
 
                         segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
                         fichaResultante = 10 + segundaCaraFichaIA
@@ -688,6 +694,11 @@ async function piecesLogic() {
             checkIfRoundWin();
             win();
             turno = 1
+
+            //Para el objeto que quema la ultima ficha
+            if (lustBurnSelected == true) {
+                lustBurnLogic()
+            }
         }, 160));
     });
 

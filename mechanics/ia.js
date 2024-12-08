@@ -38,21 +38,39 @@ async function turnoIA(){
     
     let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
     
-    if (probabilidadFicha<=50){
-        fichasIAJugar = 1;
-    } else if (probabilidadFicha>50&&probabilidadFicha<=70) {
-        fichasIAJugar = 2;
-
-    }else if (probabilidadFicha>70&&probabilidadFicha<=80) {
-        fichasIAJugar = 3;
-
-    }else if (probabilidadFicha>80&&probabilidadFicha<=90) {
-        fichasIAJugar = 4;
-
-    }else if (probabilidadFicha>90&&probabilidadFicha<=100) {
-        fichasIAJugar = 5;
-
+    if (luck == false){
+        if (probabilidadFicha<=50){
+            fichasIAJugar = 1;
+        } else if (probabilidadFicha>50&&probabilidadFicha<=70) {
+            fichasIAJugar = 2;
+    
+        }else if (probabilidadFicha>70&&probabilidadFicha<=80) {
+            fichasIAJugar = 3;
+    
+        }else if (probabilidadFicha>80&&probabilidadFicha<=90) {
+            fichasIAJugar = 4;
+    
+        }else if (probabilidadFicha>90&&probabilidadFicha<=100) {
+            fichasIAJugar = 5;
+    
+        }
+    }else{ //Ajustamos las probabilidades si la suerte esta activada
+        if (probabilidadFicha<=70){
+            fichasIAJugar = 1;
+        } else if (probabilidadFicha>70&&probabilidadFicha<=80) {
+            fichasIAJugar = 2;
+    
+        }else if (probabilidadFicha>80&&probabilidadFicha<=90) {
+            fichasIAJugar = 3;
+    
+        }else if (probabilidadFicha>90&&probabilidadFicha<=95) {
+            fichasIAJugar = 4;
+    
+        }else if (probabilidadFicha>95&&probabilidadFicha<=100) {
+            fichasIAJugar = 5;
+        }
     }
+
 
 
     let color = 0;
