@@ -361,6 +361,10 @@ async function piecesLogic() {
 
                             let dadoQuemado = contenedor.getElementsByClassName(`${dadoAQuemar}`)
 
+                            dadoQuemado[0].classList.add('burn-effect');
+                            await esperar(50)
+                            dadoQuemado[0].classList.add('burn-effect-active')
+                            await esperar(700)
                             dadoQuemado[0].remove()
 
                             turno = 1
@@ -694,6 +698,7 @@ async function piecesLogic() {
             checkIfRoundWin();
             win();
             turno = 1
+            
 
             //Para el objeto que quema la ultima ficha
             if (lustBurnSelected == true) {

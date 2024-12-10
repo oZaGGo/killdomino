@@ -5,6 +5,8 @@ This script contains the logic behind every object in the game.
 
 */
 
+const { watch } = require("original-fs");
+
 
 //Demon
 
@@ -25,7 +27,7 @@ async function demonLogic() {
 }
 
 async function lustBurnLogic() {
-    if (dadosRestantes == 1){
+    if (dadosRestantes == 1) {
         await esperar(1500);
 
         let fireBurn = document.getElementById("fireBurn")
@@ -35,9 +37,9 @@ async function lustBurnLogic() {
 
         //Animacion objeto
         let objectContainer = document.getElementById('objectContainer');
-        objectContainer.src =  `../sprites/objects/rompendose.png`;
+        objectContainer.src = `../sprites/objects/rompendose.png`;
         await esperar(700)
-        objectContainer.src =  `../sprites/objects/lastBurn.png`;
+        objectContainer.src = `../sprites/objects/lastBurn.png`;
         //
 
         await esperar(100)
@@ -100,19 +102,19 @@ async function boxLogic() {
     objectBox.style.pointerEvents = "none"
     objectBox.src = "../sprites/UI/box/caixacaendo.png"
     objectBox.style = "display: block";
-    await esperar(1150);
+    await esperar(1130);
     boxFall.play();
     boxFall2.play();
     await esperar(200);
     objectBox.src = `../sprites/UI/box/caixa19.png`;
-    await esperar(100);
+    await esperar(300);
     objectBox.style.pointerEvents = "auto"
     TTS("Pick an item...")
     objectBox.addEventListener("click", async function () {
 
         objectBox.src = `../sprites/UI/box/caixabrindose.png`;
         boxOpen.play();
-        await esperar(730);
+        await esperar(715);
         objectBox.src = `../sprites/UI/box/caixa30.png`;
         const filterScreen = document.getElementById('filterScreen');
         filterScreen.style = 'display: block !important;';
@@ -135,7 +137,7 @@ async function boxLogic() {
             object.id = `${selectedObjects[n]}`;
             if (selectedObjects[n] == "mirror") {
                 object.src = `../sprites/objects/mirror1.png`;
-            }else{
+            } else {
                 object.src = `../sprites/objects/${selectedObjects[n]}.png`;
             }
             objectApear.currentTime = 0;
@@ -147,7 +149,7 @@ async function boxLogic() {
 
         objectBox.removeEventListener("click", () => { });
 
-    },{ once: true })
+    }, { once: true })
 
     // Buscar el elemento por su ID
     let imgElement = document.getElementById('objectContainer');
@@ -241,12 +243,6 @@ async function boxLogic() {
             switch (this.id) {
                 case "luck":
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
-                    objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
-                    await esperar(100);
-                    boxDestroyed.currentTime = 0.5;
-                    boxDestroyed.play();
-                    await esperar(1300);
-                    objectBox.style = "display: none !important";
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -261,28 +257,29 @@ async function boxLogic() {
                     objectContainer.classList.add("luck");
 
                     objectContainer.src = `../sprites/objects/luck.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-
-                    break;
-                case "demon":
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    await esperar(200)
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
                     boxDestroyed.currentTime = 0.5;
                     boxDestroyed.play();
                     await esperar(1300);
                     objectBox.style = "display: none !important";
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    break;
+                case "demon":
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
-                    
+
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
@@ -293,24 +290,25 @@ async function boxLogic() {
                     objectContainer.classList.add("demon");
 
                     objectContainer.src = `../sprites/objects/demon.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-
-                    break;
-                case "coin":
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    await esperar(200)
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
                     boxDestroyed.currentTime = 0.5;
                     boxDestroyed.play();
                     await esperar(1300);
                     objectBox.style = "display: none !important";
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    break;
+                case "coin":
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -325,24 +323,25 @@ async function boxLogic() {
                     objectContainer.classList.add("coin");
 
                     objectContainer.src = `../sprites/objects/coin.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-                    
-                    break;
-                case "blank":                
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    await esperar(200)
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
                     boxDestroyed.currentTime = 0.5;
                     boxDestroyed.play();
                     await esperar(1300);
                     objectBox.style = "display: none !important";
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    break;
+                case "blank":
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -357,24 +356,25 @@ async function boxLogic() {
                     objectContainer.classList.add("blank");
 
                     objectContainer.src = `../sprites/objects/blank.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-                    
-                    break;
-                case "lastBurn":
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    await esperar(200)
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
                     boxDestroyed.currentTime = 0.5;
                     boxDestroyed.play();
                     await esperar(1300);
                     objectBox.style = "display: none !important";
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    break;
+                case "lastBurn":
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -389,26 +389,27 @@ async function boxLogic() {
                     objectContainer.classList.add("lastburn");
 
                     objectContainer.src = `../sprites/objects/lastburn.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-
-                    lustBurnSelected = true;
-                    
-                    break;
-                case "mirror":
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    await esperar(200)
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
                     boxDestroyed.currentTime = 0.5;
                     boxDestroyed.play();
                     await esperar(1300);
                     objectBox.style = "display: none !important";
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    lustBurnSelected = true;
+
+                    break;
+                case "mirror":
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -423,24 +424,25 @@ async function boxLogic() {
                     objectContainer.classList.add("mirror");
 
                     objectContainer.src = `../sprites/objects/mirror.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-                    
-                    break;
-                case "magnetic":
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    await esperar(200)
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
                     boxDestroyed.currentTime = 0.5;
                     boxDestroyed.play();
                     await esperar(1300);
                     objectBox.style = "display: none !important";
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    break;
+                case "magnetic":
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -455,29 +457,30 @@ async function boxLogic() {
                     objectContainer.classList.add("magnetic");
 
                     objectContainer.src = `../sprites/objects/magnetic.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
-                    objectContainer.style = "display: block !important";
-
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-                    
-                    break;
-                case "tedTalk":
-                    //Desaparecer los objetos
-                    objectsContainer.style = 'display: none !important;';
-                    objectsLogic();
-                    
-
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    await esperar(200)
                     objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
                     await esperar(100);
                     boxDestroyed.currentTime = 0.5;
                     boxDestroyed.play();
                     await esperar(1300);
                     objectBox.style = "display: none !important";
+                    objectContainer.style = "display: block !important";
+
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    break;
+                case "tedTalk":
+                    //Desaparecer los objetos
+                    objectsContainer.style = 'display: none !important;';
+                    objectsLogic();
+
+
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
@@ -492,8 +495,15 @@ async function boxLogic() {
                     objectContainer.classList.add("tedtalk");
 
                     objectContainer.src = `../sprites/objects/tedtalk.png`;
-
+                    await esperar(400)
                     filterScreen.style = 'display: none !important;';
+                    await esperar(200)
+                    objectBox.src = `../sprites/UI/box/caixadesaparece.png`;
+                    await esperar(100);
+                    boxDestroyed.currentTime = 0.5;
+                    boxDestroyed.play();
+                    await esperar(1300);
+                    objectBox.style = "display: none !important";
                     objectContainer.style = "display: block !important";
 
                     break;
@@ -501,6 +511,6 @@ async function boxLogic() {
                     console.log("No object selected")
                     break;
             }
-        },{ once: true })
+        }, { once: true })
     }
 }
