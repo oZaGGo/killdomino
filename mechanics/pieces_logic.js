@@ -182,7 +182,7 @@ async function piecesLogic() {
 
                         //FIcha transparente
 
-                        if (cifra1 == caraNecesaria) { //la primera cara es la que vale
+                        if (cifra1 == caraNecesaria || blankFace == true) { //la primera cara es la que vale
 
                             caraNecesaria = parseInt(cifra1)
                             contenedor.style.pointerEvents = "none";
@@ -222,7 +222,7 @@ async function piecesLogic() {
                             contenedor.style.pointerEvents = "auto";
 
 
-                        } else if (cifra2 == caraNecesaria) { //la segunda cara es la que vale
+                        } else if (cifra2 == caraNecesaria || blankFace == true) { //la segunda cara es la que vale
 
                             caraNecesaria = parseInt(cifra2)
                             contenedor.style.pointerEvents = "none";
@@ -384,7 +384,7 @@ async function piecesLogic() {
 
                         //Solo se puede usar con impares
 
-                        if (parseInt(caraNecesaria) % 2 != 0) {
+                        if (parseInt(caraNecesaria) % 2 != 0 || blankFace == true) {
                             contenedor.style.pointerEvents = "none";
                             caraNecesaria = parseInt(cifra2)
 
@@ -445,7 +445,7 @@ async function piecesLogic() {
 
                         //Solo se puede usar con pares
 
-                        if (parseInt(caraNecesaria) % 2 == 0) {
+                        if (parseInt(caraNecesaria) % 2 == 0 || blankFace == true) {
                             caraNecesaria = parseInt(cifra2)
 
                             resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
