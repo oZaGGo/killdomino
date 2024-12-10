@@ -33,7 +33,7 @@ atmos.play();
 async function randomizeHand() {
 
     await esperar(1000);
-
+    
     if (mirrored == true) { //Comprobar si esta en uso el espejo
         dados = ["12", "13", "14", "15", "16", "23", "24", "25", "26", "34", "35", "36", "45", "46", "56", "12t","23t","34t","56t","16t","01f","02f","03f","04f","05f","06f","01n","02p","03n","04p","05n","06p","00e","00c","00c"]
     } else {
@@ -110,8 +110,6 @@ async function randomizeHand() {
     hoverFunctions();
 
     piecesLogic()
-
-    win()
 
 }
 

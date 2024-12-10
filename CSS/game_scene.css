@@ -181,6 +181,57 @@ body {
     /* Quemado completo */
 }
 
+.vibrate-effect {
+    animation: vibrate 1.5s ease-out forwards;
+}
+
+@keyframes vibrate {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    10% {
+        transform: translate(-5px, 0);
+    }
+
+    20% {
+        transform: translate(5px, 0);
+    }
+
+    30% {
+        transform: translate(-4px, 0);
+    }
+
+    40% {
+        transform: translate(4px, 0);
+    }
+
+    50% {
+        transform: translate(-3px, 0);
+    }
+
+    60% {
+        transform: translate(3px, 0);
+    }
+
+    70% {
+        transform: translate(-2px, 0);
+    }
+
+    80% {
+        transform: translate(2px, 0);
+    }
+
+    90% {
+        transform: translate(-1px, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+        /* Termina en el estado inicial */
+    }
+}
+
 
 @keyframes ascender {
     0% {
@@ -637,12 +688,13 @@ body {
 */
 
 .objectContainer {
+    image-rendering: pixelated;
     position: absolute;
     top: 35vh;
     margin-left: 60vw;
     z-index: 4;
     scale: 200%;
-    animation: aparecerElastico 0.5s ease-out forwards;
+    animation: fadeIn 1.5s ease-out forwards;
     /*filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.397));*/
     display: none;
     -webkit-user-drag: none !important;
@@ -652,6 +704,16 @@ body {
     -moz-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .enemyText {

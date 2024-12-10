@@ -371,7 +371,7 @@ async function piecesLogic() {
 
                             dadosRestantes--
                             checkIfRoundWin();
-                            win();
+                            
                             contenedor.style.pointerEvents = "auto";
                         }
 
@@ -542,16 +542,27 @@ async function piecesLogic() {
                         await esperar(2500)
                         let tntBurn = document.getElementById("tntBurn")
                         tntBurn.volume = 0.4
-                        tntBurn.play()
-                        tntHover.pause();
 
                         //Eliminarse a si misma
 
                         let dadoQuemado = manoJugada.getElementsByClassName(`${dadoSeleccionado}`)
-                        dadoQuemado[0].remove()
+                        dadoQuemado[0].classList.add('burn-effect');
+                        await esperar(50)
+                        dadoQuemado[0].classList.add('burn-effect-active')
+                        await esperar(100)
+                        tntHover.pause();
+
+                        //Animar todos los dados que aun no se han quemado con vibracion
+
+                        let dadosImages = document.querySelectorAll('#contenedor img')
+
+                        for (dado of dadosImages) {
+                            dado.classList.add('vibrate-effect');
+                            await esperar(18)
+                        }
 
                         //Eliminar todas las piezas de la mano menos 1
-
+                        tntBurn.play()
                         for (let i = 0; i < dadosRestantes - 1; i++) {
                             // Mezclar la lista usando el algoritmo de Fisher-Yates
                             for (let i = dadosVisibles.length - 1; i > 0; i--) {
@@ -577,11 +588,20 @@ async function piecesLogic() {
                             dadosRestantes--
                             dadosMano--
                         }
+                        await esperar(500)
+                        dadoQuemado[0].remove()
                         manoJugada.style.gridTemplateColumns = `repeat(${dadosJugados - 1}, minmax(${minmax}px, 1fr))`
                         desplazamientoManoJugada = desplazamientoManoJugada + desplazamientoManoJugadaOld
                         manoJugada.style.marginLeft = `${desplazamientoManoJugada}px`
 
                         turno = 1
+
+                        dadosImages = document.querySelectorAll('#contenedor img')
+                        await esperar(300)
+                        for (dado of dadosImages) {
+                            dado.classList.remove('vibrate-effect');
+                            await esperar(18)
+                        }
                         contenedor.style.pointerEvents = "auto";
                         break;
                     case "c":
@@ -628,25 +648,7 @@ async function piecesLogic() {
                         drink.currentTime = 0
                         drink.play()
 
-                        await esperar(1200)
-
-                        //Añadir dinero al jugador
-
-                        let singleCoinSound = document.getElementById("singleCoinSound")
-                        singleCoinSound.volume = 0.9
-                        singleCoinSound.currentTime = 0
-                        singleCoinSound.play()
-
-                        let hpGain = document.getElementById("hpGain")
-
-                        let vidaJugador = document.getElementById("vidaJugador");
-
-                        hpGain.textContent = `+${Math.floor(playerHP/6)}$`
-
-                        hpGain.classList.add("fadeOut")
-                        await esperar(1000);
-                        hpGain.classList.remove("fadeOut")
-                        hpGain.textContent = "";
+                        await esperar(1200)                       
 
                         //Añadir una ficha aleatoria a la mano jugada
 
@@ -658,7 +660,6 @@ async function piecesLogic() {
                         fichaResultante = 10 + segundaCaraFichaIA
 
                         caraNecesaria = segundaCaraFichaIA
-
 
                         resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaResultante}.png`;
                     
@@ -673,16 +674,7 @@ async function piecesLogic() {
                         dragSound.play();
                         manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
                         dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
-
-                        //Vida resultante del jugador
-                        playerHP=playerHP+Math.floor(playerHP/6)
-    
-                        vidaJugador.textContent = `CASH ${playerHP}$`;
-                        vidaJugador.classList.add("vibrarHpLoss")
-                        await esperar(200);
-                        vidaJugador.classList.remove("vibrarHpLoss")
-                        await esperar(1000);
+                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld                  
                 
                         dadosMano--;
                         dadosJugados++;
@@ -695,11 +687,10 @@ async function piecesLogic() {
                         break;
                 }
             }
-            checkIfRoundWin();
-            win();
-            turno = 1
             
+            checkIfRoundWin(); //Comprobar si se ha ganado la ronda o la apuesta
 
+            turno = 1
             //Para el objeto que quema la ultima ficha
             if (lustBurnSelected == true) {
                 lustBurnLogic()

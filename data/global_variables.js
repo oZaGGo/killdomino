@@ -12,6 +12,8 @@ const { ipcRenderer } = require('electron');
 let dados = ["11", "12", "13", "14", "15", "16", "22", "23", "24", "25", "26", "33", "34", "35", "36", "44", "45", "46", "55", "56", "66"
 ,"12t","23t","34t","56t","16t","01f","02f","03f","04f","05f","06f","01n","02p","03n","04p","05n","06p","00e","00c","00c"] //todos los dados disponibles
 
+//dados = ["00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e","00e"]
+
 let objetos = ["luck","demon","coin","blank","lastBurn","mirror","magnetic","tedTalk"] //todos los objetos disponibles
 //objetos = ["mirror","mirror","mirror","mirror"] //todos los objetos disponibles
 //objetos = ["luck","luck","luck","luck"] //todos los objetos disponibles
@@ -21,7 +23,7 @@ let objetos = ["luck","demon","coin","blank","lastBurn","mirror","magnetic","ted
 //objetos = ["lastBurn","lastBurn","lastBurn","lastBurn"] //todos los objetos disponibles
 //objetos = ["magnetic","magnetic","magnetic","magnetic"] //todos los objetos disponibles
 //objetos = ["tedTalk","tedTalk","tedTalk","tedTalk"] //todos los objetos disponibles
-objetos = ["luck","demon","coin","blank","lastBurn","mirror"] //Os que levo de momento
+objetos = ["coin","blank","mirror"] //Os que levo de momento
 
 let dadosVisibles = []; //dados de la mano
 

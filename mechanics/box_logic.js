@@ -102,19 +102,19 @@ async function boxLogic() {
     objectBox.style.pointerEvents = "none"
     objectBox.src = "../sprites/UI/box/caixacaendo.png"
     objectBox.style = "display: block";
-    await esperar(1130);
+    await esperar(1110);
     boxFall.play();
     boxFall2.play();
-    await esperar(200);
+    await esperar(1000);
     objectBox.src = `../sprites/UI/box/caixa19.png`;
     await esperar(300);
     objectBox.style.pointerEvents = "auto"
     TTS("Pick an item...")
     objectBox.addEventListener("click", async function () {
-
+        objectBox.src = ``;
         objectBox.src = `../sprites/UI/box/caixabrindose.png`;
         boxOpen.play();
-        await esperar(715);
+        await esperar(1200);
         objectBox.src = `../sprites/UI/box/caixa30.png`;
         const filterScreen = document.getElementById('filterScreen');
         filterScreen.style = 'display: block !important;';
@@ -242,10 +242,7 @@ async function boxLogic() {
             const filterScreen = document.getElementById('filterScreen');
             switch (this.id) {
                 case "luck":
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
-                    dragSound.currentTime = 0
-                    dragSound.play();
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
@@ -272,13 +269,15 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
-
-                    break;
-                case "demon":
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
+
+                    break;
+                case "demon":
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
@@ -305,13 +304,15 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
-
-                    break;
-                case "coin":
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
+
+                    break;
+                case "coin":
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
@@ -322,7 +323,7 @@ async function boxLogic() {
 
                     objectContainer.classList.add("coin");
 
-                    objectContainer.src = `../sprites/objects/coin.png`;
+                    objectContainer.src = `../sprites/objects/coin_s.png`;
                     await esperar(400)
                     filterScreen.style = 'display: none !important;';
                     await esperar(200)
@@ -338,13 +339,15 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
-
-                    break;
-                case "blank":
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
+
+                    break;
+                case "blank":
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
@@ -355,7 +358,7 @@ async function boxLogic() {
 
                     objectContainer.classList.add("blank");
 
-                    objectContainer.src = `../sprites/objects/blank.png`;
+                    objectContainer.src = `../sprites/objects/blank_s.png`;
                     await esperar(400)
                     filterScreen.style = 'display: none !important;';
                     await esperar(200)
@@ -371,13 +374,15 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
-
-                    break;
-                case "lastBurn":
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
+
+                    break;
+                case "lastBurn":
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
@@ -404,15 +409,17 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    dragSound.currentTime = 0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
 
                     lustBurnSelected = true;
 
                     break;
                 case "mirror":
-                    //Desplazar dados mano jugada y hacer que desaparezca la caja
-                    dragSound.currentTime = 0
-                    dragSound.play();
-                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
@@ -439,13 +446,15 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
-
-                    break;
-                case "magnetic":
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
+
+                    break;
+                case "magnetic":
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
@@ -472,6 +481,11 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
+                    //Desplazar dados mano jugada y hacer que desaparezca la caja
+                    dragSound.currentTime = 0
+                    dragSound.play();
+                    manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
 
                     break;
                 case "tedTalk":
@@ -479,11 +493,13 @@ async function boxLogic() {
                     objectsContainer.style = 'display: none !important;';
                     objectsLogic();
 
-
                     //Desplazar dados mano jugada y hacer que desaparezca la caja
                     dragSound.currentTime = 0
                     dragSound.play();
                     manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
+
+
+
 
                     for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
