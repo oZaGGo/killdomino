@@ -16,14 +16,14 @@ let dados = ["11", "12", "13", "14", "15", "16", "22", "23", "24", "25", "26", "
 
 let objetos = ["luck","demon","coin","blank","lastBurn","mirror","magnetic","tedTalk"] //todos los objetos disponibles
 //objetos = ["mirror","mirror","mirror","mirror"] //todos los objetos disponibles
-//objetos = ["luck","luck","luck","luck"] //todos los objetos disponibles
+objetos = ["luck","luck","luck","luck"] //todos los objetos disponibles
 //objetos = ["demon","demon","demon","demon"] //todos los objetos disponibles
 //objetos = ["coin","coin","coin","coin"] //todos los objetos disponibles
 //objetos = ["blank","blank","blank","blank"] //todos los objetos disponibles
 //objetos = ["lastBurn","lastBurn","lastBurn","lastBurn"] //todos los objetos disponibles
 //objetos = ["magnetic","magnetic","magnetic","magnetic"] //todos los objetos disponibles
 //objetos = ["tedTalk","tedTalk","tedTalk","tedTalk"] //todos los objetos disponibles
-objetos = ["coin","blank","mirror"] //Os que levo de momento
+//objetos = ["coin","blank","mirror"] //Os que levo de momento
 
 let dadosVisibles = []; //dados de la mano
 

@@ -196,6 +196,14 @@ async function objectsLogic() {
             mirrored = false;
             break;
         case "luck":
+            //Animacion al pasar el raton
+            objectContainer.addEventListener('mouseenter',async function luckA(){
+                if (isHovered==false){
+                    objectContainer.src =  `../sprites/objects/luckHover.png`;
+                    await esperar(800)
+                    objectContainer.src =  `../sprites/objects/luck.png`;
+                }
+            }, {once: true})
             luck = true;
             coinEarnings = false;
             lustBurnSelected = false;
