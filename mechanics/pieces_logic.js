@@ -695,7 +695,6 @@ async function piecesLogic() {
             if (lustBurnSelected == true) {
                 lustBurnLogic()
             }
-            boxLogic()
 
         }, 160));
     });
