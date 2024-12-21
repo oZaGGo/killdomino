@@ -370,7 +370,8 @@ async function piecesLogic() {
                             turno = 1
 
                             dadosRestantes--
-                            checkIfRoundWin();
+                            await esperar(200)
+                            checkIfRoundWin(); //Comprobar si se ha ganado la ronda o la apuesta
                             
                             contenedor.style.pointerEvents = "auto";
                         }
