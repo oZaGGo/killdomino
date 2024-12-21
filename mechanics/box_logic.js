@@ -26,6 +26,60 @@ async function demonLogic() {
     }
 }
 
+//Magnetic
+async function magneticLogic() {
+    let imagenes = document.querySelectorAll(".dado");
+    for (imagen of imagenes) {
+        // Obtener todas las clases del elemento
+        let clases = imagen.className.split(" ");
+        // Obtener la última clase para saber que dado estamos seleccionando
+        let ultimaClase = clases[clases.length - 1];
+        let dadoSeleccionado = ultimaClase;
+        let manoJugada = document.getElementById('manoJugada');
+
+        if (dadoSeleccionado.length >= 3 && imagen.style.display != "none") {
+            let cifra1 = dadoSeleccionado[0];
+            let cifra2 = dadoSeleccionado[1];
+            let cifra3 = dadoSeleccionado[2];
+
+            if (cifra3 == "n") {
+                let indice = dadosVisibles.indexOf(`${cifra1 + cifra2 + cifra3}`);
+
+                if (indice !== -1) { // Si se encuentra el valor
+                    // Modifica el valor
+                    dadosVisibles[indice] = `${cifra1}${cifra2}p`;
+                } else {
+                    console.log("Nombre no encontrado");
+                }
+
+                let turnOnE = document.getElementById("turnOnE");
+                turnOnE.volume = 0.6;
+                turnOnE.currentTime = 0;
+                turnOnE.play();
+                await esperar(250);
+                imagen.src = `../sprites/dados/dado${cifra1}${cifra2}p.gif`;
+                imagen.className = `dado ${cifra1}${cifra2}p`;
+
+            } else if (cifra3 == "p") {
+                let indice = dadosVisibles.indexOf(`${cifra1 + cifra2 + cifra3}`);
+                if (indice !== -1) { // Si se encuentra el valor
+                    // Modifica el valor
+                    dadosVisibles[indice] = `${cifra1}${cifra2}n`;
+                } else {
+                    console.log("Nombre no encontrado");
+                }
+                let turnOnE = document.getElementById("turnOnE");
+                turnOnE.volume = 0.6;
+                turnOnE.currentTime = 0;
+                turnOnE.play();
+                await esperar(250);
+                imagen.src = `../sprites/dados/dado${cifra1}${cifra2}n.gif`;
+                imagen.className = `dado ${cifra1}${cifra2}n`;
+            }
+        }
+    }
+}
+
 async function lustBurnLogic() {
     if (dadosRestantes == 1) {
         await esperar(1500);
@@ -465,7 +519,7 @@ async function boxLogic() {
 
                     objectContainer.classList.add("magnetic");
 
-                    objectContainer.src = `../sprites/objects/magnetic.png`;
+                    objectContainer.src = `../sprites/objects/magnetic_s.png`;
                     await esperar(400)
                     filterScreen.style = 'display: none !important;';
                     await esperar(200)

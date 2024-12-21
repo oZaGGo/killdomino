@@ -1,6 +1,3 @@
-const { GammaCorrectionShader } = require("three/examples/jsm/Addons.js");
-const { gain } = require("three/webgpu");
-
 //Resetear todo lo necesario para la nueva mano
 async function handReset() {
     await esperar(500);
@@ -62,6 +59,17 @@ async function checkIfRoundWin() {
             vidaJugador.classList.add("vibrarHpLoss")
             await esperar(200);
             vidaJugador.classList.remove("vibrarHpLoss")
+        }
+
+        if (magnetic == true) {
+            magnetic = false;
+            let magnet = document.getElementById("magnet");
+            magnet.volume = 0.02;
+            magnet.play();
+            objectContainer.src = `../sprites/objects/magnetic_off.png`;
+            await esperar(700)
+            objectContainer.src = `../sprites/objects/magnetic_s.png`;
+            objectsLogic();
         }
 
         vidaJugador.textContent = `CASH ${playerHP}$`;

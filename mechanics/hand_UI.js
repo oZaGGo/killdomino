@@ -209,7 +209,23 @@ async function objectsLogic() {
             lustBurnSelected = false;
             mirrored = false;
             
-            break;    
+            break;
+        case "magnetic":
+            objectContainer.addEventListener('click',async function magneticA(){
+                if (magnetic==false){
+                    magnetic = true;
+                    objectContainer.src =  `../sprites/objects/magnetic_on.png`;
+                    let turnOn = document.getElementById("turnOn");
+                    turnOn.play();
+                    let magnet = document.getElementById("magnet");
+                    magnet.volume = 0.02;
+                    magnet.play();
+                    await esperar(520)
+                    magneticLogic()
+                    objectContainer.src =  `../sprites/objects/turned_on.png`;
+                }
+            }, {once: true})
+            break;      
         default:
             coinEarnings = false;
             lustBurnSelected = false;

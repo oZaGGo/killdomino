@@ -18,7 +18,7 @@ let objetos = ["luck","demon","coin","blank","lastBurn","mirror","magnetic","ted
 //objetos = ["mirror","mirror","mirror","mirror"] //todos los objetos disponibles
 //objetos = ["luck","luck","luck","luck"] //todos los objetos disponibles
 //objetos = ["demon","demon","demon","demon"] //todos los objetos disponibles
-//objetos = ["coin","coin","coin","coin"] //todos los objetos disponibles
+objetos = ["coin","coin","coin","coin"] //todos los objetos disponibles
 //objetos = ["blank","blank","blank","blank"] //todos los objetos disponibles
 //objetos = ["lastBurn","lastBurn","lastBurn","lastBurn"] //todos los objetos disponibles
 //objetos = ["magnetic","magnetic","magnetic","magnetic"] //todos los objetos disponibles
@@ -125,3 +125,5 @@ let lustBurnSelected = false;
 let coinEarnings = false;
 
 let luck = false;
+
+let magnetic = false;
