@@ -28,8 +28,6 @@ Thx for keeping the game alive!
 
 */
 
-let { sin } = require("three/webgpu");
-
 //Funcion debounce para evitar que se hagan varias llamadas a la vez
 function debounce(func, delay) {
     let timeoutId;
