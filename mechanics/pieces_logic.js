@@ -50,6 +50,10 @@ async function piecesLogic() {
     let dragSound = document.getElementById('dragSound');
     dragSound.volume = 0.5;
 
+    //Para el efecto de negativo
+
+    let negativeScreen = document.getElementById('negativeScreen');
+
 
 
     // Recorrer cada imagen y agregarle el evento de click
@@ -84,6 +88,26 @@ async function piecesLogic() {
                     resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
                     manoJugada.appendChild(resultadoJugada);
+
+                    bipSound = document.getElementById(`${"bip" + bipCounter}`)
+                    bipSound.volume = 0.2
+                    bipSound.currentTime = 0
+                    bipSound.play()
+
+                    document.body.classList.add(`${"shake"+bipCounter}`)
+                    
+
+                    bipCounter++
+
+                    if (bipCounter > 7){
+                        bipCounter = 1
+                    }
+
+                    if (bipCounter == 7){
+                        negativeScreen.style.display = "block"
+                        impactBass.currentTime = 0
+                        impactBass.play()
+                    }
 
 
                     this.remove();
@@ -125,6 +149,26 @@ async function piecesLogic() {
                     resultadoJugada.style.transform = `scale(2.1) scaleX(-1)`;
 
                     manoJugada.appendChild(resultadoJugada);
+
+                    bipSound = document.getElementById(`${"bip" + bipCounter}`)
+                    bipSound.volume = 0.2
+                    bipSound.currentTime = 0
+                    bipSound.play()
+
+                    document.body.classList.add(`${"shake"+bipCounter}`)
+                    
+
+                    bipCounter++
+
+                    if (bipCounter > 7){
+                        bipCounter = 1
+                    }
+
+                    if (bipCounter == 7){
+                        negativeScreen.style.display = "block"
+                        impactBass.currentTime = 0
+                        impactBass.play()
+                    }
 
 
                     this.remove();
@@ -191,6 +235,32 @@ async function piecesLogic() {
 
                             manoJugada.appendChild(resultadoJugada);
 
+                            bipSound = document.getElementById(`${"bip" + bipCounter}`)
+                            bipSound.volume = 0.2
+                            bipSound.currentTime = 0
+                            bipSound.play()
+
+                            document.body.classList.add(`${"shake"+bipCounter}`)
+                            
+
+                            bipCounter++
+
+                            if (bip=ounter > 7){
+                        negativeScreen.style.display = "block"
+                        impactBass.currentTime = 0
+                        impactBass.play()
+                    }
+
+                            if (bipCounter > 7){
+                                bipCounter = 1
+                            }
+
+                            if (bipCounter == 7){
+                                negativeScreen.style.display = "block"
+                                impactBass.currentTime = 0
+                                impactBass.play()
+                            }
+
                             this.remove();
 
                             infoBox.style.opacity = "0";
@@ -231,6 +301,32 @@ async function piecesLogic() {
                             resultadoJugada.style.transform = `scale(2.1) scaleX(-1)`;
 
                             manoJugada.appendChild(resultadoJugada);
+
+                            bipSound = document.getElementById(`${"bip" + bipCounter}`)
+                            bipSound.volume = 0.2
+                            bipSound.currentTime = 0
+                            bipSound.play()
+
+                            document.body.classList.add(`${"shake"+bipCounter}`)
+                            
+
+                            bipCounter++
+
+                            if (bip=ounter > 7){
+                        negativeScreen.style.display = "block"
+                        impactBass.currentTime = 0
+                        impactBass.play()
+                    }
+
+                            if (bipCounter > 7){
+                                bipCounter = 1
+                            }
+
+                            if (bipCounter == 7){
+                                negativeScreen.style.display = "block"
+                                impactBass.currentTime = 0
+                                impactBass.play()
+                            }
 
                             this.remove();
 
@@ -292,6 +388,32 @@ async function piecesLogic() {
                         resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
                         manoJugada.appendChild(resultadoJugada);
+
+                        bipSound = document.getElementById(`${"bip" + bipCounter}`)
+                        bipSound.volume = 0.2
+                        bipSound.currentTime = 0
+                        bipSound.play()
+
+                        document.body.classList.add(`${"shake"+bipCounter}`)
+                        
+
+                        bipCounter++
+
+                        if (bipCoun=er > 7){
+                        negativeScreen.style.display = "block"
+                        impactBass.currentTime = 0
+                        impactBass.play()
+                    }
+
+                        if (bipCounter > 7){
+                            bipCounter = 1
+                        }
+
+                        if (bipCounter == 7){
+                            negativeScreen.style.display = "block"
+                            impactBass.currentTime = 0
+                            impactBass.play()
+                        }
 
                         this.remove();
 
@@ -453,6 +575,32 @@ async function piecesLogic() {
 
                             manoJugada.appendChild(resultadoJugada);
 
+                            bipSound = document.getElementById(`${"bip" + bipCounter}`)
+                            bipSound.volume = 0.2
+                            bipSound.currentTime = 0
+                            bipSound.play()
+
+                            document.body.classList.add(`${"shake"+bipCounter}`)
+                            
+
+                            bipCounter++
+
+                            if (bip=ounter > 7){
+                        negativeScreen.style.display = "block"
+                        impactBass.currentTime = 0
+                        impactBass.play()
+                    }
+
+                            if (bipCounter > 7){
+                                bipCounter = 1
+                            }
+
+                            if (bipCounter == 7){
+                                negativeScreen.style.display = "block"
+                                impactBass.currentTime = 0
+                                impactBass.play()
+                            }
+
                             this.remove();
 
                             infoBox.style.opacity = "0";
@@ -507,6 +655,32 @@ async function piecesLogic() {
                         resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
 
                         manoJugada.appendChild(resultadoJugada);
+
+                        bipSound = document.getElementById(`${"bip" + bipCounter}`)
+                        bipSound.volume = 0.2
+                        bipSound.currentTime = 0
+                        bipSound.play()
+
+                        document.body.classList.add(`${"shake"+bipCounter}`)
+                        
+
+                        bipCounter++
+
+                        if (bipCoun=er > 7){
+                        negativeScreen.style.display = "block"
+                        impactBass.currentTime = 0
+                        impactBass.play()
+                    }
+
+                        if (bipCounter > 7){
+                            bipCounter = 1
+                        }
+
+                        if (bipCounter == 7){
+                            negativeScreen.style.display = "block"
+                            impactBass.currentTime = 0
+                            impactBass.play()
+                        }
 
                         this.remove();
 

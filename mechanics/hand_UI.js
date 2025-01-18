@@ -18,6 +18,10 @@ passB.addEventListener("click", async function(){
 
         bellTouched = true; //para temas de la IA
 
+        bipCounter = 1; //para resetear el contador de notas
+
+        negativeScreen.style.display = "none"; //para quitar la pantalla negativa
+
         console.log("He presionado el boton de turno")
 
         turno=0;
