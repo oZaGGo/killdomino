@@ -54,6 +54,10 @@ async function piecesLogic() {
 
     let negativeScreen = document.getElementById('negativeScreen');
 
+    let combo;
+
+    let color = 0;
+
 
 
     // Recorrer cada imagen y agregarle el evento de click
@@ -94,16 +98,29 @@ async function piecesLogic() {
                     bipSound.currentTime = 0
                     bipSound.play()
 
-                    document.body.classList.add(`${"shake"+bipCounter}`)
-                    
+                    //Combo aplicado
+                    combo = document.getElementById("combo");
+                    comboNumber++;
+                    damageCombo = damageCombo + caraNecesaria;
+                    combo.textContent = `${"+" + damageCombo }`
+                    combo.classList.add("comboAnimation")
+
+
+                    //Vida sustraida del jugador
+                    hpLoss.textContent = `+ ${damageCombo * betCombo}$`; //Se muestra la vida sustraida en la pantalla
+
+
+
+                    document.body.classList.add(`${"shake" + bipCounter}`)
+
 
                     bipCounter++
 
-                    if (bipCounter > 7){
+                    if (bipCounter > 7) {
                         bipCounter = 1
                     }
 
-                    if (bipCounter == 7){
+                    if (bipCounter == 7) {
                         negativeScreen.style.display = "block"
                         impactBass.currentTime = 0
                         impactBass.play()
@@ -155,16 +172,29 @@ async function piecesLogic() {
                     bipSound.currentTime = 0
                     bipSound.play()
 
-                    document.body.classList.add(`${"shake"+bipCounter}`)
-                    
+                    //Combo aplicado
+                    combo = document.getElementById("combo");
+                    comboNumber++;
+                    damageCombo = damageCombo + caraNecesaria;
+                    combo.textContent = `${"+" + damageCombo }`
+                    combo.classList.add("comboAnimation")
+
+
+                    //Vida sustraida del jugador
+                    hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+
+
+
+                    document.body.classList.add(`${"shake" + bipCounter}`)
+
 
                     bipCounter++
 
-                    if (bipCounter > 7){
+                    if (bipCounter > 7) {
                         bipCounter = 1
                     }
 
-                    if (bipCounter == 7){
+                    if (bipCounter == 7) {
                         negativeScreen.style.display = "block"
                         impactBass.currentTime = 0
                         impactBass.play()
@@ -240,22 +270,37 @@ async function piecesLogic() {
                             bipSound.currentTime = 0
                             bipSound.play()
 
-                            document.body.classList.add(`${"shake"+bipCounter}`)
-                            
+                            //Combo aplicado
+                            combo = document.getElementById("combo");
+                            comboNumber++;
+                            damageCombo = damageCombo + caraNecesaria;
+                            combo.textContent = `${"+" + damageCombo }`
+                            combo.classList.add("comboAnimation")
+
+                            combo.
+
+                            //Vida sustraida del jugador
+    
+                            hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+
+
+
+                            document.body.classList.add(`${"shake" + bipCounter}`)
+
 
                             bipCounter++
 
-                            if (bip=ounter > 7){
-                        negativeScreen.style.display = "block"
-                        impactBass.currentTime = 0
-                        impactBass.play()
-                    }
+                            if (bip = ounter > 7) {
+                                negativeScreen.style.display = "block"
+                                impactBass.currentTime = 0
+                                impactBass.play()
+                            }
 
-                            if (bipCounter > 7){
+                            if (bipCounter > 7) {
                                 bipCounter = 1
                             }
 
-                            if (bipCounter == 7){
+                            if (bipCounter == 7) {
                                 negativeScreen.style.display = "block"
                                 impactBass.currentTime = 0
                                 impactBass.play()
@@ -307,22 +352,37 @@ async function piecesLogic() {
                             bipSound.currentTime = 0
                             bipSound.play()
 
-                            document.body.classList.add(`${"shake"+bipCounter}`)
-                            
+                            //Combo aplicado
+                            combo = document.getElementById("combo");
+                            comboNumber++;
+                            damageCombo = damageCombo + caraNecesaria;
+                            combo.textContent = `${"+" + damageCombo }`
+                            combo.classList.add("comboAnimation")
+
+                            combo.
+
+                            //Vida sustraida del jugador
+    
+                            hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+
+
+
+                            document.body.classList.add(`${"shake" + bipCounter}`)
+
 
                             bipCounter++
 
-                            if (bip=ounter > 7){
-                        negativeScreen.style.display = "block"
-                        impactBass.currentTime = 0
-                        impactBass.play()
-                    }
+                            if (bip = ounter > 7) {
+                                negativeScreen.style.display = "block"
+                                impactBass.currentTime = 0
+                                impactBass.play()
+                            }
 
-                            if (bipCounter > 7){
+                            if (bipCounter > 7) {
                                 bipCounter = 1
                             }
 
-                            if (bipCounter == 7){
+                            if (bipCounter == 7) {
                                 negativeScreen.style.display = "block"
                                 impactBass.currentTime = 0
                                 impactBass.play()
@@ -394,22 +454,37 @@ async function piecesLogic() {
                         bipSound.currentTime = 0
                         bipSound.play()
 
-                        document.body.classList.add(`${"shake"+bipCounter}`)
+                        //Combo aplicado
+                        combo = document.getElementById("combo");
+                        comboNumber++;
+                        damageCombo = damageCombo + caraNecesaria;
+                        combo.textContent = `${"+" + damageCombo }`
+                        combo.classList.add("comboAnimation")
+
                         
+
+                        //Vida sustraida del jugador
+
+                        hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+
+
+
+                        document.body.classList.add(`${"shake" + bipCounter}`)
+
 
                         bipCounter++
 
-                        if (bipCoun=er > 7){
-                        negativeScreen.style.display = "block"
-                        impactBass.currentTime = 0
-                        impactBass.play()
-                    }
+                        if (bipCoun = er > 7) {
+                            negativeScreen.style.display = "block"
+                            impactBass.currentTime = 0
+                            impactBass.play()
+                        }
 
-                        if (bipCounter > 7){
+                        if (bipCounter > 7) {
                             bipCounter = 1
                         }
 
-                        if (bipCounter == 7){
+                        if (bipCounter == 7) {
                             negativeScreen.style.display = "block"
                             impactBass.currentTime = 0
                             impactBass.play()
@@ -492,7 +567,7 @@ async function piecesLogic() {
                             dadosRestantes--
                             await esperar(200)
                             checkIfRoundWin(); //Comprobar si se ha ganado la ronda o la apuesta
-                            
+
                             contenedor.style.pointerEvents = "auto";
                         }
 
@@ -580,22 +655,37 @@ async function piecesLogic() {
                             bipSound.currentTime = 0
                             bipSound.play()
 
-                            document.body.classList.add(`${"shake"+bipCounter}`)
-                            
+                            //Combo aplicado
+                            combo = document.getElementById("combo");
+                            comboNumber++;
+                            damageCombo = damageCombo + caraNecesaria;
+                            combo.textContent = `${"+" + damageCombo }`
+                            combo.classList.add("comboAnimation")
+
+                            combo.
+
+                            //Vida sustraida del jugador
+    
+                            hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+
+
+
+                            document.body.classList.add(`${"shake" + bipCounter}`)
+
 
                             bipCounter++
 
-                            if (bip=ounter > 7){
-                        negativeScreen.style.display = "block"
-                        impactBass.currentTime = 0
-                        impactBass.play()
-                    }
+                            if (bip = ounter > 7) {
+                                negativeScreen.style.display = "block"
+                                impactBass.currentTime = 0
+                                impactBass.play()
+                            }
 
-                            if (bipCounter > 7){
+                            if (bipCounter > 7) {
                                 bipCounter = 1
                             }
 
-                            if (bipCounter == 7){
+                            if (bipCounter == 7) {
                                 negativeScreen.style.display = "block"
                                 impactBass.currentTime = 0
                                 impactBass.play()
@@ -661,22 +751,37 @@ async function piecesLogic() {
                         bipSound.currentTime = 0
                         bipSound.play()
 
-                        document.body.classList.add(`${"shake"+bipCounter}`)
+                        //Combo aplicado
+                        combo = document.getElementById("combo");
+                        comboNumber++;
+                        damageCombo = damageCombo + caraNecesaria;
+                        combo.textContent = `${"+" + damageCombo }`
+                        combo.classList.add("comboAnimation")
+
                         
+
+                        //Vida sustraida del jugador
+
+                        hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+
+
+
+                        document.body.classList.add(`${"shake" + bipCounter}`)
+
 
                         bipCounter++
 
-                        if (bipCoun=er > 7){
-                        negativeScreen.style.display = "block"
-                        impactBass.currentTime = 0
-                        impactBass.play()
-                    }
+                        if (bipCoun = er > 7) {
+                            negativeScreen.style.display = "block"
+                            impactBass.currentTime = 0
+                            impactBass.play()
+                        }
 
-                        if (bipCounter > 7){
+                        if (bipCounter > 7) {
                             bipCounter = 1
                         }
 
-                        if (bipCounter == 7){
+                        if (bipCounter == 7) {
                             negativeScreen.style.display = "block"
                             impactBass.currentTime = 0
                             impactBass.play()
@@ -791,7 +896,7 @@ async function piecesLogic() {
                         this.remove();
 
                         contenedor.style.gridTemplateColumns = `repeat(${dadosMano - 1}, 1fr)`
-                        
+
                         infoBox.style.opacity = "0";
                         infoBox.style.display = "none";
 
@@ -821,12 +926,12 @@ async function piecesLogic() {
                         drink.currentTime = 0
                         drink.play()
 
-                        await esperar(1200)                       
+                        await esperar(1200)
 
                         //Añadir una ficha aleatoria a la mano jugada
 
                         let manoJugadaIA = document.getElementById('manoJugada');
-    
+
                         let resultadoJugadaIA = document.createElement('img');
 
                         segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
@@ -835,20 +940,20 @@ async function piecesLogic() {
                         caraNecesaria = segundaCaraFichaIA
 
                         resultadoJugadaIA.src = `../sprites/dados_h/hdado${fichaResultante}.png`;
-                    
+
                         resultadoJugadaIA.className = `dadoJugado h${fichaResultante}`;
-                    
+
                         manoJugadaIA.appendChild(resultadoJugadaIA);
                         sonidoSeleccion.currentTime = 0; // Reiniciar el sonido al inicio
                         sonidoSeleccion.play();
-                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados+1}, minmax(${minmax}px, 1fr))`
+                        manoJugadaIA.style.gridTemplateColumns = `repeat(${dadosJugados + 1}, minmax(${minmax}px, 1fr))`
                         await esperar(200)
-                        dragSound.currentTime=0
+                        dragSound.currentTime = 0
                         dragSound.play();
-                        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`    
+                        manoJugadaIA.style.marginLeft = `${desplazamientoManoJugada}px`
                         dadosJugados++;
-                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld                  
-                
+                        desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
+
                         dadosMano--;
                         dadosJugados++;
                         dadosRestantes--
@@ -860,7 +965,7 @@ async function piecesLogic() {
                         break;
                 }
             }
-            
+
             checkIfRoundWin(); //Comprobar si se ha ganado la ronda o la apuesta
 
             turno = 1

@@ -80,7 +80,9 @@ let playerHP = 100;
 
 let maxBet = 200;
 
-let damageCombo = 1;
+let damageCombo = 0;
+
+let betCombo = 5;
 
 //Para controlar el efecto de subida de nota al jugar pieza
 
