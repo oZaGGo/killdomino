@@ -107,7 +107,7 @@ async function piecesLogic() {
 
 
                     //Vida sustraida del jugador
-                    hpLoss.textContent = `+ ${damageCombo * betCombo}$`; //Se muestra la vida sustraida en la pantalla
+                    //hpLoss.textContent = `+ ${damageCombo * betCombo}$`; //Se muestra la vida sustraida en la pantalla
 
 
 
@@ -181,7 +181,7 @@ async function piecesLogic() {
 
 
                     //Vida sustraida del jugador
-                    hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
+                    //hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
 
 
 
@@ -279,7 +279,7 @@ async function piecesLogic() {
 
                             combo.
 
-                            //Vida sustraida del jugador
+                            //Vid//a sustraida del jugador
     
                             hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
 
@@ -361,7 +361,7 @@ async function piecesLogic() {
 
                             combo.
 
-                            //Vida sustraida del jugador
+                            //Vid//a sustraida del jugador
     
                             hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
 
@@ -463,7 +463,7 @@ async function piecesLogic() {
 
                         
 
-                        //Vida sustraida del jugador
+                        ////Vida sustraida del jugador
 
                         hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
 
@@ -664,7 +664,7 @@ async function piecesLogic() {
 
                             combo.
 
-                            //Vida sustraida del jugador
+                            //Vid//a sustraida del jugador
     
                             hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
 
@@ -760,7 +760,7 @@ async function piecesLogic() {
 
                         
 
-                        //Vida sustraida del jugador
+                        ////Vida sustraida del jugador
 
                         hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
 

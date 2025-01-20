@@ -368,8 +368,18 @@ body {
     color: white;
     position: absolute;
     width: 500px;
+    margin-bottom: 420px;
+    margin-left: -600px;
+    text-shadow: 4px 4px 0 #000000;
+}
+
+.contadorComboIA {
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    width: 500px;
     margin-bottom: 650px;
-    margin-left: -400px;
+    margin-left: -600px;
     text-shadow: 4px 4px 0 #000000;
 }
 
