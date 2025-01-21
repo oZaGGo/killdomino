@@ -219,7 +219,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -275,7 +275,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -325,7 +325,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -381,7 +381,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -431,7 +431,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -488,7 +488,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -538,7 +538,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -595,7 +595,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 
@@ -645,7 +645,7 @@ async function turnoIA() {
                     comboIA = document.getElementById("comboIA");
                     comboNumber++;
                     damageComboIA = damageComboIA + caraNecesaria;
-                    comboIA.textContent = `${"+" + damageComboIA }`
+                    comboIA.textContent = `${"+" + damageComboIA}`
                     comboIA.classList.add("comboAnimation")
 
 

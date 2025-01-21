@@ -65,7 +65,7 @@ async function randomizeHand() {
             if (dado.length < 3) {
                 img.src = `../sprites/dados/dado${dado}.png`;
                 img.alt = dado;
-                img.className = `dado ${dado} dadoApear`;  // Asignar clases
+                img.className = `dado ${dado} dadoApear x2`;  // Asignar clases
                 img.id = `dado${(index % 10) + 1}`;
                 img.draggable = false;
                 contenedor.appendChild(img);

@@ -1,5 +1,9 @@
 //Resetear todo lo necesario para la nueva mano
 async function handReset() {
+    comboIA.innerText = "0";
+    combo.innerText = "0";
+    damageCombo = 0;
+    damageComboIA = 0;
     await esperar(500);
     dadosRestantes = 7;
     dadosInvisiblesRestantes = 3;
@@ -23,11 +27,47 @@ async function checkIfRoundWin() {
     if (dadosRestantes <= 0) {
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none"
+        /*
         //await gains(); 
         ronda++;
         exedCash = exedCash + 0.3;
         roundDamage = roundDamage + Math.round((playerHP / (15 - exedCash)));
         playerHP = playerHP * Math.round(ronda / exedCash);
+        */
+        let hpLoss = document.getElementById("hpLoss")
+        hpLoss.classList.add("fadeOut")
+        hpLoss.textContent = `${damageCombo + " - " + damageComboIA}$`
+        await esperar(600);
+        hpLoss.textContent = `${damageCombo - damageComboIA}$`
+        await esperar(600)
+        hpLoss.textContent = `${(damageCombo - damageComboIA) + " x " + betCombo + "$"}$`
+        await esperar(800)
+        hpLoss.textContent = `${(damageCombo - damageComboIA) * betCombo + "$"}$`
+        playerHP = playerHP + ((damageCombo - damageComboIA) * betCombo);
+        let loseHP = document.getElementById("loseHP")
+        loseHP.play()
+        //Para evitar numeros negativos de vida
+        if (playerHP < 0) {
+            playerHP = 0;
+        }
+        vidaJugador.textContent = `CASH ${playerHP}$`;
+        vidaJugador.classList.add("vibrarHpLoss")
+        await esperar(200);
+        vidaJugador.classList.remove("vibrarHpLoss")
+        hpLoss.classList.remove("fadeOut")
+        hpLoss.textContent = "";
+
+        await esperar(1500);
+
+        comboIA.innerText = "";
+        comboIA.classList.remove("comboAnimation");
+        combo.innerText = "";
+        combo.classList.remove("comboAnimation");
+        damageCombo = 0;
+        damageComboIA = 0;
+
+        await gains()
+
 
         if (coinEarnings == true) {
 

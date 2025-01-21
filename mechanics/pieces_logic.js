@@ -58,6 +58,8 @@ async function piecesLogic() {
 
     let color = 0;
 
+    let x2effect = document.getElementById('x2effect');
+
 
 
     // Recorrer cada imagen y agregarle el evento de click
@@ -68,7 +70,10 @@ async function piecesLogic() {
             // Obtener todas las clases del elemento
             let clases = this.className.split(" ");
             // Obtener la última clase para saber que dado estamos seleccionando
-            let ultimaClase = clases[clases.length - 1];
+            let ultimaClase = clases[1];
+
+            estadoFicha = clases[2];
+
             dadoSeleccionado = ultimaClase;
             let manoJugada = document.getElementById('manoJugada');
             let resultadoJugada = document.createElement('img');
@@ -89,43 +94,18 @@ async function piecesLogic() {
 
                     resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
-                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+                    switch (estadoFicha) {
+                        case "x2":
+                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                            break;
+                        default:
+                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                            console.log("No hay estado")
+                            break;
+                    }
 
                     manoJugada.appendChild(resultadoJugada);
-
-                    bipSound = document.getElementById(`${"bip" + bipCounter}`)
-                    bipSound.volume = 0.2
-                    bipSound.currentTime = 0
-                    bipSound.play()
-
-                    //Combo aplicado
-                    combo = document.getElementById("combo");
-                    comboNumber++;
-                    damageCombo = damageCombo + caraNecesaria;
-                    combo.textContent = `${"+" + damageCombo }`
-                    combo.classList.add("comboAnimation")
-
-
-                    //Vida sustraida del jugador
-                    //hpLoss.textContent = `+ ${damageCombo * betCombo}$`; //Se muestra la vida sustraida en la pantalla
-
-
-
-                    document.body.classList.add(`${"shake" + bipCounter}`)
-
-
-                    bipCounter++
-
-                    if (bipCounter > 7) {
-                        bipCounter = 1
-                    }
-
-                    if (bipCounter == 7) {
-                        negativeScreen.style.display = "block"
-                        impactBass.currentTime = 0
-                        impactBass.play()
-                    }
-
 
                     this.remove();
 
@@ -152,6 +132,8 @@ async function piecesLogic() {
                     turno = 1
                     blankFace = false
                     contenedor.style.pointerEvents = "auto";
+
+                    comboLogic(estadoFicha)
 
 
 
@@ -162,44 +144,19 @@ async function piecesLogic() {
 
                     resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.png`;
 
-                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+                    switch (estadoFicha) {
+                        case "x2":
+                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                            break;
+                        default:
+                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                            console.log("No hay estado")
+                            break;
+                    }
                     resultadoJugada.style.transform = `scale(2.1) scaleX(-1)`;
 
                     manoJugada.appendChild(resultadoJugada);
-
-                    bipSound = document.getElementById(`${"bip" + bipCounter}`)
-                    bipSound.volume = 0.2
-                    bipSound.currentTime = 0
-                    bipSound.play()
-
-                    //Combo aplicado
-                    combo = document.getElementById("combo");
-                    comboNumber++;
-                    damageCombo = damageCombo + caraNecesaria;
-                    combo.textContent = `${"+" + damageCombo }`
-                    combo.classList.add("comboAnimation")
-
-
-                    //Vida sustraida del jugador
-                    //hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
-
-
-
-                    document.body.classList.add(`${"shake" + bipCounter}`)
-
-
-                    bipCounter++
-
-                    if (bipCounter > 7) {
-                        bipCounter = 1
-                    }
-
-                    if (bipCounter == 7) {
-                        negativeScreen.style.display = "block"
-                        impactBass.currentTime = 0
-                        impactBass.play()
-                    }
-
 
                     this.remove();
 
@@ -226,6 +183,8 @@ async function piecesLogic() {
                     turno = 1
                     blankFace = false
                     contenedor.style.pointerEvents = "auto";
+
+                    comboLogic(estadoFicha)
 
                 } else {
 
@@ -261,40 +220,20 @@ async function piecesLogic() {
 
                             resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
-                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+
+                            switch (estadoFicha) {
+                                case "x2":
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                                    break;
+                                default:
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                                    console.log("No hay estado")
+                                    break;
+                            }
 
                             manoJugada.appendChild(resultadoJugada);
 
-                            bipSound = document.getElementById(`${"bip" + bipCounter}`)
-                            bipSound.volume = 0.2
-                            bipSound.currentTime = 0
-                            bipSound.play()
-
-                            //Combo aplicado
-                            combo = document.getElementById("combo");
-                            comboNumber++;
-                            damageCombo = damageCombo + caraNecesaria;
-                            combo.textContent = `${"+" + damageCombo }`
-                            combo.classList.add("comboAnimation")
-
-                            combo.
-
-                            //Vid//a sustraida del jugador
-    
-                            hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
-
-
-
-                            document.body.classList.add(`${"shake" + bipCounter}`)
-
-
-                            bipCounter++
-
-                            if (bip = ounter > 7) {
-                                negativeScreen.style.display = "block"
-                                impactBass.currentTime = 0
-                                impactBass.play()
-                            }
 
                             if (bipCounter > 7) {
                                 bipCounter = 1
@@ -333,6 +272,8 @@ async function piecesLogic() {
                             dadosRestantes--
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
+
+                            comboLogic(estadoFicha)
 
 
                         } else if (cifra2 == caraNecesaria || blankFace == true) { //la segunda cara es la que vale
@@ -342,41 +283,21 @@ async function piecesLogic() {
 
                             resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
-                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+
+                            switch (estadoFicha) {
+                                case "x2":
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                                    break;
+                                default:
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                                    console.log("No hay estado")
+                                    break;
+                            }
                             resultadoJugada.style.transform = `scale(2.1) scaleX(-1)`;
 
                             manoJugada.appendChild(resultadoJugada);
 
-                            bipSound = document.getElementById(`${"bip" + bipCounter}`)
-                            bipSound.volume = 0.2
-                            bipSound.currentTime = 0
-                            bipSound.play()
-
-                            //Combo aplicado
-                            combo = document.getElementById("combo");
-                            comboNumber++;
-                            damageCombo = damageCombo + caraNecesaria;
-                            combo.textContent = `${"+" + damageCombo }`
-                            combo.classList.add("comboAnimation")
-
-                            combo.
-
-                            //Vid//a sustraida del jugador
-    
-                            hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
-
-
-
-                            document.body.classList.add(`${"shake" + bipCounter}`)
-
-
-                            bipCounter++
-
-                            if (bip = ounter > 7) {
-                                negativeScreen.style.display = "block"
-                                impactBass.currentTime = 0
-                                impactBass.play()
-                            }
 
                             if (bipCounter > 7) {
                                 bipCounter = 1
@@ -414,6 +335,8 @@ async function piecesLogic() {
                             dadosRestantes--
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
+
+                            comboLogic(estadoFicha)
 
                         } else {
 
@@ -445,40 +368,19 @@ async function piecesLogic() {
 
                         resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
-                        resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+
+                        switch (estadoFicha) {
+                            case "x2":
+                                resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                                break;
+                            default:
+                                resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                                console.log("No hay estado")
+                                break;
+                        }
 
                         manoJugada.appendChild(resultadoJugada);
-
-                        bipSound = document.getElementById(`${"bip" + bipCounter}`)
-                        bipSound.volume = 0.2
-                        bipSound.currentTime = 0
-                        bipSound.play()
-
-                        //Combo aplicado
-                        combo = document.getElementById("combo");
-                        comboNumber++;
-                        damageCombo = damageCombo + caraNecesaria;
-                        combo.textContent = `${"+" + damageCombo }`
-                        combo.classList.add("comboAnimation")
-
-                        
-
-                        ////Vida sustraida del jugador
-
-                        hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
-
-
-
-                        document.body.classList.add(`${"shake" + bipCounter}`)
-
-
-                        bipCounter++
-
-                        if (bipCoun = er > 7) {
-                            negativeScreen.style.display = "block"
-                            impactBass.currentTime = 0
-                            impactBass.play()
-                        }
 
                         if (bipCounter > 7) {
                             bipCounter = 1
@@ -569,6 +471,8 @@ async function piecesLogic() {
                             checkIfRoundWin(); //Comprobar si se ha ganado la ronda o la apuesta
 
                             contenedor.style.pointerEvents = "auto";
+
+                            comboLogic(estadoFicha)
                         }
 
                         break;
@@ -586,7 +490,17 @@ async function piecesLogic() {
 
                             resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
-                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+
+                            switch (estadoFicha) {
+                                case "x2":
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                                    break;
+                                default:
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                                    console.log("No hay estado")
+                                    break;
+                            }
 
                             manoJugada.appendChild(resultadoJugada)
 
@@ -617,6 +531,8 @@ async function piecesLogic() {
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
 
+                            comboLogic(estadoFicha)
+
                         } else {
 
                             this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
@@ -646,40 +562,20 @@ async function piecesLogic() {
 
                             resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
-                            resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+
+                            switch (estadoFicha) {
+                                case "x2":
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                                    break;
+                                default:
+                                    resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                                    console.log("No hay estado")
+                                    break;
+                            }
 
                             manoJugada.appendChild(resultadoJugada);
 
-                            bipSound = document.getElementById(`${"bip" + bipCounter}`)
-                            bipSound.volume = 0.2
-                            bipSound.currentTime = 0
-                            bipSound.play()
-
-                            //Combo aplicado
-                            combo = document.getElementById("combo");
-                            comboNumber++;
-                            damageCombo = damageCombo + caraNecesaria;
-                            combo.textContent = `${"+" + damageCombo }`
-                            combo.classList.add("comboAnimation")
-
-                            combo.
-
-                            //Vid//a sustraida del jugador
-    
-                            hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
-
-
-
-                            document.body.classList.add(`${"shake" + bipCounter}`)
-
-
-                            bipCounter++
-
-                            if (bip = ounter > 7) {
-                                negativeScreen.style.display = "block"
-                                impactBass.currentTime = 0
-                                impactBass.play()
-                            }
 
                             if (bipCounter > 7) {
                                 bipCounter = 1
@@ -718,6 +614,8 @@ async function piecesLogic() {
                             turno = 1
                             contenedor.style.pointerEvents = "auto";
 
+                            comboLogic(estadoFicha)
+
                         } else {
 
                             this.style.filter = "sepia(1) saturate(5) hue-rotate(-60deg)"
@@ -742,40 +640,19 @@ async function piecesLogic() {
                         contenedor.style.pointerEvents = "none";
                         resultadoJugada.src = `../sprites/dados_h/hdado${dadoSeleccionado}.gif`;
 
-                        resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+
+
+                        switch (estadoFicha) {
+                            case "x2":
+                                resultadoJugada.className = `dadoJugado ${dadoSeleccionado} x2h`;
+                                break;
+                            default:
+                                resultadoJugada.className = `dadoJugado ${dadoSeleccionado}`;
+                                console.log("No hay estado")
+                                break;
+                        }
 
                         manoJugada.appendChild(resultadoJugada);
-
-                        bipSound = document.getElementById(`${"bip" + bipCounter}`)
-                        bipSound.volume = 0.2
-                        bipSound.currentTime = 0
-                        bipSound.play()
-
-                        //Combo aplicado
-                        combo = document.getElementById("combo");
-                        comboNumber++;
-                        damageCombo = damageCombo + caraNecesaria;
-                        combo.textContent = `${"+" + damageCombo }`
-                        combo.classList.add("comboAnimation")
-
-                        
-
-                        ////Vida sustraida del jugador
-
-                        hpLoss.textContent = `-${damageCombo * roundDamage}$`; //Se muestra la vida sustraida en la pantalla
-
-
-
-                        document.body.classList.add(`${"shake" + bipCounter}`)
-
-
-                        bipCounter++
-
-                        if (bipCoun = er > 7) {
-                            negativeScreen.style.display = "block"
-                            impactBass.currentTime = 0
-                            impactBass.play()
-                        }
 
                         if (bipCounter > 7) {
                             bipCounter = 1
@@ -881,6 +758,8 @@ async function piecesLogic() {
                             await esperar(18)
                         }
                         contenedor.style.pointerEvents = "auto";
+
+                        comboLogic(estadoFicha)
                         break;
                     case "c":
 
@@ -959,6 +838,8 @@ async function piecesLogic() {
                         dadosRestantes--
                         turno = 1
                         contenedor.style.pointerEvents = "auto";
+
+                        comboLogic(estadoFicha)
                         break;
                     default:
                         console.log("Algo ha salido mal al comparar las fichas especiales!")
