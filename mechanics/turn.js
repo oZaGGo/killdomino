@@ -27,6 +27,8 @@ async function checkIfRoundWin() {
     if (dadosRestantes <= 0) {
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none"
+
+        await gains()
         /*
         //await gains(); 
         ronda++;
@@ -35,6 +37,7 @@ async function checkIfRoundWin() {
         playerHP = playerHP * Math.round(ronda / exedCash);
         */
 
+        /*
         await gains()
 
         let hpLoss = document.getElementById("hpLoss")
@@ -62,6 +65,7 @@ async function checkIfRoundWin() {
         combo.classList.remove("comboAnimation");
         damageCombo = 0;
         damageComboIA = 0;
+        */
 
         /*
         if (coinEarnings == true) {
@@ -109,7 +113,7 @@ async function checkIfRoundWin() {
 
         vidaJugador.textContent = `CASH ${playerHP}$`;
         console.log("Has ganado la ronda")
-        */
+
 
         if (dadosInvisiblesRestantes == 3) {
             for (let i = 8; i <= 10; i++) {
@@ -150,7 +154,7 @@ async function checkIfRoundWin() {
         } else {
             handReset();
         }
-            */
+        */
     }
 
 }

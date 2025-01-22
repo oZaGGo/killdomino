@@ -67,9 +67,10 @@ async function gains(params) {
             mechanicalSound.play();
             finalScoreContainerInput += finalScoreContainerText[i];
             finalScoreContainer.innerText = finalScoreContainerInput;
-            await esperar(140);
+            await esperar(130);
         }
     } else {
+        bellTouched = false;
         //Score final
         let finalScoreContainer = document.getElementById('finalScoreContainer');
         let finalScoreContainerText = `FINAL SCORE:\n ${(damageCombo - damageComboIA)}`;
@@ -82,20 +83,78 @@ async function gains(params) {
             mechanicalSound.play();
             finalScoreContainerInput += finalScoreContainerText[i];
             finalScoreContainer.innerText = finalScoreContainerInput;
-            await esperar(140);
+            await esperar(130);
         }
     }
 
     await esperar(500);
 
     let nextStageContainer = document.getElementById('nextStageContainer');
-    nextStageContainer.innerText = "CASH EARNED:\n " + finalScore +" x " + betCombo + " = " + moneyOptained + "$";
-    await esperar(6000);
-    gainsContainer.style = 'display: none !important;';
-    filterScreen.style = 'display: none !important;';
-    audios.forEach(audio => {
-        if (!audio.paused && audio.id != "atmos") {
-            audio.volume = 0.5;
+    nextStageContainer.innerText = "CASH EARNED:\n " + finalScore + " x " + betCombo + " = " + moneyOptained + "$";
+
+    await esperar(500);
+
+    let nextStage = document.getElementById('nextStage');
+    nextStage.style = 'display: block !important;';
+
+    nextStage.addEventListener('click', async () => {
+        scoreContainer.innerText = "";
+        bonusContainer.innerText = "";
+        finalScoreContainer.innerText = "";
+        nextStageContainer.innerText = "";
+        nextStage.style = 'display: none !important;';
+        gainsContainer.style = 'display: none !important;';
+        filterScreen.style = 'display: none !important;';
+        audios.forEach(audio => {
+            if (!audio.paused && audio.id != "atmos") {
+                audio.volume = 0.5;
+            }
+        });
+
+        await esperar(500);
+
+        let hpLoss = document.getElementById("hpLoss")
+        hpLoss.classList.add("fadeOut")
+        hpLoss.textContent = `${moneyOptained}$`
+        await esperar(300);
+        let loseHP = document.getElementById("loseHP")
+        loseHP.play()
+        //Para evitar numeros negativos de vida
+        if (playerHP < 0) {
+            playerHP = 0;
         }
+        vidaJugador.textContent = `CASH ${playerHP}$`;
+        vidaJugador.classList.add("vibrarHpLoss")
+        await esperar(200);
+        vidaJugador.classList.remove("vibrarHpLoss")
+        hpLoss.classList.remove("fadeOut")
+        hpLoss.textContent = "";
+
+        comboIA.innerText = "";
+        comboIA.classList.remove("comboAnimation");
+        combo.innerText = "";
+        combo.classList.remove("comboAnimation");
+        damageCombo = 0;
+        damageComboIA = 0;
+
+        if (dadosInvisiblesRestantes == 3) {
+            for (let i = 8; i <= 10; i++) {
+                let dadoR = document.getElementById(`dado${i}`)
+                dadoR.remove();
+            }
+        } else if (dadosInvisiblesRestantes == 2) {
+            for (let i = 9; i <= 10; i++) {
+                let dadoR = document.getElementById(`dado${i}`)
+                dadoR.remove();
+            }
+        } else if (dadosInvisiblesRestantes == 1) {
+            let dadoR = document.getElementById(`dado10`)
+            dadoR.remove();
+        }
+
+        turnObject++ //Aumento el turno de objetos que requieren de una activa
+        blankUsed = false; //Reinicio el uso de la carta en blanco
+
+        handReset()
     });
 }

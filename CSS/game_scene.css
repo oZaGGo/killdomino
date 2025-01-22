@@ -596,7 +596,7 @@ body {
     width: 20vw;
     height: 50vh;
     z-index: 2;
-    margin-bottom: 30vh;
+    margin-bottom: 45vh;
     display: none;
     image-rendering: pixelated;
 }
@@ -640,6 +640,23 @@ body {
     color: rgb(172, 245, 245);
     text-shadow: 4px 4px 0 #000000;
     text-align: center;
+}
+
+#nextStage{
+    font-size: 2.5rem;
+    font-family: pixelFont;
+    color: black;
+    background-color: white;
+    shape-rendering: crispEdges;
+    text-align: center;
+    margin-left: 150px;
+    display: none;
+}
+
+#nextStage:hover{
+    cursor: pointer;
+    color: white;
+    background-color: black;
 }
 
 .damageText {
