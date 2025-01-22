@@ -367,20 +367,26 @@ body {
     font-size: 3rem;
     color: white;
     position: absolute;
-    width: 500px;
+    width: auto;
     margin-bottom: 420px;
     margin-left: -600px;
     text-shadow: 4px 4px 0 #000000;
+    background-color: rgba(86, 111, 255, 0.555); /* Color de fondo */
+    padding: 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.582) 0px 3px 2px;
 }
 
 .contadorComboIA {
     font-size: 3rem;
     color: white;
     position: absolute;
-    width: 500px;
+    width: auto;
     margin-bottom: 650px;
     margin-left: -600px;
     text-shadow: 4px 4px 0 #000000;
+    background-color: rgba(162, 35, 77, 0.555);
+    box-shadow: rgba(0, 0, 0, 0.582) 0px 3px 2px;
+    padding: 0 10px;
 }
 
 .comboAnimation {
@@ -590,7 +596,7 @@ body {
     width: 20vw;
     height: 50vh;
     z-index: 2;
-    margin-bottom: 20vh;
+    margin-bottom: 30vh;
     display: none;
     image-rendering: pixelated;
 }
@@ -601,6 +607,37 @@ body {
     image-rendering: pixelated;
     /* Asegura que la fuente no se escale */
     color: rgb(235, 229, 171);
+    text-shadow: 4px 4px 0 #000000;
+    text-align: center;
+}
+
+.scoreText {
+    font-size: 3rem;
+    line-height: 1;
+    image-rendering: pixelated;
+    /* Asegura que la fuente no se escale */
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px 0 #000000;
+    text-align: center;
+}
+
+.bonusText {
+    font-size: 3rem;
+    line-height: 1;
+    image-rendering: pixelated;
+    /* Asegura que la fuente no se escale */
+    color: rgb(235, 229, 171);
+    text-shadow: 4px 4px 0 #000000;
+    text-align: center;
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+.fScoreText {
+    font-size: 5rem;
+    line-height: 1;
+    image-rendering: pixelated;
+    /* Asegura que la fuente no se escale */
+    color: rgb(172, 245, 245);
     text-shadow: 4px 4px 0 #000000;
     text-align: center;
 }

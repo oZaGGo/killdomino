@@ -1,9 +1,9 @@
 //Resetear todo lo necesario para la nueva mano
 async function handReset() {
-    comboIA.innerText = "0";
-    combo.innerText = "0";
     damageCombo = 0;
     damageComboIA = 0;
+    comboIA.classList.remove("fadeOut")
+    combo.classList.remove("fadeOut")
     await esperar(500);
     dadosRestantes = 7;
     dadosInvisiblesRestantes = 3;
@@ -34,16 +34,13 @@ async function checkIfRoundWin() {
         roundDamage = roundDamage + Math.round((playerHP / (15 - exedCash)));
         playerHP = playerHP * Math.round(ronda / exedCash);
         */
+
+        await gains()
+
         let hpLoss = document.getElementById("hpLoss")
         hpLoss.classList.add("fadeOut")
-        hpLoss.textContent = `${damageCombo + " - " + damageComboIA}$`
-        await esperar(600);
-        hpLoss.textContent = `${damageCombo - damageComboIA}$`
-        await esperar(600)
-        hpLoss.textContent = `${(damageCombo - damageComboIA) + " x " + betCombo + "$"}$`
-        await esperar(800)
-        hpLoss.textContent = `${(damageCombo - damageComboIA) * betCombo + "$"}$`
-        playerHP = playerHP + ((damageCombo - damageComboIA) * betCombo);
+        hpLoss.textContent = `${moneyOptained}$`
+        await esperar(300);
         let loseHP = document.getElementById("loseHP")
         loseHP.play()
         //Para evitar numeros negativos de vida
@@ -66,9 +63,7 @@ async function checkIfRoundWin() {
         damageCombo = 0;
         damageComboIA = 0;
 
-        await gains()
-
-
+        /*
         if (coinEarnings == true) {
 
             await esperar(300);
@@ -114,6 +109,7 @@ async function checkIfRoundWin() {
 
         vidaJugador.textContent = `CASH ${playerHP}$`;
         console.log("Has ganado la ronda")
+        */
 
         if (dadosInvisiblesRestantes == 3) {
             for (let i = 8; i <= 10; i++) {
@@ -133,8 +129,11 @@ async function checkIfRoundWin() {
         turnObject++ //Aumento el turno de objetos que requieren de una activa
         blankUsed = false; //Reinicio el uso de la carta en blanco
 
+        handReset()
+
         //Comprobar si se ha superado la apuesta maxima
 
+        /*
         if (playerHP >= maxBet) {
             let objectContainer = document.getElementById("objectContainer");
             objectContainer.style = "display: none !important";
@@ -151,6 +150,7 @@ async function checkIfRoundWin() {
         } else {
             handReset();
         }
+            */
     }
 
 }

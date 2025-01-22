@@ -82,6 +82,7 @@
     <audio id="bip7" src="../sounds/effects/bips/Bip7.mp3"></audio>
     <audio id="impactBass" src="../sounds/effects/bips/impact_bass.wav"></audio>
     <audio id="x2effect" src="../sounds/effects/state_effects/x2_sound.wav"></audio>
+    <audio id="bonusAudio" src="../sounds/effects/bonus.wav"></audio>
 
     <!-- Test archivos JSON -->
 
@@ -129,10 +130,10 @@
     <!-- Div en donde se hacen las animaciones y efectos de los calculos de ganacias y perdidas por ronda-->
 
     <div id="gainsContainer" class="roundGainsContainer">
-        <h3 id="betContainer" class="gainsText"></h3>
-        <h3 id="cashContainer" class="gainsText"></h3>
-        <h3 id="nextCashContainer" class="gainsText"></h3>
-        <h3 id="roundDamageContainer" class="damageText"></h3>
+        <h3 id="scoreContainer" class="scoreText"></h3>
+        <h3 id="bonusContainer" class="bonusText"></h3>
+        <h3 id="finalScoreContainer" class="fScoreText"></h3>
+        <h3 id="nextStageContainer" class="damageText"></h3>
     </div>    
 
     <!-- Background -->
@@ -146,13 +147,13 @@
     <div id="ratHp" class="rathp">BET 200$</div>
 
     <!-- Contenedor div que almacena el combo aplicado por el jugador -->
-    <div id="combo" class="contadorCombo">0</div>
+    <div id="combo" class="contadorCombo"></div>
 
     <!-- Contenedor div que almacena los dados jugados en horizontal -->
     <div id="manoJugada"></div>
 
     <!-- Contenedor div que almacena el combo aplicado por el jugador -->
-    <div id="comboIA" class="contadorComboIA">0</div>
+    <div id="comboIA" class="contadorComboIA"></div>
 
     <!-- Contenedores que sirven para mostrar la vida del jugador y lo que pierde o gana de vida -->
     <div id="hpLoss" class="hpLoss"></div>

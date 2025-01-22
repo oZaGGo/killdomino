@@ -1,9 +1,13 @@
 async function gains(params) {
+    //Quitar contadores de combo momentaneamente
+    comboIA.classList.add("fadeOut")
+    combo.classList.add("fadeOut")
+    await esperar(500);
     //Bajar volumen de la música
     const audios = document.querySelectorAll("audio");
     async function bajarVolumenGradualmente(audio) {
         let volumeLower = 0.5;
-        
+
         for (let i = 0; i < 5; i++) {
             audio.volume = volumeLower;
             volumeLower -= 0.1;
@@ -30,33 +34,63 @@ async function gains(params) {
 
     await esperar(1000);
 
-    let nextCashContainer = document.getElementById('nextCashContainer');
-    let nextCashText = `NEXT CASH ${playerHP * Math.round(ronda/exedCash)}$ !`;
-    let nextCashTextInput = ""
-    for (let i = 0; i < nextCashText.length; i++) {
-        mechanicalSound.currentTime = 0;
-        mechanicalSound.play();
-        nextCashTextInput += nextCashText[i];
-        nextCashContainer.innerText = nextCashTextInput;
-        await esperar(140);
+    let finalScore;
+
+    if (damageCombo > (damageComboIA * 5)) { //Si el jugador ha hecho 5 veces más daño que la IA
+        let scoreContainer = document.getElementById('scoreContainer');
+        scoreContainer.classList.add("comboAnimation") //Animación de combo
+        scoreContainer.innerText = `${"Player score: " + damageCombo + "\n Oponent score: " + damageComboIA}`;
+        await esperar(700);
+    } else {
+        let scoreContainer = document.getElementById('scoreContainer');
+        scoreContainer.innerText = `${"Player score: " + damageCombo + "\n Oponent score: " + damageComboIA}`;
+        await esperar(700);
+    }
+
+    if (bellTouched == false) { //Si no se ha tocado la campana se tiene bonus x3 por mano limpia
+        let bonusContainer = document.getElementById('bonusContainer');
+        let bonusAudio = document.getElementById('bonusAudio');
+        bonusAudio.currentTime = 0;
+        bonusAudio.play();
+        bonusContainer.innerText = `¡BONUS x3 FOR CLEAN HAND!`
+        await esperar(800);
+
+        //Score final
+        let finalScoreContainer = document.getElementById('finalScoreContainer');
+        let finalScoreContainerText = `FINAL SCORE:\n ${(damageCombo - damageComboIA) * 3}`;
+        finalScore = (damageCombo - damageComboIA) * 3;
+        moneyOptained = ((damageCombo - damageComboIA) * 3) * betCombo;
+        playerHP += moneyOptained;
+        let finalScoreContainerInput = ""
+        for (let i = 0; i < finalScoreContainerText.length; i++) {
+            mechanicalSound.currentTime = 0;
+            mechanicalSound.play();
+            finalScoreContainerInput += finalScoreContainerText[i];
+            finalScoreContainer.innerText = finalScoreContainerInput;
+            await esperar(140);
+        }
+    } else {
+        //Score final
+        let finalScoreContainer = document.getElementById('finalScoreContainer');
+        let finalScoreContainerText = `FINAL SCORE:\n ${(damageCombo - damageComboIA)}`;
+        finalScore = (damageCombo - damageComboIA);
+        moneyOptained = (damageCombo - damageComboIA) * betCombo;
+        playerHP += moneyOptained;
+        let finalScoreContainerInput = ""
+        for (let i = 0; i < finalScoreContainerText.length; i++) {
+            mechanicalSound.currentTime = 0;
+            mechanicalSound.play();
+            finalScoreContainerInput += finalScoreContainerText[i];
+            finalScoreContainer.innerText = finalScoreContainerInput;
+            await esperar(140);
+        }
     }
 
     await esperar(500);
 
-    let roundDamageContainer = document.getElementById('roundDamageContainer');
-    let roundDamageText = `ROUND DAMAGE -${roundDamage + Math.round((playerHP/(15-exedCash)))}$ !`;
-    let roundDamageTextInput = ""
-    for (let i = 0; i < roundDamageText.length; i++) {
-        mechanicalSound.currentTime = 0;
-        mechanicalSound.play();
-        roundDamageTextInput += roundDamageText[i];
-        roundDamageContainer.innerText = roundDamageTextInput;
-        await esperar(140);
-    }
-
-    await esperar(1000);
-    nextCashContainer.innerText = "";
-    roundDamageContainer.innerText = "";
+    let nextStageContainer = document.getElementById('nextStageContainer');
+    nextStageContainer.innerText = "CASH EARNED:\n " + finalScore +" x " + betCombo + " = " + moneyOptained + "$";
+    await esperar(6000);
     gainsContainer.style = 'display: none !important;';
     filterScreen.style = 'display: none !important;';
     audios.forEach(audio => {

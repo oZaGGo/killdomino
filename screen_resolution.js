@@ -31,12 +31,12 @@ async function screen() {
     contadorFichas.style.width = `${screenX * 50 / 1920}px`
 
     let comboIA = document.getElementById("comboIA")
-    comboIA.style = `margin-bottom: ${screenX * 650 / 1920}px; margin-left: ${screenX * (-600) / 1920}px;`
-    comboIA.style.width = `${screenX * 500 / 1920}px`
+    comboIA.style = `margin-bottom: ${screenX * 650 / 1920}px; margin-left: ${screenX * (-1100) / 1920}px;`
+    //comboIA.style.width = `${screenX * 500 / 1920}px`
 
     let combo = document.getElementById("combo")
-    combo.style = `margin-bottom: ${screenX * 420 / 1920}px; margin-left: ${screenX * (-600) / 1920}px;`
-    combo.style.width = `${screenX * 500 / 1920}px`
+    combo.style = `margin-bottom: ${screenX * 420 / 1920}px; margin-left: ${screenX * (-1100) / 1920}px;`
+    //combo.style.width = `${screenX * 500 / 1920}px`
 
     let vidaJugador = document.getElementById("vidaJugador")
     vidaJugador.style = `padding: ${screenX * 20 / 1920}px; margin-left: ${screenX * (-250) / 1920}px; margin-right: ${screenX * 100 / 1920}px;`

@@ -89,6 +89,8 @@ let betCombo = 1; //dinero por puntuacion
 
 let estadoFicha;
 
+let moneyOptained;
+
 //Para controlar el efecto de subida de nota al jugar pieza
 
 let bipCounter = 1
