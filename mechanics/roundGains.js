@@ -113,6 +113,10 @@ async function gains(params) {
 
         await esperar(500);
 
+        await cardsLogic();
+
+        /*
+
         let hpLoss = document.getElementById("hpLoss")
         hpLoss.classList.add("fadeOut")
         hpLoss.textContent = `${moneyOptained}$`
@@ -156,5 +160,7 @@ async function gains(params) {
         blankUsed = false; //Reinicio el uso de la carta en blanco
 
         handReset()
+
+        */
     });
 }

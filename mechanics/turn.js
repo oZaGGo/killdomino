@@ -28,7 +28,7 @@ async function checkIfRoundWin() {
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none"
 
-        await gains()
+        await cardsLogic();
         /*
         //await gains(); 
         ronda++;

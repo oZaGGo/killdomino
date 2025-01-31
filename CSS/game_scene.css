@@ -798,6 +798,7 @@ body {
     scale: 300%;
     top: 150px;
     opacity: 0.5;
+    z-index: 5;
 }
 
 .objectsBox {
@@ -835,6 +836,30 @@ body {
 
 .objectText {
     flex-wrap: wrap;
+}
+
+#cardsContainer{
+    position: absolute;
+    width: 450px;
+    z-index: 4;
+    scale: 300%;
+    top: 45vh;
+    left: 50vw;
+    gap: 3vw;
+    display: none;
+}
+
+.card{
+    display: none;
+    width: 70px;
+    filter: drop-shadow(3px 1px 2px rgba(1, 2, 2, 0.479));
+    -webkit-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -ms-user-drag: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
 }
 
 .negativeScreen {
