@@ -37,8 +37,11 @@ async function comboLogic(estadoFIcha) {
             break;
     }
 
-    //document.body.classList.add(`${"shake" + bipCounter}`)
 
+    //Efectos de intensidad de combo
+
+
+    document.body.classList.add(`${"shake" + bipCounter}`)
 
     bipCounter++
 
@@ -46,13 +49,23 @@ async function comboLogic(estadoFIcha) {
         bipCounter = 1
     }
 
-    /*
+    if (bipCounter == 4) {
+        bmusic.volume = 0.10
+        bmusic_effects.volume = 0.15
+    }else if (bipCounter == 5) {
+        bmusic.volume = 0.15
+        bmusic_effects.volume = 0.30
+    }else if (bipCounter == 6) {
+        bmusic.volume = 0.05
+        bmusic_effects.volume = 0.5
+    }
+
+    
     if (bipCounter == 7) {
         negativeScreen.style.display = "block"
+        bmusic.volume = 0
+        bmusic_effects.volume = 0.7
         impactBass.currentTime = 0
         impactBass.play()
     }
-        */
-
-
 }

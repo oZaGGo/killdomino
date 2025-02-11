@@ -15,15 +15,22 @@ let numeroAleatorio = Math.floor(Math.random() * 2) + 1; //Seleccionar un numero
 
 let bmusic = document.getElementById(`bmusic${numeroAleatorio}`);
 
+let bmusic_effects = document.getElementById(`bmusic${numeroAleatorio}_effect`);
+
 atmos.volume = 0.03;
 
 atmos.loop = true;
 
 bmusic.loop = true;
 
+bmusic_effects.loop = true;
+
 bmusic.volume = 0.3;
 
+bmusic_effects.volume = 0;
+
 bmusic.play();
+bmusic_effects.play();
 atmos.play();
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
