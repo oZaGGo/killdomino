@@ -31,6 +31,12 @@ app.whenReady().then(() => {
     mainWindow.webContents.send('screen-resolution', { width, height });
   });
 
+  //Detectar cambios en la ventana
+  mainWindow.on('resize', () => {
+    let [width, height] = mainWindow.getSize();
+    mainWindow.webContents.send('window-resized', { width, height });
+  })
+
   //Comprobacion de la escena de juego de ganar
   ipcMain.on('win', () => {
     mainWindow.loadFile('win.html');

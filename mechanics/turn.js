@@ -28,7 +28,30 @@ async function checkIfRoundWin() {
         taptap.style.pointerEvents = "none";
         contenedor.style.pointerEvents = "none"
 
-        await cardsLogic();
+        //Resetear musica
+        bmusic.volume = 0.3
+        bmusic_effects.volume = 0
+
+        //resetear bipcounter
+        bipCounter = 1;
+
+        //Resetear viñeta
+        let vignetteScreen = document.getElementById("vignetteScreen")
+        vignetteScreen.style.opacity = 0
+
+        //reseteo de shake
+        const elemento = document.querySelector('body');
+        for (let i = 1; i <= 7; i++) {
+            let className = `shake${i}`;
+            if (elemento.classList.contains(className)) {
+                elemento.classList.remove(className);
+            }
+        }
+
+        //reseteo de filtro negativo
+        negativeScreen.style.display = "none";
+
+        await gains();
         /*
         //await gains(); 
         ronda++;

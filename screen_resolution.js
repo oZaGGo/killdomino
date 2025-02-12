@@ -1,14 +1,11 @@
-async function screen() {
-    // Escucha el evento 'screen-resolution' y recibe el ancho y alto
-    ipcRenderer.on('screen-resolution', (event, { width, height }) => {
-        screenX = width
-        screenY = height
-    });
+async function screen(x,y) {
+
+    screenX = x
+    screenY = y
 
     await esperar(500) // Espera 500ms para obtener la resolución de la pantalla
 
     console.log(screenX, screenY)
-
 
     //Cambios de estilo para machear tipos de pantallas
 
@@ -111,7 +108,21 @@ async function screen() {
 
 }
 
+//Esperamos el ipcrenderer
+// Escucha el evento 'screen-resolution' y recibe el ancho y alto
+ipcRenderer.on('screen-resolution', (event, { width, height }) => {
+    screenX = width
+    screenY = height
 
-screen() // Llama a la función screen para obtener la resolución de la pantalla
+    screen(screenX,screenY) // Llama a la función screen para obtener la resolución de la pantalla
+});
+
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ipcRenderer.on('window-resized', (event, { width, height }) => {
+    screenX = width
+    screenY = height
+    console.log(screenX, screenY)
+    screen(screenX,screenY) // Llama a la función screen para obtener la resolución de la pantalla
+});

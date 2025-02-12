@@ -106,16 +106,16 @@ async function gains(params) {
         gainsContainer.style = 'display: none !important;';
         filterScreen.style = 'display: none !important;';
         audios.forEach(audio => {
-            if (!audio.paused && audio.id != "atmos") {
+            if (!audio.paused && (audio.id == "bmusic1" || audio.id == "bmusic2")) {
                 audio.volume = 0.5;
             }
         });
 
         await esperar(500);
 
-        await cardsLogic();
+        //await cardsLogic();
 
-        /*
+        
 
         let hpLoss = document.getElementById("hpLoss")
         hpLoss.classList.add("fadeOut")
@@ -160,7 +160,5 @@ async function gains(params) {
         blankUsed = false; //Reinicio el uso de la carta en blanco
 
         handReset()
-
-        */
     });
 }

@@ -98,7 +98,7 @@ body {
     -moz-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
-    cursor: url("../sprites/UI/cursors/cursores1.png"), auto;
+    cursor: none;
 }
 
 .background {
@@ -122,6 +122,18 @@ body {
     user-select: none;
     /* Desactivar selección en navegadores modernos */
     aspect-ratio: 16/9;
+}
+
+#cursor {
+    position: absolute;
+    width: 32px;
+    /* Ajusta el tamaño */
+    height: 32px;
+    pointer-events: none;
+    /* No bloquea clics */
+    user-select: none;
+    z-index: 1000;
+    image-rendering: pixelated;
 }
 
 
@@ -371,7 +383,8 @@ body {
     margin-bottom: 420px;
     margin-left: -600px;
     text-shadow: 4px 4px 0 #000000;
-    background-color: rgba(86, 111, 255, 0.555); /* Color de fondo */
+    background-color: rgba(86, 111, 255, 0.555);
+    /* Color de fondo */
     padding: 0 10px;
     box-shadow: rgba(0, 0, 0, 0.582) 0px 3px 2px;
 }
@@ -642,7 +655,7 @@ body {
     text-align: center;
 }
 
-#nextStage{
+#nextStage {
     font-size: 2.5rem;
     font-family: pixelFont;
     color: black;
@@ -653,7 +666,7 @@ body {
     display: none;
 }
 
-#nextStage:hover{
+#nextStage:hover {
     cursor: pointer;
     color: white;
     background-color: black;
@@ -727,7 +740,6 @@ body {
 
 .pauseMenu button:hover {
     color: rgb(235, 229, 171);
-    cursor: pointer;
 }
 
 .blackScreen {
@@ -799,6 +811,7 @@ body {
     top: 150px;
     opacity: 0.5;
     z-index: 5;
+    display: none;
 }
 
 .objectsBox {
@@ -838,7 +851,7 @@ body {
     flex-wrap: wrap;
 }
 
-#cardsContainer{
+#cardsContainer {
     position: absolute;
     width: 450px;
     z-index: 4;
@@ -849,7 +862,7 @@ body {
     display: none;
 }
 
-.card{
+.card {
     display: none;
     width: 70px;
     filter: drop-shadow(3px 1px 2px rgba(1, 2, 2, 0.479));
@@ -876,7 +889,7 @@ body {
     display: none;
 }
 
-.vignetteScreen{
+.vignetteScreen {
     position: absolute;
     width: 1980px;
     height: 1080px;
@@ -898,356 +911,82 @@ body {
         /* Círculo que cubre toda la pantalla */
     }
 }
-
 @keyframes shake1 {
-    0% {
-        transform: translate(1px, 0) rotate(0.2deg);
-    }
-
-    10% {
-        transform: translate(-1px, 0) rotate(-0.2deg);
-    }
-
-    20% {
-        transform: translate(1px, 0) rotate(0.2deg);
-    }
-
-    30% {
-        transform: translate(-1px, 0) rotate(-0.2deg);
-    }
-
-    40% {
-        transform: translate(1px, 0) rotate(0.2deg);
-    }
-
-    50% {
-        transform: translate(-1px, 0) rotate(-0.2deg);
-    }
-
-    60% {
-        transform: translate(1px, 0) rotate(0.2deg);
-    }
-
-    70% {
-        transform: translate(-1px, 0) rotate(-0.2deg);
-    }
-
-    80% {
-        transform: translate(1px, 0) rotate(0.2deg);
-    }
-
-    90% {
-        transform: translate(-1px, 0) rotate(-0.2deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(0.5px, 0) rotate(0.2deg); }
+    50% { transform: translate(-0.5px, 0) rotate(-0.2deg); }
+    75% { transform: translate(0.5px, 0) rotate(0.2deg); }
 }
 
 @keyframes shake2 {
-    0% {
-        transform: translate(2px, 0) rotate(0.5deg);
-    }
-
-    10% {
-        transform: translate(-2px, 0) rotate(-0.5deg);
-    }
-
-    20% {
-        transform: translate(2px, 0) rotate(0.5deg);
-    }
-
-    30% {
-        transform: translate(-2px, 0) rotate(-0.5deg);
-    }
-
-    40% {
-        transform: translate(2px, 0) rotate(0.5deg);
-    }
-
-    50% {
-        transform: translate(-2px, 0) rotate(-0.5deg);
-    }
-
-    60% {
-        transform: translate(2px, 0) rotate(0.5deg);
-    }
-
-    70% {
-        transform: translate(-2px, 0) rotate(-0.5deg);
-    }
-
-    80% {
-        transform: translate(2px, 0) rotate(0.5deg);
-    }
-
-    90% {
-        transform: translate(-2px, 0) rotate(-0.5deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(1px, 0) rotate(0.4deg); }
+    50% { transform: translate(-1px, 0) rotate(-0.4deg); }
+    75% { transform: translate(1px, 0) rotate(0.4deg); }
 }
 
 @keyframes shake3 {
-    0% {
-        transform: translate(3px, 0) rotate(0.8deg);
-    }
-
-    10% {
-        transform: translate(-3px, 0) rotate(-0.8deg);
-    }
-
-    20% {
-        transform: translate(3px, 0) rotate(0.8deg);
-    }
-
-    30% {
-        transform: translate(-3px, 0) rotate(-0.8deg);
-    }
-
-    40% {
-        transform: translate(3px, 0) rotate(0.8deg);
-    }
-
-    50% {
-        transform: translate(-3px, 0) rotate(-0.8deg);
-    }
-
-    60% {
-        transform: translate(3px, 0) rotate(0.8deg);
-    }
-
-    70% {
-        transform: translate(-3px, 0) rotate(-0.8deg);
-    }
-
-    80% {
-        transform: translate(3px, 0) rotate(0.8deg);
-    }
-
-    90% {
-        transform: translate(-3px, 0) rotate(-0.8deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(1.5px, 0) rotate(0.6deg); }
+    50% { transform: translate(-1.5px, 0) rotate(-0.6deg); }
+    75% { transform: translate(1.5px, 0) rotate(0.6deg); }
 }
 
 @keyframes shake4 {
-    0% {
-        transform: translate(4px, 0) rotate(1deg);
-    }
-
-    10% {
-        transform: translate(-4px, 0) rotate(-1deg);
-    }
-
-    20% {
-        transform: translate(4px, 0) rotate(1deg);
-    }
-
-    30% {
-        transform: translate(-4px, 0) rotate(-1deg);
-    }
-
-    40% {
-        transform: translate(4px, 0) rotate(1deg);
-    }
-
-    50% {
-        transform: translate(-4px, 0) rotate(-1deg);
-    }
-
-    60% {
-        transform: translate(4px, 0) rotate(1deg);
-    }
-
-    70% {
-        transform: translate(-4px, 0) rotate(-1deg);
-    }
-
-    80% {
-        transform: translate(4px, 0) rotate(1deg);
-    }
-
-    90% {
-        transform: translate(-4px, 0) rotate(-1deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(2px, 0) rotate(0.8deg); }
+    50% { transform: translate(-2px, 0) rotate(-0.8deg); }
+    75% { transform: translate(2px, 0) rotate(0.8deg); }
 }
 
 @keyframes shake5 {
-    0% {
-        transform: translate(5px, 0) rotate(1.3deg);
-    }
-
-    10% {
-        transform: translate(-5px, 0) rotate(-1.3deg);
-    }
-
-    20% {
-        transform: translate(5px, 0) rotate(1.3deg);
-    }
-
-    30% {
-        transform: translate(-5px, 0) rotate(-1.3deg);
-    }
-
-    40% {
-        transform: translate(5px, 0) rotate(1.3deg);
-    }
-
-    50% {
-        transform: translate(-5px, 0) rotate(-1.3deg);
-    }
-
-    60% {
-        transform: translate(5px, 0) rotate(1.3deg);
-    }
-
-    70% {
-        transform: translate(-5px, 0) rotate(-1.3deg);
-    }
-
-    80% {
-        transform: translate(5px, 0) rotate(1.3deg);
-    }
-
-    90% {
-        transform: translate(-5px, 0) rotate(-1.3deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(2.5px, 0) rotate(1deg); }
+    50% { transform: translate(-2.5px, 0) rotate(-1deg); }
+    75% { transform: translate(2.5px, 0) rotate(1deg); }
 }
 
 @keyframes shake6 {
-    0% {
-        transform: translate(6px, 0) rotate(1.7deg);
-    }
-
-    10% {
-        transform: translate(-6px, 0) rotate(-1.7deg);
-    }
-
-    20% {
-        transform: translate(6px, 0) rotate(1.7deg);
-    }
-
-    30% {
-        transform: translate(-6px, 0) rotate(-1.7deg);
-    }
-
-    40% {
-        transform: translate(6px, 0) rotate(1.7deg);
-    }
-
-    50% {
-        transform: translate(-6px, 0) rotate(-1.7deg);
-    }
-
-    60% {
-        transform: translate(6px, 0) rotate(1.7deg);
-    }
-
-    70% {
-        transform: translate(-6px, 0) rotate(-1.7deg);
-    }
-
-    80% {
-        transform: translate(6px, 0) rotate(1.7deg);
-    }
-
-    90% {
-        transform: translate(-6px, 0) rotate(-1.7deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(3px, 0) rotate(1.2deg); }
+    50% { transform: translate(-3px, 0) rotate(-1.2deg); }
+    75% { transform: translate(3px, 0) rotate(1.2deg); }
 }
 
 @keyframes shake7 {
-    0% {
-        transform: translate(7px, 0) rotate(2deg);
-    }
-
-    10% {
-        transform: translate(-7px, 0) rotate(-2deg);
-    }
-
-    20% {
-        transform: translate(7px, 0) rotate(2deg);
-    }
-
-    30% {
-        transform: translate(-7px, 0) rotate(-2deg);
-    }
-
-    40% {
-        transform: translate(7px, 0) rotate(2deg);
-    }
-
-    50% {
-        transform: translate(-7px, 0) rotate(-2deg);
-    }
-
-    60% {
-        transform: translate(7px, 0) rotate(2deg);
-    }
-
-    70% {
-        transform: translate(-7px, 0) rotate(-2deg);
-    }
-
-    80% {
-        transform: translate(7px, 0) rotate(2deg);
-    }
-
-    90% {
-        transform: translate(-7px, 0) rotate(-2deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(3.5px, 0) rotate(1.5deg); }
+    50% { transform: translate(-3.5px, 0) rotate(-1.5deg); }
+    75% { transform: translate(3.5px, 0) rotate(1.5deg); }
 }
 
 
 .shake1 {
-    animation: shake1 1s infinite;
+    animation: shake1 0.5s infinite;
 }
 
 .shake2 {
-    animation: shake2 1s infinite;
+    animation: shake2 0.5s infinite;
 }
 
 .shake3 {
-    animation: shake3 1s infinite;
+    animation: shake3 0.5s infinite;
 }
 
 .shake4 {
-    animation: shake4 1s infinite;
+    animation: shake4 0.5s infinite;
 }
 
 .shake5 {
-    animation: shake5 1s infinite;
+    animation: shake5 0.5s infinite;
 }
 
 .shake6 {
-    animation: shake6 1s infinite;
+    animation: shake6 0.5s infinite;
 }
 
 .shake7 {
-    animation: shake7 1s infinite;
+    animation: shake7 0.5s infinite;
 }
 
 

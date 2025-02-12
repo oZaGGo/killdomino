@@ -7,6 +7,22 @@ This script contains the events and the code to the UI in the hand.
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
+//Logica del cursor
+
+document.addEventListener("mousemove", function (e) {
+    let cursor = document.getElementById("cursor");
+    cursor.style.left = e.pageX + "px";
+    cursor.style.top = e.pageY + "px";
+});
+
+document.addEventListener("click",async function () {
+    let cursor = document.getElementById("cursor");
+    cursor.src = "../sprites/UI/cursors/click.gif";
+    await esperar(400);
+    cursor.src = "../sprites/UI/cursors/Cursor.png";
+});
+
+
 //Logica para el boton de pasar turno
 
 const passB = document.getElementById("passB");
@@ -17,10 +33,6 @@ passB.addEventListener("click", async function(){
     if (turno==1){ //si le toca al jugador
 
         bellTouched = true; //para temas de la IA
-
-        bipCounter = 1; //para resetear el contador de notas
-
-        negativeScreen.style.display = "none"; //para quitar la pantalla negativa
 
         console.log("He presionado el boton de turno")
 
