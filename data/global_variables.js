@@ -85,7 +85,7 @@ let damageCombo = 0;
 
 let damageComboIA = 0;
 
-let betCombo = 1; //dinero por puntuacion
+let betCombo = 0.5; //dinero por puntuacion
 
 let estadoFicha;
 
