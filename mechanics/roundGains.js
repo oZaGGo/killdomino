@@ -115,8 +115,6 @@ async function gains(params) {
 
         //await cardsLogic();
 
-        
-
         let hpLoss = document.getElementById("hpLoss")
         hpLoss.classList.add("fadeOut")
         hpLoss.textContent = `${moneyOptained}$`
@@ -159,6 +157,5 @@ async function gains(params) {
         turnObject++ //Aumento el turno de objetos que requieren de una activa
         blankUsed = false; //Reinicio el uso de la carta en blanco
 
-        handReset()
     });
 }

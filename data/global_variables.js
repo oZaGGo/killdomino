@@ -79,7 +79,7 @@ let comboNumber = 0;
 
 let playerHP = 100;
 
-let maxBet = 200;
+let maxBet = 100;
 
 let damageCombo = 0;
 

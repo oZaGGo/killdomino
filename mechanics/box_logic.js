@@ -294,8 +294,7 @@ async function boxLogic() {
             switch (this.id) {
                 case "luck":
 
-
-                    for (let object of objects) {
+                    for (object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
