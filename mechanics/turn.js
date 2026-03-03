@@ -51,7 +51,6 @@ async function checkIfRoundWin() {
         //reseteo de filtro negativo
         negativeScreen.style.display = "none";
 
-        await gains();
         /*
         //await gains(); 
         ronda++;
@@ -60,15 +59,9 @@ async function checkIfRoundWin() {
         playerHP = playerHP * Math.round(ronda / exedCash);
         */
 
-        /*
+        
         await gains()
 
-        let hpLoss = document.getElementById("hpLoss")
-        hpLoss.classList.add("fadeOut")
-        hpLoss.textContent = `${moneyOptained}$`
-        await esperar(300);
-        let loseHP = document.getElementById("loseHP")
-        loseHP.play()
         //Para evitar numeros negativos de vida
         if (playerHP < 0) {
             playerHP = 0;
@@ -88,9 +81,7 @@ async function checkIfRoundWin() {
         combo.classList.remove("comboAnimation");
         damageCombo = 0;
         damageComboIA = 0;
-        */
-
-        /*
+        
         if (coinEarnings == true) {
 
             await esperar(300);
@@ -118,9 +109,9 @@ async function checkIfRoundWin() {
             playerHP = playerHP + Math.floor(playerHP * 0.1) //Aumento la vida del jugador en un 10%
             objectContainer.src = `../sprites/objects/coin_s.png`;
             vidaJugador.textContent = `CASH ${playerHP}$`;
-            vidaJugador.classList.add("vibrarHpLoss")
+            vidaJugador.classList.add("hpGain")
             await esperar(200);
-            vidaJugador.classList.remove("vibrarHpLoss")
+            vidaJugador.classList.remove("hpGain")
         }
 
         if (magnetic == true) {
@@ -133,9 +124,6 @@ async function checkIfRoundWin() {
             objectContainer.src = `../sprites/objects/magnetic_s.png`;
             objectsLogic();
         }
-
-        vidaJugador.textContent = `CASH ${playerHP}$`;
-        console.log("Has ganado la ronda")
 
 
         if (dadosInvisiblesRestantes == 3) {
@@ -156,11 +144,9 @@ async function checkIfRoundWin() {
         turnObject++ //Aumento el turno de objetos que requieren de una activa
         blankUsed = false; //Reinicio el uso de la carta en blanco
 
-        handReset()
-
         //Comprobar si se ha superado la apuesta maxima
 
-        /*
+        
         if (playerHP >= maxBet) {
             let objectContainer = document.getElementById("objectContainer");
             objectContainer.style = "display: none !important";
@@ -174,10 +160,11 @@ async function checkIfRoundWin() {
             let ratHP = document.getElementById("ratHp");
             ratHP.innerText = `BET ${maxBet}$`
             await boxLogic();
+
         } else {
-            handReset();
+            fixHandReset()
         }
-        */
+        
     }
 
 }
