@@ -39,12 +39,12 @@ app.whenReady().then(() => {
 
   //Comprobacion de la escena de juego de ganar
   ipcMain.on('win', () => {
-    mainWindow.loadFile('win.html');
+    mainWindow.loadFile('scenes/win.html');
   });
 
   //Comprobacion de la escena de juego de perder
   ipcMain.on('lose', () => {
-    mainWindow.loadFile('lose.html');
+    mainWindow.loadFile('scenes/lose.html');
   });
 
   //Eventos de teclado:
