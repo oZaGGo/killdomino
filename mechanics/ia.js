@@ -11,11 +11,6 @@ This script contains the code to the response of the IA to the player choice.
 // Logica de la IA para responder a la juagda del jugador
 
 
-//funcion para que espere por cada iteracion del bucle
-function esperar(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 //funcion asincrona para pdoer usar los awaits
 async function turnoIA() {
 
@@ -37,6 +32,8 @@ async function turnoIA() {
     contenedor.style.pointerEvents = "none"; //Se desactiva el click en los dados
 
     let probabilidadFicha = Math.floor(Math.random() * 100) //numero de 0 a 100 para hacer probabilidades
+
+    let fichasIAJugar;
 
     if (luck == false) {
         if (probabilidadFicha <= 50) {
@@ -75,7 +72,7 @@ async function turnoIA() {
 
     let color = 0;
 
-    for (i = 1; i <= fichasIAJugar; i++) {
+    for (let i = 1; i <= fichasIAJugar; i++) {
 
         let segundaCaraFichaIA = 0;
         let fichaIAResultante = 0;

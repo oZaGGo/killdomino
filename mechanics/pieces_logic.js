@@ -449,7 +449,7 @@ async function piecesLogic() {
                             let dadoAQuemar = dadosVisibles.slice(0, 1)
 
                             //Quitar el dado quemado de la lista de dados visibles
-                            index = dadosVisibles.indexOf(`${dadoAQuemar}`);
+                            let index = dadosVisibles.indexOf(`${dadoAQuemar}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
@@ -711,7 +711,7 @@ async function piecesLogic() {
 
                         let dadosImages = document.querySelectorAll('#contenedor img')
 
-                        for (dado of dadosImages) {
+                        for (let dado of dadosImages) {
                             dado.classList.add('vibrate-effect');
                             await esperar(18)
                         }
@@ -729,7 +729,7 @@ async function piecesLogic() {
                             let dadoAQuemar = dadosVisibles.slice(0, 1)
 
                             //Quitar el dado quemado de la lista de dados visibles
-                            index = dadosVisibles.indexOf(`${dadoAQuemar}`);
+                            let index = dadosVisibles.indexOf(`${dadoAQuemar}`);
                             if (index !== -1) {
                                 dadosVisibles.splice(index, 1);
                             }
@@ -753,7 +753,7 @@ async function piecesLogic() {
 
                         dadosImages = document.querySelectorAll('#contenedor img')
                         await esperar(300)
-                        for (dado of dadosImages) {
+                        for (let dado of dadosImages) {
                             dado.classList.remove('vibrate-effect');
                             await esperar(18)
                         }
@@ -813,8 +813,8 @@ async function piecesLogic() {
 
                         let resultadoJugadaIA = document.createElement('img');
 
-                        segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
-                        fichaResultante = 10 + segundaCaraFichaIA
+                        let segundaCaraFichaIA = Math.floor(Math.random() * 6) + 1
+                        let fichaResultante = 10 + segundaCaraFichaIA
 
                         caraNecesaria = segundaCaraFichaIA
 
@@ -834,7 +834,6 @@ async function piecesLogic() {
                         desplazamientoManoJugada = desplazamientoManoJugada - desplazamientoManoJugadaOld
 
                         dadosMano--;
-                        dadosJugados++;
                         dadosRestantes--
                         turno = 1
                         contenedor.style.pointerEvents = "auto";

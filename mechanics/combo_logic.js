@@ -7,7 +7,7 @@ This script contains the ui logic and combo system of the game.
 
 
 
-async function comboLogic(estadoFIcha) {
+async function comboLogic(estadoFicha) {
 
     //Combo aplicado
     combo = document.getElementById("combo");
