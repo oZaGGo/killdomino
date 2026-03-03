@@ -5,8 +5,6 @@ This script contains the logic behind every object in the game.
 
 */
 
-const { watch } = require("original-fs");
-
 
 //Demon
 
@@ -15,7 +13,7 @@ async function demonLogic() {
     demonChange.volume = 0.6;
     objectContainer.style = "display:none !important" //Hacer que desaparezca el objeto
     const imagenes = document.querySelectorAll(".dado");
-    for (imagen of imagenes) {
+    for (let imagen of imagenes) {
         if (imagen.style.display != "none") {
             demonChange.currentTime = 0;
             demonChange.play();
@@ -29,7 +27,7 @@ async function demonLogic() {
 //Magnetic
 async function magneticLogic() {
     let imagenes = document.querySelectorAll(".dado");
-    for (imagen of imagenes) {
+    for (let imagen of imagenes) {
         // Obtener todas las clases del elemento
         let clases = imagen.className.split(" ");
         // Obtener la última clase para saber que dado estamos seleccionando
@@ -123,7 +121,6 @@ async function lustBurnLogic() {
 
         dadosRestantes--
         checkIfRoundWin();
-        win();
         contenedor.style.pointerEvents = "auto";
     }
 }
@@ -133,7 +130,7 @@ async function lustBurnLogic() {
 //Funcion para mezclar los objetos
 
 function obtenerTresAleatorios(arr) {
-    let mezclados = arr.sort(() => Math.random() - 0.5); // Barajar el array
+    let mezclados = [...arr].sort(() => Math.random() - 0.5); // Barajar una copia del array
     return mezclados.slice(0, 3); // Tomar los primeros tres elementos
 }
 
@@ -181,12 +178,12 @@ async function boxLogic() {
         await esperar(500);
         let n = 0;
         let objectApear = document.getElementById('objectApear');
-        for (object of objects) {
+        for (let object of objects) {
             object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
             object.src = ``;
         }
         await esperar(100);
-        for (object of objects) {
+        for (let object of objects) {
             object.style = "display: block !important;";
             object.id = `${selectedObjects[n]}`;
             if (selectedObjects[n] == "mirror") {
@@ -231,7 +228,7 @@ async function boxLogic() {
 
     let objects = document.querySelectorAll('.objects');
 
-    for (object of objects) {
+    for (let object of objects) {
         object.addEventListener("mouseenter", function () {
             let infoBoxObjects = document.getElementById("infoBoxObjects");
             //Mostrar la caja de descripcion
@@ -298,7 +295,7 @@ async function boxLogic() {
                 case "luck":
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
@@ -333,7 +330,7 @@ async function boxLogic() {
                 case "demon":
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
@@ -368,7 +365,7 @@ async function boxLogic() {
                 case "coin":
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
@@ -403,7 +400,7 @@ async function boxLogic() {
                 case "blank":
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
@@ -438,7 +435,7 @@ async function boxLogic() {
                 case "lastBurn":
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
@@ -475,7 +472,7 @@ async function boxLogic() {
                 case "mirror":
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
@@ -510,7 +507,7 @@ async function boxLogic() {
                 case "magnetic":
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
@@ -555,7 +552,7 @@ async function boxLogic() {
 
 
 
-                    for (object of objects) {
+                    for (let object of objects) {
                         object.style = 'display: none !important;'; //Desaparecer los objetos (Por si ya habia alguno)
                         object.src = ``;
                     }
